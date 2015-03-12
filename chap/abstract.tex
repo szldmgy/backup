@@ -1,0 +1,201 @@
+
+ \begin{abstract}
+
+因为其广泛的应用, 距离几何问题 (Distance Geometry Problem)
+在最近几十年成为了一个跨学科的研究热点. 
+本文就是围绕这一问题, 针对其建模, 算法分析及设计进行了研究.
+
+距离几何问题通常都建模成一个优化问题来求解, 
+但不同的文献提出了多个误差函数建模成不同的问题, 
+本文首先综述了各文献中使用的误差函数, 分析其优劣, 
+并在此基础上提出了我们自己的误差函数.
+
+文章综述了已有的一些算法,
+尤其是针对一类半定规划 (Semidefinite Programming, 简称SDP) 算法, 
+和一类几何构建 (Geometric Buildup, 简称GB) 算法,
+我们比较了算法求解的问题形式, 求解速度和精度.
+
+基于原有的几何构建算法, 我们提出改进的带误差函数优化的几何构建算法
+(enhanced Geometric Buildup algorithm with Error Minimization, 简称GBEM).
+新的算法主要有两方面的改进: 首先, 我们分析并用小例子展示了计算顺序对
+算法结果的重要影响, 我们提出了新的规则谨慎选择每次加入的点, 
+数值实验表明, 新的算法较原有算法, 稳定性大幅提高. 其次, 我们提出了一个
+新的算法框架, 将误差函数优化整合进了原有算法, 进而有效地控制了误差累积的问题,
+这是原有算法最大的缺陷. 深入的数值实验表明, 新的算法能在相对短的计算时间内,
+得到合理精确的数值结果. 例如, 给定原子间小于 6\AA 的全部距离, 但是随机
+添加不大于 10\% 的乘性噪音, 一个有 5681 个原子的蛋白质能够在3分钟之内被
+定位, 得到的最小均方误差 (Root Mean Squared Deviation, 简称RMSD) 为0.24\AA.
+已有的最新的几个构建算法在给定距离小于 6\AA 的情况下最多只能处理0.01\%的噪音, 
+我们的新算法可以处理10\%的误差, 这使得新的算法能够真正用来解决实际问题.
+这是本文得到的最有效的算法.
+
+除此之外, 我们还研究了针对该问题的分布式算法. 
+分布式算法是求解大规模问题的常用手段, 
+但该问题有其特殊性, 因为我们已知的只有局部点之间的距离信息,
+缺乏有效的空间信息, 如何有效地分割原问题是一大难点.
+我们将距离几何问题看作一个图上的问题, 研究图的拉普拉斯(Laplace)矩阵,
+基于其特征向量映射将原问题分割成一些可以高效求解的小规模问题.
+初步的数值实验结果表明, 这种新的思路是有效的.
+
+
+
+
+
+大多数优化方法都依赖问题的导数信息.\ps 但是,\ps 在实际应用中,\ps 大量问题的
+导数信息都是不可用的.\ps 这就要求我们研究不使用导数信息的方法,\ps 这就是
+本文研究的无导数优化算法.\ps 
+
+算法的评价是算法研究中的重要问题.\ps 
+我们研究了如何客观可信地评价和比较不同的无导数优化算法.\ps 
+我们用一个例子清楚地说明传统的评价方法对于无导数算法是不可靠的.\ps 
+通过引入统计的方法,\ps 我们建立了评价无导数方法的一套新体系.
+与传统的评价方法相比,\ps 新方法不但能够
+反映算法对计算机舍入误差的稳定性,\ps 而且能更可靠的度量
+算法的计算开销.\ps 
+
+%第\ref{chap:lfn}章研究了无导数优化算法中的
+最小 Frobenius 范数插值和对称 Broyden 修正是无导数信赖域方法中最有效
+的两种建立模型的方式.\ps 
+我们第一次指出了这两种方式在一些情况下的等价性.\ps 
+与这两种模型紧密相关的一个问题是 \newuoa 算法的重开始技术.\ps 
+通过修改 \newuoa 源代码中的重开始条件,\ps 我们给出了一个改进版本的
+\newuoa 代码.\ps 新版代码仅仅删除了原始代码中的四个字母,\ps 就显著
+降低了代码的计算开销,\ps 并且明显提高了代码对计算机舍入误差的稳定性.\ps 
+我们系统地比较了最小 Frobenius 范数模型和对称 Broyden 修正在 \newuoa 算法
+框架下的表现,\ps 并且指出,\ps  
+当求解精度不太高时,\ps 
+最小 Frobenius 范数模型比对称 Broyden 修正建立的模型表现更好.\ps 
+这一事实对于实际应用领域很有意义,\ps
+因为实际的无导数优化问题对解的精度要求往往不高.\ps 
+
+为了研究无导数优化中有广泛应用的最小范数插值,\ps
+我们率先将 PDE 理论中的 Sobolev 范数和半范数
+引入无导数算法的研究中.\ps 我们用二次函数的系数
+给出了二次函数在 $\ellp$ 球上的 $\Sob{2}{0}$
+范数和 $\Sob{2}{1}$ 半范数的显式表达式.\ps 
+我们证明,\ps 最小
+范数插值实际上是在一个 $\ellt$ 球上极小化插值函数的 $\Sob{2}{1}$ 半范数.\ps 
+这一观察为理解最小范数插值提供了有力的工具.\ps 
+通过这一观察,\ps 我们首次指出了最小范数插值中两个参量的几何意义.\ps 
+我们将这些理论用于研究扩展的对称 Broyden 修正,\ps 
+得到了简单并且有效的参数选取方式.\ps 
+
+到目前为止,\ps 无导数方法可求解的问题规模还十分有限.\ps 为了求解大规模问题,\ps 
+我们提出了两种无导数的子空间算法.\ps 
+在第一种子空间方法中,\ps 利用 Hooke-Jeeves
+模式搜索的思想,\ps 针对无导数信赖域方法,\ps
+我们提出在子空间上求解信赖域子问题的策略.\ps
+这种子空间策略改善了 \newuoa 算法的数值表现.
+第二种子空间方法,\ps 即 
+\newuoas (A \texttt{NEW} \texttt{U}nconstrained \texttt{O}ptimization 
+\texttt{A}lgorithm with \texttt{s}ubspace technique based on \newuoa\!\!)
+算法,\ps 是本文最大的亮点.\ps 其基本想法是,\ps 把一个大规模无导数优化问题
+转化为一系列低维子问题.\ps 
+我们首先研究了一个一般性的子空间算法框架,\ps 建立了其全局收敛性和 R-线性收敛速度.\ps 
+然后,\ps 使用 \newuoa 算法作为子问题的求解器,\ps 我们不依赖导数地实现了该
+框架,\ps 得到了 \newuoas 算法.\ps 
+我们证明了 \newuoas 算法在理论上的全局收敛性、R-线性收敛速度和计算上的有限
+终止性.\ps 我们还提出了一项预条件技术,\ps 显著改善了 \newuoas 算法对坏条件问题
+的表现.\ps 据本文作者所知,\ps 这是无导数算法中第一次引入预条件技术.\ps 
+实验证明,\ps \newuoas 算法不论在函数值计算次数、CPU 时间还是对计算机舍入误差的稳定性
+上都明显
+优于 \newuoa 算法,\ps 后者是目前最优秀的
+无导数算法之一.\ps 我们还发现,\ps \newuoas 算法很适合求解初始点质量较差的问题,\ps 
+这对实际应用领域很有意义,\ps 因为很多实际问题很难给出一个好的初始点.
+不仅如此,\ps 对于很多维数高达 $2000$ 的测试问题, \newuoas 算法可以在几分钟内求
+到精度很高的解,\ps 且使用的函数值计算次数不超过 $50000$ (相当于不到 25 个单纯形
+梯度).
+这是一个突破,\ps 因为
+目前大部分无导数算法 (包括 \newuoa 算法) 至多可以求解几百维的问题;\ps 
+对于它们,\ps $2000$ 维的问题几乎是不可求解的.
+
+\keywords{无导数优化,\ps 信赖域方法,\ps 二次插值,\ps
+对称 Broyden 修正,\ps Sobolev 半范数,\ps 子空间方法,\ps 大规模问题}
+\end{abstract}
+
+
+\begin{englishabstract}
+Most of the optimization algorithms depend on derivative information of the
+problem. However, there are numerous real-world 
+problems where derivatives are unavailable. 
+This motivates us to study derivative-free optimization methods.
+
+The assessment and comparison of algorithms play important roles in the 
+research of algorithms. We study how to assess derivative-free
+algorithms in a reliable way. Through an example, we show that
+it is not reliable to merely count the number of function evaluations. 
+By introducing statistical method, we establish a new system for the 
+assessment of derivative-free algorithms.   
+The new system reflects the stability of algorithms with respect to 
+computer rounding errors, and provides more convincing comparison of 
+different algorithms.
+
+Least Frobenius norm quadratic interpolation and symmetric Broyden update are the most 
+successful methods of constructing models in derivative-free trust-region
+algorithms. We prove the equivalence between these 
+two strategies in some cases. The restart technique in \newuoa is closely 
+related to these two strategies. We modify the restart criterion in the
+source code of \newuoa by simply deleting four letters and obtain a 
+new version of the source code.
+The modification brings considerable improvement. Under the framework of \newuoa\!\!,
+we compare 
+least Frobenius norm model and the 
+model established by symmetric Broyden update. We point out that 
+least Frobenius norm model works better if a low-precision minimizer 
+is desirable, 
+which is meaningful for applications, because many 
+problems in practice do not require high-precision
+solutions.
+
+To study the widely-used least norm quadratic interpolation in derivative-free
+methods, we introduce the Sobolev norms and seminorms, which are classical
+in PDE theory but rarely noticed in optimization.
+For the $\Sob{2}{0}$ norm and $\Sob{2}{1}$
+seminorm of a quadratic function over an $\ellp$ ball,  
+we obtain explicit formulae in terms of the coefficients of the 
+function.
+We prove that least norm quadratic interpolation seeks an interpolant
+with minimal $\Sob{2}{1}$ seminorm over an $\ellt$ ball.
+This observation provides a new perspective to interpret the interpolation.
+Consequently, we present the geometrical meaning of 
+the parameters in the interpolation. We apply our theory to 
+study the extended symmetric Broyden update, and propose a very simple but
+effective way of choosing the parameters in the update. 
+
+Until now, derivative-free methods can only solve problems with modest dimension.
+We study subspace techniques to attack large scale problems. 
+We presents two derivative-free subspace methods.
+In the first method, we apply the idea of Hooke-Jeeves pattern-search to
+derivative-free trust-region method, and propose to solve the trust-region
+subproblem in a low-dimensional subspace of $\Real^n$.
+This subspace strategy 
+improves the performance of \newuoa\!\!. The second subspace method, which
+is named as \newuoas\!\!, 
+%(A \texttt{NEW} \texttt{U}nconstrained \texttt{O}ptimization 
+%\texttt{A}lgorithm with \texttt{s}ubspace technique based on \newuoa\!\!),
+is the highlight of the thesis. Its basic idea is to
+divide a large scale problem into a sequence of low-dimensional subproblems.
+We first study a general subspace
+algorithm based on this idea, and present its convergence theory.
+Then using \newuoa as the subproblem solver,
+we implement the algorithm without using derivatives and obtain \newuoas\!\!.
+For \newuoas\!\!, we establish its global convergence and R-linear convergence rate
+in theory, and prove its finite termination in computation. We propose a 
+preconditioning technique, which improves the performance of \newuoas on
+ill-conditioned problems. As far as we know, this is the first derivative-free
+algorithm with preconditioning procedure. In our numerical experiments,
+\newuoas works evidently better than \newuoa\!\!, in the number of function evaluations,
+CPU time, and stability.\ps 
+We also find that \newuoas is good at solving problems with bad starting points,
+which is favourable in real-world applications. Besides, 
+\newuoas is capable of solving many $2000$-dimensional test problems to high precision 
+within several minutes, using not more than $50000$ function evaluations
+(equivalent to less than 25 simplex gradients).
+It is a breakthrough, because most state-of-the-art derivative-free algorithms
+can only solve problems with not more than a few hundreds of variables,
+and $2000$-dimensional problems are nearly unsolvable for them.
+
+\englishkeywords{derivative-free optimization, trust-region method, 
+quadratic interpolation, symmetric Broyden update, Sobolev seminorm,
+subspace method, large scale problem}
+\end{englishabstract}

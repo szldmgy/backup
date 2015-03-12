@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: chap/abstract.aux
+The style file: myplain.bst
+A level-1 auxiliary file: chap/pub.aux
+A level-1 auxiliary file: chap/resume.aux
+A level-1 auxiliary file: chap/thanks.aux
+Database file #1: bib/ref.bib
+Warning--empty year in Gansner2005
+Warning--empty journal in Torgerson1958
+Warning--empty journal in SobolevDFO
+You've used 36 entries,
+            2831 wiz_defined-function locations,
+            883 strings with 10893 characters,
+and the built_in function-call counts, 15784 in all, are:
+= -- 967
+> -- 567
+< -- 9
++ -- 231
+- -- 186
+* -- 1120
+:= -- 1949
+add.period$ -- 36
+call.type$ -- 36
+change.case$ -- 196
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 1447
+empty$ -- 1449
+format.name$ -- 216
+if$ -- 3198
+int.to.chr$ -- 0
+int.to.str$ -- 36
+missing$ -- 374
+newline$ -- 113
+num.names$ -- 72
+pop$ -- 630
+preamble$ -- 1
+purify$ -- 165
+quote$ -- 0
+skip$ -- 390
+stack$ -- 0
+substring$ -- 828
+swap$ -- 904
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 134
+warning$ -- 3
+while$ -- 107
+width$ -- 38
+write$ -- 334
+(There were 3 warnings)

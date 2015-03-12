@@ -1,0 +1,13 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces GB-NLS 中的一步所涉及到的子图. 星型点: 未知点, 实心点:已知点. 实线和粗实线: 已知的距离, 虚线: 计算的距离.}}{15}{figure.3.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 将 GB-LLS 应用到计算蛋白质 1MQQ (5681个原子) 的 RMSD 结果 (距离是精确的, 距离阈值设为 6\AA ). 结果经过了 $log10$ 函数换算, 表示的是 RMSD 的量级.}}{18}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 一个简单的例子, 用以表明计算顺序的重要性}}{21}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 一个简单的例子, 表明舍入误差可能对一个算法造成很大的影响.}}{34}{figure.4.3}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

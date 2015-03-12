@@ -1,0 +1,176 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{Akyildiz2002}
+Ian~F Akyildiz, Weilian Su, Yogesh Sankarasubramaniam, and Erdal Cayirci,
+  Wireless sensor networks: a survey, \emph{Computer networks}, 38(4):393--422,
+  2002.
+
+\bibitem{Armijo1966}
+Larry Armijo, Minimization of functions having lipschitz continuous first
+  partial derivatives, \emph{Pacific Journal of mathematics}, 16(1):1--3, 1966.
+
+\bibitem{BB1988}
+Jonathan Barzilai and Jonathan~M Borwein, Two-point step size gradient methods,
+  \emph{IMA Journal of Numerical Analysis}, 8(1):141--148, 1988.
+
+\bibitem{Berman2000}
+Helen~M Berman, John Westbrook, Zukang Feng, Gary Gilliland, TN~Bhat, Helge
+  Weissig, Ilya~N Shindyalov, and Philip~E Bourne, The protein data bank,
+  \emph{Nucleic acids research}, 28(1):235--242, 2000.
+
+\bibitem{Biswas2008}
+P.~Biswas, K.~C. Toh, and Y.~Ye, A distributed sdp approach for large-scale
+  noisy anchor-free graph realization with applications to molecular
+  conformation, \emph{Siam Journal on Scientific Computing}, 30(3):1251--1277,
+  2008, \urlprefix\url{<Go to ISI>://WOS:000255500500007}.
+
+\bibitem{Biswas2006-1}
+Pratik Biswas, Tzu-Chen Liang, Kim-Chuan Toh, Yinyu Ye, and Ta-Chung Wang,
+  Semidefinite programming approaches for sensor network localization with
+  noisy distance measurements, \emph{Automation Science and Engineering, IEEE
+  Transactions on}, 3(4):360--371, 2006.
+
+\bibitem{Blumenthal1953}
+LM~Blumenthal, Theory and applications of distance geometry, 1953.
+
+\bibitem{Boyd1994}
+Stephen~P Boyd, Laurent El~Ghaoui, Eric Feron, and Venkataramanan Balakrishnan,
+  \emph{Linear matrix inequalities in system and control theory}, volume~15,
+  SIAM, 1994.
+
+\bibitem{Braun1987}
+Werner Braun, Distance geometry and related methods for protein structure
+  determination from nmr data, \emph{Quarterly reviews of biophysics},
+  19(3-4):115--157, 1987.
+
+\bibitem{Chong2003}
+Chee-Yee Chong and Srikanta~P Kumar, Sensor networks: evolution, opportunities,
+  and challenges, \emph{Proceedings of the IEEE}, 91(8):1247--1256, 2003.
+
+\bibitem{Crippen1988}
+Gordon~M Crippen and Timothy~F Havel, \emph{Distance geometry and molecular
+  conformation}, volume~74, Research Studies Press Taunton, UK, 1988.
+
+\bibitem{Dong2002}
+Q.~F. Dong and Z.~J. Wu, A linear-time algorithm for solving the molecular
+  distance geometry problem with exact inter-atomic distances, \emph{Journal of
+  Global Optimization}, 22(1-4):365--375, 2002, \urlprefix\url{<Go to
+  ISI>://WOS:000173468400020}.
+
+\bibitem{Dong2003}
+Q.~F. Dong and Z.~J. Wu, A geometric build-up algorithm for solving the
+  molecular distance geometry problem with sparse distance data, \emph{Journal
+  of Global Optimization}, 26(3):321--333, 2003, \urlprefix\url{<Go to
+  ISI>://WOS:000182132900005}.
+
+\bibitem{Carvalho2008}
+Ricardo dos Santos~Carvalho, Carlile Lavor, and Fábio Protti, Extending the
+  geometric build-up algorithm for the molecular distance geometry problem,
+  \emph{Information Processing Letters}, 108(4):234--237, 2008.
+
+\bibitem{Eckart1936}
+Carl Eckart and Gale Young, The approximation of one matrix by another of lower
+  rank, \emph{Psychometrika}, 1(3):211--218, 1936.
+
+\bibitem{Fang2013}
+Xingyuan Fang and Kim-Chuan Toh, \emph{Using a distributed SDP approach to
+  solve simulated protein molecular conformation problems}, pp. 351--376,
+  Springer, 2013, ISBN 1461451272.
+
+\bibitem{Gansner2005}
+Emden~R Gansner, Yehuda Koren, and Stephen North, Graph drawing by stress
+  majorization, \emph{in:} \emph{Graph Drawing}, pp. 239--250, Springer, ISBN
+  3540245286.
+
+\bibitem{Maculan2014}
+Leo Liberti, Carlile Lavor, Nelson Maculan, and Antonio Mucherino, Euclidean
+  distance geometry and applications, \emph{SIAM Review}, 56(1):3--69, 2014.
+
+\bibitem{Mao2007}
+Guoqiang Mao, Barış Fidan, and Brian Anderson, Wireless sensor network
+  localization techniques, \emph{Computer networks}, 51(10):2529--2553, 2007.
+
+\bibitem{More1997}
+J.~J. More and Z.~J. Wu, Global continuation for distance geometry problems,
+  \emph{Siam Journal on Optimization}, 7(3):814--836, 1997, \urlprefix\url{<Go
+  to ISI>://WOS:000071020000012}.
+
+\bibitem{More1999}
+J.~J. More and Z.~J. Wu, Distance geometry optimization for protein structures,
+  \emph{Journal of Global Optimization}, 15(3):219--234, 1999,
+  \urlprefix\url{<Go to ISI>://WOS:000084482400001}.
+
+\bibitem{Qi2012}
+Hou-Duo Qi and Xiaoming Yuan, Computing the nearest euclidean distance matrix
+  with low embedding dimensions, \emph{Mathematical Programming}, pp. 1--39,
+  2012.
+
+\bibitem{Schoenberg1935}
+Isaac~J Schoenberg, Remarks to maurice frechet's article``sur la definition
+  axiomatique d'une classe d'espace distances vectoriellement applicable sur
+  l'espace de hilbert, \emph{Annals of Mathematics}, pp. 724--732, 1935.
+
+\bibitem{Shamsi2010}
+Davood Shamsi, Nicole Taheri, Zhisu Zhu, and Yinyu Ye, On sensor network
+  localization using sdp relaxation, \emph{arXiv preprint arXiv:1010.2262},
+  2010.
+
+\bibitem{Sit2011}
+A.~Sit and Z.~Wu, Solving a generalized distance geometry problem for protein
+  structure determination, \emph{Bull Math Biol}, 73(12):2809--36, 2011,
+  \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/21424232}.
+
+\bibitem{Sit2009}
+A.~Sit, Z.~Wu, and Y.~Yuan, A geometric buildup algorithm for the solution of
+  the distance geometry problem using least-squares approximation, \emph{Bull
+  Math Biol}, 71(8):1914--33, 2009,
+  \urlprefix\url{http://www.ncbi.nlm.nih.gov/pubmed/19533250}.
+
+\bibitem{So2006}
+Anthony Man-Cho So and Yinyu Ye, Theory of semidefinite programming for sensor
+  network localization, \emph{Mathematical Programming}, 109(2-3):367--384,
+  2006.
+
+\bibitem{Sun2006}
+Wenyu Sun and Ya-Xiang Yuan, \emph{Optimization theory and methods: nonlinear
+  programming}, volume~1, springer, 2006, ISBN 0387249761.
+
+\bibitem{Isomap2000}
+Joshua~B Tenenbaum, Vin De~Silva, and John~C Langford, A global geometric
+  framework for nonlinear dimensionality reduction, \emph{Science},
+  290(5500):2319--2323, 2000.
+
+\bibitem{Torgerson1958}
+Warren~S Torgerson, Theory and methods of scaling, 1958.
+
+\bibitem{Voller2013}
+Zachary Voller and Zhijun Wu, \emph{Distance geometry methods for protein
+  structure determination}, pp. 139--159, Springer, 2013, ISBN 1461451272.
+
+\bibitem{Wang2008}
+Zizhuo Wang, Song Zheng, Yinyu Ye, and Stephen Boyd, Further relaxations of the
+  semidefinite programming approach to sensor network localization, \emph{SIAM
+  Journal on Optimization}, 19(2):655--673, 2008.
+
+\bibitem{Wu2008}
+D.~Wu, Z.~J. Wu, and Y.~X. Yuan, The solution of the distance geometry problem
+  in protein modeling via geometric buildup, \emph{Biomat 2007}, pp. 50--88,
+  2008, \urlprefix\url{<Go to ISI>://WOS:000263589300003}.
+
+\bibitem{Wu2006}
+Di~Wu and Zhijun Wu, An updated geometric build-up algorithm for solving the
+  molecular distance geometry problems with sparse distance data, \emph{Journal
+  of Global Optimization}, 37(4):661--673, 2006.
+
+\bibitem{Yick2008}
+Jennifer Yick, Biswanath Mukherjee, and Dipak Ghosal, Wireless sensor network
+  survey, \emph{Computer networks}, 52(12):2292--2330, 2008.
+
+\bibitem{SobolevDFO}
+Zaikun Zhang, Sobolev seminorm of quadratic functions with applications to
+  derivative-free optimization, November 2011,
+  \urlprefix\url{http://www.optimization-online.org/DB_HTML/2011/11/3245.html}.
+
+\end{thebibliography}

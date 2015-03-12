@@ -1,0 +1,86 @@
+\chapter{模型研究}
+\label{cha:models}
+
+\section{引言}
+我们在第\ref{cha:introduction}章中介绍距离几何问题时, 
+并不是将其描述为一个标准的优化问题, 而是一个非线性等式(不等式)问题.
+但此问题一般是通过建模成一个优化问题来求解的, 这正是误差函数的角色.
+
+我们观察到, 在已有的文献中, 不同的误差函数被提出和应用, 
+大多基于作者自身的经验和偏好.
+我们同时也发现, 不同的建模方式对算法有着或大或小的影响.
+在我们自己研究中, 选择不同的误差函数也产生了截然不同的结果.
+但这些在目前的文献中并没有得到系统的研究, 这正是本章的研究动机.
+在本章中, 我们综述已有的误差函数, 分析其性质, 
+并在此基础上提出了我们自己的误差函数.
+新的误差函数有一些好的理论性质, 并在某些数值实验中得到了验证.
+
+本章的结构如下. 
+在 \ref{sec:oldfun} 中, 我们综述文献中存在的误差函数, 并分析其性质.
+在 \ref{sec:newfun} 中, 我们提出几个新的误差函数.
+\ref{sec:funnuc} 是一个简单的数值实验和对本章的总结.
+
+
+\section{已有误差函数综述及分析}
+\label{sec:oldfun}
+
+\subsection{函数介绍}
+
+我们首先考虑带等式约束的距离几何问题
+\begin{equation*}
+  \textrm{求~} \xn \in \Real^d, \textrm{~使得~} \|x_i-x_j\|=d_{ij}, \textrm{~对所有的~} (i,j)\in E.
+  \leqno{(DGPe)}
+\end{equation*}  
+它可以按如下方式建模成一个无约束优化问题
+\be \min_{\xn} f(\xn), \label{prob:error}\ee
+其中, $x_i$ 是点的坐标, $f(\cdot)$ 是一个用来衡量计算距离和给定距离偏差的误差函数.
+我们极小化误差函数, 使得求得的点之间的距离``尽可能''满足给定的距离.
+这里``尽可能''是一个不精确的描述, 它的意义会在后文明确.
+
+误差函数 $f$ 的选取, 在文献中有如下几种形式:
+\begin{itemize}
+  \item 应力函数 (Stress function)
+  \be Stress(\xn) = \sum_{(i,j)\in E} \omega_{ij}(\|x_i-x_j\|-d_{ij})^{2}, \label{fun:stress}\ee
+  \item 光滑应力函数 (Smoothed Stress function)
+  \be SStress(\xn) = \sum_{(i,j)\in E} \omega_{ij}(\|x_i-x_j\|^2-d_{ij}^2)^{2},\label{fun:sstress}\ee
+  \item 绝对误差函数 (Absolute Error function) 
+  \be AbsErr(\xn) = \sum_{(i,j)\in E} \omega_{ij}\left|\|x_i-x_j\|^2-d_{ij}^2
+   \right|, \label{fun:abserr}\ee
+\end{itemize}
+其中, $\omega_{ij}$ 是边 (i,j) 上的权重, 恰当地选取可以得到合适的模型.
+例如, 我们可以选择所有的 $\omega_{ij}$ 为1, 平等对待所有距离数据, 
+计算的是各项的绝对误差和;
+我们如果有一些数据是否可信的先验信息, 就可以对值得信赖的距离项加大权重,
+相反对不太确定的数据降低权重.
+另一种特别的选择是在 (\ref{fun:stress}) 中选取  $\omega_{ij}=1/d_{ij}^2$ 
+(相应的, 在 (\ref{fun:sstress}) 和 (\ref{fun:abserr}) 中分别为 $1/d_{ij}^4$ 及 $1/d_{ij}^2$), 
+此时 (\ref{fun:stress}) 变为
+\be Stress(\xn) = \sum_{(i,j)\in E} \left(\frac{\|x_i-x_j\|}{d_{ij}}-1\right)^{2}, \ee
+误差函数衡量的就是相对误差. 
+
+在实际应用中, 选择绝对误差还是相对误差函数, 要基于对数据误差来源的统计认识,
+选择吻合的函数.
+有些测量误差跟仪器有关, 跟距离的绝对大小没有关系, 这种情况下就选绝对误差函数;
+反之, 若距离的误差跟其大小成正比, 则选择相对误差函数.
+
+\subsection{性质分析}
+
+
+\subsection{正则项}
+
+\section{几个新的误差函数}
+\label{sec:newfun}
+
+
+
+\section{一个简单的数值实验}
+\label{sec:funnuc}
+
+
+
+
+关于距离几何问题的先驱性研究可以追溯到 Schoenberg 在 
+1935年的研究~\cite{Schoenberg1935}, 
+以及 Blumenthal ~\cite{Blumenthal1953} 和 Torgerson ~\cite{Torgerson1958} 的工作.
+在那之后, 大量的算法被提出来了, 它们各有侧重, 各有优缺点. 
+在这一章中, 我们首先综述一些误差函数, 

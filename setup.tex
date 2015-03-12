@@ -1,0 +1,202 @@
+% File Name: SetUp.tex
+% Function: Make main settings of the document.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow,multicol}
+\usepackage{eqlist}
+\usepackage{url}
+\usepackage{cases}
+\usepackage{subfigure} 
+\usepackage{boxedminipage}
+%\usepackage[section]{placeins}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage[ruled,lined,linesnumbered]{algorithm2e}
+\usepackage{afterpage}  %在table和figure环境的标题中加脚注, footnotemark
+\usepackage{changepage} %配合adjustwidth环境整体缩进
+
+%\usepackage{titlesec}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%% BEGIN-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+%\newtheorem{Thm}{定理}[section]
+\newtheorem{Thm}{\indent 定理}[chapter]
+\newtheorem{Prop}[Thm]{\indent 命题}
+\newtheorem{Lem}[Thm]{\indent 引理}
+\newtheorem{Coro}[Thm]{\indent 推论}
+\newtheorem{Rem}[Thm]{\indent 注}
+\newtheorem{Asm}[Thm]{\indent 假设}
+\newtheorem{Alg}[Thm]{\indent 算法}
+\newtheorem{Cond}[Thm]{\indent 条件}
+\newtheorem{Prob}[Thm]{\indent 问题}
+\newtheorem{Def}[Thm]{\indent 定义}
+\renewcommand{\proofname}{\indent {\heiti 证明}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{chapter}
+%%%%%%%%%%%%%%%%%%%%% END-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{figures/}} % Set the directory where figures are saved.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-New Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\chap}[1]{\textbf{Chapter} #1}
+
+\newcommand{\ps}{\ \,}
+\newcommand{\vect}{\textnormal{vec}}
+
+\newcommand{\Gmf}{\Gamma\hskip-1mm}
+
+\newcommand{\topcaption}{%
+\setlength{\abovecaptionskip}{0pt}%
+\setlength{\belowcaptionskip}{10pt}%
+\caption}
+\newcommand{\Bcaptionskip}{10pt}
+
+\newcommand{\subfigwidth}{0.485\textwidth}
+\newcommand{\namewidth}{1in}
+\newcommand{\ski}{0.5em}
+\newcommand{\comp}{\circ}
+\newcommand{\hdp}{\!\comp\!}
+\newcommand{\hdsq}[1]{#1^{\comp2}}
+\newcommand{\hdsqrt}[1]{#1^{\comp\frac{1}{2}}}
+\newcommand{\comps}{\!\comp\!}
+\newcommand{\nxn}[0]{{n\times n}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\pinv}[1]{#1^+}
+%\newcommand{\pinv}[1]{#1^\dagger}
+\newcommand{\tpinv}[1]{#1^{\dagger\textnormal{T}}}
+\newcommand{\hpinv}[1]{#1^{\frac{1}{2}\dagger}}
+\newcommand{\iti}[1]{\textnormal{(#1.)}}
+
+\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\theenumi}{\textnormal{\alph{enumi}.)}}
+\renewcommand{\labelenumi}{\theenumi}
+
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}    % Use standard calligrafic font of mathcal, instead of the rsfs one.
+\newcommand{\fsp}[1]{\mathcal{#1}}       % Use mathcal font for function spaces.
+\newcommand{\Qfs}{\fsp{Q}}      
+\newcommand{\solver}{\mathcal{S}}
+\newcommand{\prob}{\mathcal{P}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\funl}[1]{\mathscr{#1}}      % Use Euler mathscr font for functionals.
+\newcommand{\Fun}{\funl{F}}     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}   
+%\newcommand{\setrn}[1]{\mathpzc{#1}}     % Use mathpzc font for subsets of R^n.
+\newcommand{\setrn}[1]{\mathcal{#1}}     % Use mathpzc font for subsets of R^n.
+\newcommand{\set}{\setrn}
+\newcommand{\Space}{\setrn}
+\newcommand{\ball}{\setrn{B}}
+\newcommand{\IntS}{\setrn{I}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\kaibox}[1]{\mbox{\kaishu #1}}
+\newcommand{\alg}[1]{\mbox{\textnormal{\texttt{#1}\ }}}      % Use \texttt for algrithm/software names.
+\newcommand{\dfo}{\alg{DFO}}
+\newcommand{\newuoa}{\alg{NEWUOA}}
+\newcommand{\lfn}{\alg{LFN}}
+\newcommand{\newuoam}{\alg{NEWUOAm}}
+\newcommand{\newuoas}{\alg{NEWUOAs}}
+\newcommand{\uobyqa}{\alg{UOBYQA}}
+\newcommand{\bobyqa}{\alg{BOBYQA}}
+\newcommand{\mnh}{\alg{MNH}}
+\newcommand{\mads}{\alg{MADS}}
+\newcommand{\gps}{\alg{GPS}}
+\newcommand{\apps}{\alg{APPSPACK}}
+\newcommand{\appspack}{\alg{APPSPACK}}
+\newcommand{\nmsmax}{\alg{NMSMAX}}
+\newcommand{\imfil}{\alg{IMFIL}}
+\newcommand{\condor}{\alg{CONDOR}}
+\newcommand{\cobyla}{\alg{COBYLA}}
+\newcommand{\orbit}{\alg{ORBIT}}
+\newcommand{\dfls}{\alg{DFLS}}
+\newcommand{\boosters}{\alg{BOOSTERS}}
+\newcommand{\SYMB}{\alg{SYMB}}
+\newcommand{\ESYMBS}{\alg{ESYMBS}}
+\newcommand{\ESYMBP}{\alg{ESYMBP}}
+\newcommand{\fmins}{\alg{fminsearch}}
+\newcommand{\lancelot}{\alg{LANCELOT}}
+\newcommand{\subi}{\alg{SUBSPACE1}}
+\newcommand{\subii}{\alg{SUBSPACE2}}
+\newcommand{\subiii}{\alg{SUBSPACE3}}
+\newcommand{\subspace}{\alg{SUBSPACE}}
+\newcommand{\psub}{\alg{PSUB}}
+\newcommand{\cuter}{\alg{CUTEr}}
+\newcommand{\matlab}{\textsc{Matlab}\ }  % Use \textsc for Matlab.
+\newcommand{\subrout}[2]{\textnormal{\texttt{#1}}\textnormal{(}#2\textnormal{)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\Tran}[1]{#1^\mathrm{T}}
+\newcommand{\tF}{\textnormal{F}}
+\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\ran}{\mathcal{R}}
+%\newcommand{\Sob}[2]{W_#1^#2}
+\newcommand{\Sob}[2]{{H^#2}}
+\newcommand{\SobH}[2]{{H^{#2,#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\md}{\,\mathrm{d}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\betaf}{\beta\!}
+\newcommand{\Gammaf}{\Gamma\!}
+\newcommand{\ellp}{\ell_p}
+\newcommand{\ellt}{\ell_2}
+\newcommand{\ello}{\ell_1}
+\newcommand{\elli}{\ell_\infty}
+\newcommand{\radius}{r}
+\newcommand{\mean}{\mathrm{mean}}
+\newcommand{\std}{\mathrm{std}}
+\newcommand{\rstd}{\mathrm{rstd}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% szl thesis
+\newcommand{\xn}{x_1,x_2,\ldots,x_n} 
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bl}{\begin{flushleft}}
+\newcommand{\el}{\end{flushleft}}
+%\newcommand{\pozhe}{\raisebox{0.5mm}{------}}
+\newcommand{\pozhe}{---\hspace*{-2mm}---} %中文破折号
+\newcommand{\hd}[1]{\multicolumn{1}{c}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}%
+}
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}%
+}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%END-NewCommands%%%%%%%%%%%%%%%%%%%%%%%%%%%%

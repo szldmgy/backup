@@ -1,0 +1,73 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs,enumerate}
+\usepackage{color,xcolor}
+\usepackage{graphicx,subfigure}
+\usepackage{clock} % Use this package to insert a clock in the beamer.
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow,multicol}
+\usepackage{natbib}
+\usepackage[ruled,lined,linesnumbered]{algorithm2e}
+%\usepackage{algorithm2e}
+%\usepackage{url}
+%\usepackage{hyperref}
+\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}%[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]
+\usepackage{CJK}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \setbeamertemplate{navigation symbols}{} % Disable the buttons at the bottom.
+
+\graphicspath{{Figures/}} % Set the directory where figures are saved.
+
+%%%%%%%%%%%%%%%%%%%% BEGIN-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{mybox}{}
+\newtheorem{Con}{Conjecture}[section]
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Prop}{Proposition}[Thm]
+%%%%%%%%%%%%%%%%%%%%% END-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-New Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\email}[1]{\href{mailto: #1}{\tt {\color{blue}#1}}}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\green}{\color{green}}
+\newcommand{\brown}{\color{brown}}
+\newcommand{\orange}{\color{orange}}
+\newcommand{\yellow}{\color{yellow}}
+\newcommand{\white}{\color{white}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Tran}[1]{#1^\mathrm{T}}
+\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\dist}{\textnormal{dist}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bl}{\begin{flushleft}}
+\newcommand{\el}{\end{flushleft}}
+\newcommand{\tbf}{\textbf}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\btab}{\begin{table}\begin{tabular}}
+\newcommand{\etab}{\end{tabular}\end{table}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\xn}{x_1,x_2,\ldots,x_n}
+\newcommand{\framee}[2]{\frame{\frametitle{#1} #2}}
+\newcommand{\reff}[1]{(\ref{#1})} % 免得敲（）
+\newcommand{\inner}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\paper}[1]{({\blue \footnotesize{#1}})}
+\newcommand{\hd}[1]{\multicolumn{1}{c}{#1}}
+
+
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-New Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
