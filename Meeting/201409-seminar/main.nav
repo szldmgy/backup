@@ -1,0 +1,104 @@
+\beamer@endinputifotherversion {3.20pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Problem Introduction}{3}{Problem Introduction}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{0}{4}{4/8}{}{0}}
+\headcommand {\beamer@framepages {4}{8}}
+\headcommand {\slideentry {1}{0}{5}{9/9}{}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{0}{6}{10/14}{}{0}}
+\headcommand {\beamer@framepages {10}{14}}
+\headcommand {\slideentry {1}{0}{7}{15/16}{}{0}}
+\headcommand {\beamer@framepages {15}{16}}
+\headcommand {\slideentry {1}{0}{8}{17/22}{}{0}}
+\headcommand {\beamer@framepages {17}{22}}
+\headcommand {\sectionentry {2}{Error Accumulation}{23}{Error Accumulation}{0}}
+\headcommand {\beamer@sectionpages {3}{22}}
+\headcommand {\beamer@subsectionpages {3}{22}}
+\headcommand {\slideentry {2}{0}{9}{23/23}{}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{24}{analysis of error accumulation}}\headcommand {\beamer@subsectionpages {23}{23}}
+\headcommand {\slideentry {2}{1}{1}{24/26}{analysis of error accumulation}{0}}
+\headcommand {\beamer@framepages {24}{26}}
+\headcommand {\slideentry {2}{1}{2}{27/30}{analysis of error accumulation}{0}}
+\headcommand {\beamer@framepages {27}{30}}
+\headcommand {\slideentry {2}{1}{3}{31/31}{analysis of error accumulation}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{32}{our improvement}}\headcommand {\beamer@subsectionpages {24}{31}}
+\headcommand {\slideentry {2}{2}{1}{32/34}{our improvement}{0}}
+\headcommand {\beamer@framepages {32}{34}}
+\headcommand {\slideentry {2}{2}{2}{35/36}{our improvement}{0}}
+\headcommand {\beamer@framepages {35}{36}}
+\headcommand {\slideentry {2}{2}{3}{37/37}{our improvement}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\sectionentry {3}{Laplacian Eigenmap}{38}{Laplacian Eigenmap}{0}}
+\headcommand {\beamer@sectionpages {23}{37}}
+\headcommand {\beamer@subsectionpages {32}{37}}
+\headcommand {\slideentry {3}{0}{4}{38/38}{}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{39}{Laplacian matrix}}\headcommand {\beamer@subsectionpages {38}{38}}
+\headcommand {\slideentry {3}{1}{1}{39/40}{Laplacian matrix}{0}}
+\headcommand {\beamer@framepages {39}{40}}
+\headcommand {\slideentry {3}{1}{2}{41/41}{Laplacian matrix}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{42}{Nonlinear Dimensionality Reduction}}\headcommand {\beamer@subsectionpages {39}{41}}
+\headcommand {\slideentry {3}{2}{1}{42/42}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{2}{2}{43/45}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {43}{45}}
+\headcommand {\slideentry {3}{2}{3}{46/46}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {3}{2}{4}{47/47}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {3}{2}{5}{48/48}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {3}{2}{6}{49/49}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {3}{2}{7}{50/50}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {3}{2}{8}{51/51}{Nonlinear Dimensionality Reduction}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{52}{Laplacian Eigenmap-based Localization Algorithm}}\headcommand {\beamer@subsectionpages {42}{51}}
+\headcommand {\slideentry {3}{3}{1}{52/53}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {52}{53}}
+\headcommand {\slideentry {3}{3}{2}{54/54}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {3}{3}{3}{55/55}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {3}{3}{4}{56/56}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {3}{3}{5}{57/57}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {3}{3}{6}{58/58}{Laplacian Eigenmap-based Localization Algorithm}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{59}{possible Laplacian-based Distributed Algorithm }}\headcommand {\beamer@subsectionpages {52}{58}}
+\headcommand {\slideentry {3}{4}{1}{59/59}{possible Laplacian-based Distributed Algorithm }{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {3}{4}{2}{60/61}{possible Laplacian-based Distributed Algorithm }{0}}
+\headcommand {\beamer@framepages {60}{61}}
+\headcommand {\sectionentry {4}{Stress Majorization}{62}{Stress Majorization}{0}}
+\headcommand {\beamer@sectionpages {38}{61}}
+\headcommand {\beamer@subsectionpages {59}{61}}
+\headcommand {\slideentry {4}{0}{3}{62/62}{}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{63}{Principle of Majorization}}\headcommand {\beamer@subsectionpages {62}{62}}
+\headcommand {\slideentry {4}{1}{1}{63/65}{Principle of Majorization}{0}}
+\headcommand {\beamer@framepages {63}{65}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{66}{Stress Majorization}}\headcommand {\beamer@subsectionpages {63}{65}}
+\headcommand {\slideentry {4}{2}{1}{66/68}{Stress Majorization}{0}}
+\headcommand {\beamer@framepages {66}{68}}
+\headcommand {\slideentry {4}{2}{2}{69/72}{Stress Majorization}{0}}
+\headcommand {\beamer@framepages {69}{72}}
+\headcommand {\slideentry {4}{2}{3}{73/73}{Stress Majorization}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\beamer@partpages {1}{73}}
+\headcommand {\beamer@subsectionpages {1}{73}}
+\headcommand {\beamer@sectionpages {1}{73}}
+\headcommand {\beamer@documentpages {73}}
+\headcommand {\def \inserttotalframenumber {39}}

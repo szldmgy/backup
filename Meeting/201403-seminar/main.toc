@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Laplacian Eigenmap-based Algorithm}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Laplacian Eigenmap}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Algorithm Framework}{24}{0}{2}
+\beamer@subsectionintoc {2}{3}{Numerical Experiments}{26}{0}{2}
+\beamer@sectionintoc {3}{Conclusion and Future Work}{33}{0}{3}

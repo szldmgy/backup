@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Related works review}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Matrix decomposition method}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Buildup method}{11}{0}{2}
+\beamer@sectionintoc {3}{Our algorithm}{16}{0}{3}
+\beamer@sectionintoc {4}{Numerical experiments}{27}{0}{4}
+\beamer@sectionintoc {5}{Conclusion and Future work}{34}{0}{5}

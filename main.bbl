@@ -24,13 +24,18 @@ Helen~M Berman, John Westbrook, Zukang Feng, Gary Gilliland, TN~Bhat, Helge
 P.~Biswas, K.~C. Toh, and Y.~Ye, A distributed sdp approach for large-scale
   noisy anchor-free graph realization with applications to molecular
   conformation, \emph{Siam Journal on Scientific Computing}, 30(3):1251--1277,
-  2008, \urlprefix\url{<Go to ISI>://WOS:000255500500007}.
+  2008.
 
 \bibitem{Biswas2006-1}
 Pratik Biswas, Tzu-Chen Liang, Kim-Chuan Toh, Yinyu Ye, and Ta-Chung Wang,
   Semidefinite programming approaches for sensor network localization with
   noisy distance measurements, \emph{Automation Science and Engineering, IEEE
   Transactions on}, 3(4):360--371, 2006.
+
+\bibitem{Biswas2006-2}
+Pratik Biswas and Yinyu Ye, \emph{A distributed method for solving semidefinite
+  programs arising from ad hoc wireless sensor network localization}, pp.
+  69--84, Springer, 2006, ISBN 0387295496.
 
 \bibitem{Blumenthal1953}
 LM~Blumenthal, Theory and applications of distance geometry, 1953.
@@ -48,6 +53,10 @@ Werner Braun, Distance geometry and related methods for protein structure
 \bibitem{Chong2003}
 Chee-Yee Chong and Srikanta~P Kumar, Sensor networks: evolution, opportunities,
   and challenges, \emph{Proceedings of the IEEE}, 91(8):1247--1256, 2003.
+
+\bibitem{chung1997spectral}
+Fan~RK Chung, \emph{Spectral graph theory}, volume~92, American Mathematical
+  Soc., 1997.
 
 \bibitem{Crippen1988}
 Gordon~M Crippen and Timothy~F Havel, \emph{Distance geometry and molecular
@@ -84,6 +93,31 @@ Emden~R Gansner, Yehuda Koren, and Stephen North, Graph drawing by stress
   majorization, \emph{in:} \emph{Graph Drawing}, pp. 239--250, Springer, ISBN
   3540245286.
 
+\bibitem{george1981computer}
+Alan George and Joseph~W Liu, Computer solution of large sparse positive
+  definite, 1981.
+
+\bibitem{havel1984distance}
+Timothy Havel and Kurt W{\"u}thrich, A distance geometry program for
+  determining the structures of small proteins and other macromolecules from
+  nuclear magnetic resonance measurements of intramolecular1h- 1h proximities
+  in solution, \emph{Bulletin of mathematical biology}, 46(4):673--698, 1984.
+
+\bibitem{havel1983combinatorial}
+Timothy~F Havel, Irwin~D Kuntz, and Gordon~M Crippen, The combinatorial
+  distance geometry method for the calculation of molecular conformation. i. a
+  new approach to an old problem, \emph{Journal of Theoretical Biology},
+  104(3):359--381, 1983.
+
+\bibitem{hendrickson1995molecule}
+Bruce Hendrickson, The molecule problem: Exploiting structure in global
+  optimization, \emph{SIAM Journal on Optimization}, 5(4):835--857, 1995.
+
+\bibitem{liberti2008branch}
+Leo Liberti, Carlile Lavor, and Nelson Maculan, A branch-and-prune algorithm
+  for the molecular distance geometry problem, \emph{International Transactions
+  in Operational Research}, 15(1):1--17, 2008.
+
 \bibitem{Maculan2014}
 Leo Liberti, Carlile Lavor, Nelson Maculan, and Antonio Mucherino, Euclidean
   distance geometry and applications, \emph{SIAM Review}, 56(1):3--69, 2014.
@@ -106,6 +140,11 @@ J.~J. More and Z.~J. Wu, Distance geometry optimization for protein structures,
 Hou-Duo Qi and Xiaoming Yuan, Computing the nearest euclidean distance matrix
   with low embedding dimensions, \emph{Mathematical Programming}, pp. 1--39,
   2012.
+
+\bibitem{schlick2010molecular}
+Tamar Schlick, \emph{Molecular Modeling and Simulation: An Interdisciplinary
+  Guide: An Interdisciplinary Guide}, volume~21, Springer Science \& Business
+  Media, 2010.
 
 \bibitem{Schoenberg1935}
 Isaac~J Schoenberg, Remarks to maurice frechet's article``sur la definition
@@ -154,6 +193,11 @@ Zizhuo Wang, Song Zheng, Yinyu Ye, and Stephen Boyd, Further relaxations of the
   semidefinite programming approach to sensor network localization, \emph{SIAM
   Journal on Optimization}, 19(2):655--673, 2008.
 
+\bibitem{williams2001constrained}
+Glenn~A Williams, Jonathan~M Dugan, and Russ~B Altman, Constrained global
+  optimization for estimating molecular structure from atomic distances,
+  \emph{Journal of computational biology}, 8(5):523--547, 2001.
+
 \bibitem{Wu2008}
 D.~Wu, Z.~J. Wu, and Y.~X. Yuan, The solution of the distance geometry problem
   in protein modeling via geometric buildup, \emph{Biomat 2007}, pp. 50--88,
@@ -168,9 +212,9 @@ Di~Wu and Zhijun Wu, An updated geometric build-up algorithm for solving the
 Jennifer Yick, Biswanath Mukherjee, and Dipak Ghosal, Wireless sensor network
   survey, \emph{Computer networks}, 52(12):2292--2330, 2008.
 
-\bibitem{SobolevDFO}
-Zaikun Zhang, Sobolev seminorm of quadratic functions with applications to
-  derivative-free optimization, November 2011,
-  \urlprefix\url{http://www.optimization-online.org/DB_HTML/2011/11/3245.html}.
+\bibitem{zou1997stochastic}
+Zhihong Zou, Richard~H Bird, and Robert~B Schnabel, A stochastic/perturbation
+  global optimization algorithm for distance geometry problems, \emph{Journal
+  of Global Optimization}, 11(1):91--105, 1997.
 
 \end{thebibliography}

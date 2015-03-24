@@ -1,0 +1,4 @@
+A Buildup-based Error Minimization Method with Application to Protein Structure Determination
+
+abstract:
+Geometric buildup method is a fast algorithm particularly designed for distance geometry problem with exact or extremely small noise distances. We incorporate it with error minimization procedure to handle large noise given distances, which are the real-world cases. A new error function has been proposed, and a fast algorithm is designed to minimize the error function. Besides, extensive numerical experiments have been finished on a variety number of proteins, from several hundreds to several thousands, which proves that it is a powerful algorithm for this problem. It provides very accurate conformations of these proteins quickly.

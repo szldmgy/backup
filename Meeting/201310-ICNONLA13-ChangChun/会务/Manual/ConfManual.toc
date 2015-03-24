@@ -1,0 +1,51 @@
+\contentsline {part}{Part I\hspace {1em}Invited Talks}{1}{part.1}
+\contentsline {section}{{\bf Local Search for Hop-constrained Directed Steiner Tree Problem with Application to UAV-based Multi-target Surveillance}\\Oleg Burdakov}{3}{section*.1}
+\contentsline {section}{{\bf Framelet-Based Algorithm for Medical Imaging Applications}\\Ramond H. Chan}{4}{section*.2}
+\contentsline {section}{{\bf Regularized Least Squares Optimization for Sparse Approximations}\\Xiaojun Chen}{5}{section*.3}
+\contentsline {section}{{\bf An Active Set Feasible Method for Large-scale Minimization Problems with Bound Constraints}\\G. Di Pillo}{6}{section*.4}
+\contentsline {section}{{\bf Row Action Methods for Solving $L_1-L_2$ Optimization Problems}\\Masao Fukushima}{7}{section*.5}
+\contentsline {section}{{\bf Sparse Interpolatory Reduced-Order Models for Simulation of Light-Induced Molecular Transformations}\\C.T. Kelley}{8}{section*.6}
+\contentsline {section}{{\bf What Could a Million CPUs do to Solve Integer Programs?}\\T. Koch}{9}{section*.7}
+\contentsline {section}{{\bf The Lagrange Method and SAO with Bounds on the Dual Variables}\\M.J.D. Powell}{10}{section*.8}
+\contentsline {section}{{\bf Robust Rational Interpolation and Pad\'e Approximation}\\Lloyd N. Trefethen}{11}{section*.9}
+\contentsline {section}{{\bf Condition Numbers for Moore-Penrose Inverse, Linear Least Squares, Total Least Squares, Matrix Equations and Tikhonov Regularization}\\Yimin Wei}{12}{section*.10}
+\contentsline {section}{{\bf Some Relaxation Results on Matrix Rank Minimization Problems}\\Naihua Xiu}{13}{section*.11}
+\contentsline {section}{{\bf A $C^0$ Interior Penalty Method for the Fourth Order Obstacle Problem with Nonhomogeneous Dirichlet Boundary}\\Hongchao Zhang}{14}{section*.12}
+\contentsline {section}{{\bf An Arnoldi-like Approach for Generalized Eigenvalue Problems}\\Shao-Liang Zhang}{15}{section*.13}
+\contentsline {part}{Part II\hspace {1em}Contributed Talks}{17}{part.2}
+\contentsline {section}{{\bf Semidefinite Optimization Relaxation for Semi-supervised Support Vector Machines}\\Yanqin Bai}{19}{section*.15}
+\contentsline {section}{{\bf Nonnegative Inverse Eigenvalue Problems with Partial Eigendata}\\Zhengjian Bai}{20}{section*.16}
+\contentsline {section}{{\bf Complexity Analysis of Smoothing Methods for the $l_2-l_p$ Optimization Problem}\\Wei Bian}{21}{section*.17}
+\contentsline {section}{{\bf Maximum Block Improvement and Polynomial Optimization}\\Bilian Chen}{22}{section*.18}
+\contentsline {section}{{\bf a-well-posedness for a System of Constrained Set-valued Variational Inequalities}\\Jiawei Chen}{23}{section*.19}
+\contentsline {section}{{\bf A Self-adaptive Relaxed-PPA Contraction Method for Convex Programming with Linear Constraints}\\Xiaoling Fu}{24}{section*.20}
+\contentsline {section}{{\bf A Parallel Krylov-based Interior-point Solver for Large-scale SVM}\\Joshua David Griffin}{25}{section*.21}
+\contentsline {section}{{\bf An ADM-based Splitting Method for Separable Convex Programming}\\Deren Han}{26}{section*.22}
+\contentsline {section}{{\bf Explicit Resolvent Numerical Methods for Systems of General Variational Inclusions}\\Zhenyu Huang}{27}{section*.23}
+\contentsline {section}{{\bf Adaptive Feasible Barzilai-Borwein-like Method for Optimization Problems with Orthogonality Constraints}\\Bo Jiang}{28}{section*.24}
+\contentsline {section}{{\bf An Optimal Algorithm for Minimizing Convex Functions on Simple Sets}\\Elizabeth W. Karas}{29}{section*.25}
+\contentsline {section}{{\bf A Sequential Semismooth Newton Method for the Nearest Low-Rank Correlation Matrix Problem}\\Qingna Li}{30}{section*.26}
+\contentsline {section}{{\bf A Fast Subspace Method for Seismic Inversion}\\Zhenhua Li}{31}{section*.27}
+\contentsline {section}{{\bf Approximation Methods for Polynomial Optimization}\\Zhening Li}{32}{section*.28}
+\contentsline {section}{{\bf A note on the dominant solution for nonlinear matrix equation $X+A^*X^{-2}A = I$}\\Xiaoyi Liu}{33}{section*.29}
+\contentsline {section}{{\bf On Global Optimality of a Nonconvex Model for Low-rank Matrix Completion}\\Xin Liu}{34}{section*.30}
+\contentsline {section}{{\bf Two New Augmented Lagrangian Algorithms with Quadratic Penalty for Equality Problems}\\Luiz Carlos Matioli}{35}{section*.31}
+\contentsline {section}{{\bf New Preconditioner Updates Applied to Optimization Problems}\\Benedetta Morini}{36}{section*.32}
+\contentsline {section}{{\bf Efficiency of Randomized Block-Coordinate Descent Methods for Minimizing a Composite Function}\\Peter Richt\'{a}rik}{37}{section*.33}
+\contentsline {section}{{\bf A Hybrid Algorithm for Power Maximization Interference Alignment Problem of MIMO Channels}\\Cong Sun}{38}{section*.34}
+\contentsline {section}{{\bf Approximations of Joint Chance Constrained Optimization Problems}\\Hailin Sun}{39}{section*.35}
+\contentsline {section}{{\bf Adaptive Surface-related Multiple Substraction Using Sparseness Norm Method}\\Tao Sun}{40}{section*.36}
+\contentsline {section}{{\bf Splitting Algorithms for Separate Convex Programming}\\Min Tao}{41}{section*.37}
+\contentsline {section}{{\bf The Linearized Alternating Direction Method for Dantzig Selecto}\\Xiangfeng Wang}{42}{section*.38}
+\contentsline {section}{{\bf A New Trust Region Algorithm for Equality Constrained Optimization Based On the Augmented Lagrangian Function}\\Xiao Wang}{43}{section*.39}
+\contentsline {section}{{\bf Decentralized Low-Rank Matrix Completion}\\Zaiwen Wen}{44}{section*.40}
+\contentsline {section}{{\bf A New Solution Concept in a 3-player Cooperative Game}\\Leqin Wu}{45}{section*.41}
+\contentsline {section}{{\bf A Relaxed Fixed Point Method for Mean Curvature-Based Denoising Model}\\Fenlin Yang}{46}{section*.42}
+\contentsline {section}{{\bf Hybrid Divide-and-Conquer Methods for Solving Polynomial Systems}\\Bo Yu}{47}{section*.43}
+\contentsline {section}{{\bf Analysis of Conjugate Gradient for Nonsmooth Problems}\\Gonglin Yuan}{48}{section*.44}
+\contentsline {section}{{\bf A Novel Filled Function Method for Nonlinear Equations}\\Liuyang Yuan}{49}{section*.45}
+\contentsline {section}{{\bf Nonconvex $\ell _p$-Regularization and Box Constrained Model for Image Restoration}\\Chao Zhang}{50}{section*.46}
+\contentsline {section}{{\bf On the {Second-order} Directional Derivatives of Singular Values of Matrices and Symmetric Matrix-valued Functions}\\Liwei Zhang}{51}{section*.47}
+\contentsline {section}{{\bf Stochastic Variational Inequalities: Residual Minimization Smoothing/Sample Average Approximations}\\Yanfang Zhang}{52}{section*.48}
+\contentsline {section}{{\bf Computing Dominant SVD of Large and Unstructured Matrices }\\Yin Zhang}{53}{section*.49}
+\contentsline {section}{{\bf Sobolev Seminorm of Quadratic Functions with Applications to Derivative-Free Optimization}\\Zaikun Zhang}{54}{section*.50}

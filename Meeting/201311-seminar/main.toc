@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.31pt}
+\beamer@sectionintoc {1}{Problem Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Various Error Functions}{5}{0}{2}
+\beamer@sectionintoc {3}{Generalized DG Model and its SDP Relaxation}{19}{0}{3}
+\beamer@sectionintoc {4}{Ongoing works}{23}{0}{4}

@@ -1,0 +1,666 @@
+\documentclass{cctbook}
+
+% add package
+ \usepackage{tocloft}
+ \usepackage{graphicx}
+ \usepackage{url}
+ \usepackage{amsmath, amssymb}
+
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+%\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\usepackage[perpage]{footmisc} % The number of footnote will be reset on every new page.
+\usepackage{eqlist}
+
+% define new command
+% ----------------------
+% define
+ \textheight 21.6cm
+ \textwidth 14.5cm
+ \topmargin  0pt
+ \oddsidemargin=1.0cm
+ \evensidemargin=1.0cm
+
+ \pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\long\def\@makecaption#1#2{%
+ \vskip\abovecaptionskip
+ \sbox\@tempboxa{#2}%
+ \ifdim \wd\@tempboxa >\hsize
+   #2\par
+ \else
+   \global \@minipagefalse
+   \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+ \fi
+ \vskip\belowcaptionskip}
+\makeatother
+
+
+% ----------------------
+% define Content:
+\renewcommand{\contentsname}{Abstracts}
+ \renewcommand{\cftpartpresnum}{\quad}%{\quad  Part \ }
+ \renewcommand{\cftpartaftersnum}{:}
+\renewcommand\partname{Part \Roman{part}}
+\newcommand{\Real}{\mathbb{R}}
+
+\newcommand{\e}{\epsilon}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\wto}{\rightharpoonup}
+\newcommand{\K}{\mathcal{K}}
+
+ \cftbeforesecskip=4mm
+% \renewcommand{\cftsecfont}{\parbox{11cm} }
+\renewcommand{\cftsecfont}{\flushleft\vskip-7mm}
+ \newcommand{\tcont}[2]{\addcontentsline{toc}{section}{{\bf #1}\\#2} \clearpage\phantomsection}
+
+ \setcounter{tocdepth}{2}
+% \clearemptypage
+
+% ----------------------
+% define general new command:
+\newcommand{\bb}{\bigbreak}
+\newcommand{\mb}{\medbreak}
+\newcommand{\bc} {\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\np}{\newpage}
+\newcommand{\und}[1]{\underline {\it #1 }}
+
+% ----------------------
+% commands needed by some paper
+\def\Hnew{H_{\mbox{\scriptsize new}}}
+\def\Hold{H_{\mbox{\scriptsize old}}}
+\def\Wnew{H_{\mbox{\scriptsize new}}^{-1}}
+\def\Wold{H_{\mbox{\scriptsize old}}^{-1}}
+
+\def \fh{\dotfill \hbox{} \\ \hbox{}}
+\newcommand{\lst}[2]{\par\vskip1mm \noindent \parbox[t]{6cm}{\small \bf #1:}
+ \hskip5mm
+\parbox[t]{8cm}{\small #2
+}\vskip3mm}
+\renewcommand\arraystretch{1.3}
+
+\newcommand{\subj}[1]{{\Large\bf #1}}
+\newcommand{\name}[1]{{\bf #1}\\[1mm]}
+\newcommand{\dpt}[1]{#1\\}
+\newcommand{\univ}[1]{#1\\}
+\newcommand{\city}[1]{#1\\}
+\newcommand{\email}[1]{Email: \href{mailto:#1}{\tt #1}\\[2mm]}
+
+
+%---------------------------------------------------------------
+%begin document
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+\thispagestyle{empty} \vspace*{2cm}
+\begin{center}
+\LARGE\bf The 9th International Conference on Numerical Optimization
+and Numerical Linear Algebra \vskip12mm \LARGE\sc September 12-15,
+2013 \vskip6mm \LARGE Changchun, Jilin, China \vskip6mm
+\LARGE\rm\texttt{http://lsec.cc.ac.cn/{\raise-.35ex\hbox{\textasciitilde}}icnonla13}
+\end{center}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=1.0\textwidth,height=95mm]{CC1.jpg}
+    \end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% front pages
+%\frontmatter
+\newpage
+\thispagestyle{empty}~~
+%\newpage
+
+
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\LARGE\bf The 9th International Conference on Numerical Optimization
+and Numerical Linear Algebra \vskip15mm \LARGE\sc September 12-15,
+2013 \vskip5mm \LARGE Changchun, Jilin, China \vskip5mm
+ \LARGE\rm{\url{http://lsec.cc.ac.cn/~icnonla13}}
+\vskip5mm \LARGE\bf
+---------------------------------------------------------\vskip5mm
+ \hyperlink{INFO}{Information for Participants}\vskip2mm
+ \hyperlink{SPON}{Sponsors}\vskip2mm
+ \hyperlink{COM}{Committees} \vskip2mm
+% \hyperlink{PROG}{Conference Program}\vskip2mm
+ \hyperlink{SCH}{Conference Schedule} \vskip2mm
+ \hyperlink{ABS}{Abstracts} \vskip2mm
+ \hyperlink{LST}{List of Participants}\vskip2mm
+ \hyperlink{SIGHT}{Sightseeing Information}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\let\flag\true
+%\ifx\flag\true \else fi
+
+%\newpage
+\thispagestyle{empty}~~
+\newpage
+\setcounter{page}{1}
+%\vspace*{10mm}
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{INFO}{\normalsize {\LARGE \bf Information for
+Participants}} \vskip12mm
+\end{center}
+\Large \rm
+
+\begin{center}
+{\it\LARGE Conference Hotel and Conference Venue}
+\end{center}
+\begin{center}
+\begin{tabular}{lp{0.8\textwidth}p{\textwidth}}
+\centering
+Hotel:& Guosheng Hotel, Changchun \\
+&\mbox{长春国盛大酒店}\\
+Address:&No.7008, Renmin Road, Nanguan District, Changchun\\% 361003 \\
+&\mbox{长春市南关区人民大街7008号}\\
+\smallskip
+Venue:& Fuyun Conference Hall, in the 4th floor of Guosheng Hotel, Changchun \\
+&\mbox{长春国盛大酒店四楼福运会场}\\
+%Address:&No.7008, Renmin Road, Nanguan District, Changchun\\% 361003 \\
+%&\mbox{长春市南关区人民大街7008号}\\
+\end{tabular}
+\end{center}
+\bigskip
+
+\begin{center}
+\it\LARGE Arrival
+\end{center}
+
+\noindent By air: the distance between Changchun International Airport
+and the conference hotel is about 50 km. It will cost you about 100
+RMB (16 USD c.a.) to take a taxi. For the invited speakers, you
+will be picked up at the airport, if
+you have sent your arrival information to the organizing committee.\\[4mm]
+
+\noindent By train: there is about 8 km from Changchun railway station to the
+conference hotel. The taxi fare is about 16 RMB (2.5 USD c.a.). Changchun
+West railway station is 13 km away from the conference hotel. The taxi fare is about
+26 RMB (4 USD c.a.)
+%Participants who arrive there are suggested to take
+%an inter-city high speed train to Xiamen railway station first (22 min., 9 RMB). \\
+\bigskip
+
+\begin{center}
+\it\LARGE On-site Registration
+\end{center}
+
+On-site registration will take place at the {\bf lobby of Guosheng Hotel, Changchun} on {\bf September 11} from {\bf 11:00} to {\bf 21:00}.
+You can also register at any ohter time during the conference, but please contact \href{mailto:liuxin@lsec.cc.ac.cn}{Dr. Xin Liu}
+or \href{mailto:wjp@lsec.cc.ac.cn}{Ms. Jiping Wu} in advance.\\
+\bigskip
+
+\begin{center}
+\it\LARGE Currency
+\end{center}
+
+Chinese currency is RMB. The current rate is about 6.13 RMB for 1 US
+dollar. The exchange of foreign currency can be done at the airport
+or the conference hotel. Please keep the receipt of the exchange so
+that you can change back to your own currency if you have RMB left
+before you leave China. Please notice that some additional
+processing fee will be charged if you exchange currency in China.
+\bigskip
+
+
+
+\begin{center}
+\it\LARGE Contact Information
+\end{center}
+
+If you need any help, please feel free to contact
+\begin{eqlist}
+ \item[~~~~~~~$\bullet$] \href{mailto:liuxin@lsec.cc.ac.cn}{Dr. Xin
+ Liu}: +86-138-1000-2122
+ \item[~~~~~~~$\bullet$] \href{mailto:wjp@lsec.cc.ac.cn}{Ms. Jiping Wu}: +86-136-9106-6084~(in
+ Chinese)
+\end{eqlist}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{SPON}{\normalsize {\LARGE \bf Sponsors}} \vskip12mm
+\end{center}
+
+\begin{center}
+ \rm
+Academy of Mathematics and Systems Science \\[5mm]
+
+Center for Optimization and Applications, AMSS, CAS\\[5mm]
+
+Chinese Mathematical Society \\[5mm]
+
+Institute of Computational Mathematics and Scientific/Engineering Computing, AMSS, CAS\\[5mm]
+
+Mathematics School and Institute of Jilin University \\[5mm]
+
+National Natural Science Foundation of China\\[5mm]
+
+State Key Laboratory of Scientific and Engineering Computing
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{COM}{\normalsize {\LARGE \bf Committees}} \vskip12mm
+
+{\Large \bf Conference Chair} \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China) \\[10mm]
+
+{\Large \bf Organizing Committee} \\[5mm]
+
+Yuhong Dai (Chinese Academy of Sciences, China) \\[5mm]
+
+Masao Fukushima (Kyoto University, Japan) \\[5mm]
+
+Huilai Li (Jilin University, China) \\[5mm]
+
+Yong Li (Jilin University, China) \\[5mm]
+
+Xin Liu (Chinese Academy of Sciences, China) \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China) \\[10mm]
+
+{\Large \bf Scientific Committee} \\[5mm]
+
+Qun Lin (Chinese Academy of Sciences, China) \\[5mm]
+
+Yinyu Ye (Stanford University, U.S.) \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China)
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\normalsize
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{center}
+\rm \hypertarget{SCH}{\normalsize {\LARGE \bf The 9th International
+ Conference on Numerical Optimization and Numerical Linear Algebra \\[3mm]
+ {\sc September 12-15, 2013}\\[3mm]{\sc Changchun, Jilin, China}\\[7mm]Conference Schedule}} \vskip12mm
+\end{center}
+%
+%
+\newcommand{\whday}[1]{\begin{flushleft}
+{\Large \bf \underline{#1}}
+\end{flushleft}}
+
+\newcommand{\where}[1]{{(\bf#1)}}
+\newcommand{\chair}[1]{{\bf Chair:~#1}}
+%\newcommand{\chair}{Chair:~~~~~~~~~~~}
+\newenvironment{schedule}{\begin{eqlist}\large}{\end{eqlist}}
+\newenvironment{talks}{\begin{eqlist}\normalsize}{\end{eqlist}}
+\newcommand{\sitem}[2]{\item[\bf#1~]{\bf#2}}
+\newcommand{\talk}[3]{\item[\bf#1~]{\bf#2},~#3}
+
+\newcommand{\CONFV}{Cafeteria, Xiamen University}
+\newcommand{\CONFH}{Restaurant, Peony Wanpeng Hotel}
+
+
+\whday{September 12, Thursday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+\sitem{08:00-08:30}{Opening Ceremony}
+
+\begin{talks}
+\sitem{08:00-08:10}{Welcome Address}
+
+\sitem{08:10-08:30}{Group Photo}
+\end{talks}
+
+\sitem{08:30-10:00}{Invited Talks V1\\ \chair{Y.X. Yuan}}
+
+\begin{talks}
+\talk{08:30-09:15}{Liqun Qi} {Symmetric tensors}
+
+\talk{09:15-10:00}{Gianni Di Pillo} {A derivative-free approach to constrained global optimization based on non-differentiable exact penalty functions}
+\end{talks}
+
+\sitem{10:00-10:20} {Coffee Break}
+
+\sitem{10:20-11:50}{Invited Talks V2\\ \chair{Liqun Qi}}
+
+\begin{talks}
+\talk{10:20-11:05}{Hulin Wu}
+{Nonlinear high-dimensional optimization problems in reverse engineering of biological systems}
+\talk{11:05-11:50}{Wotao Yin} {Distributed sparse optimization}
+\end{talks}
+
+\sitem{11:50-12:30}{Penal Discussion P1\\ \chair{Wotao Yin}}
+
+\begin{talks}
+\talk{11:50-12:30}   {All participants} {Open to all related topics}
+\end{talks}
+
+\sitem{12:30-13:30}{Lunch} %\where{\CONFV}}
+
+\sitem{13:30-14:50}{Contributed Talks C1\\ \chair{Takashi Tsuchiya}}
+
+\begin{talks}
+\talk{13:30-13:50}   {S. Jimenez} {A Quadratic Iterative Method to Compute Eigenvectors}
+
+\talk{13:50-14:10}   {Wei Bian} {Complexity Analysis of Interior Point Algorithms for Non-Lipschitz and Nonconvex Minimization}
+
+\talk{14:10-14:30}   {Lijun Liu} {Dual Purpose Subspace Tracking on Noncompact Stiefel Manifold}
+
+\talk{14:30-14:50}   {Cong Sun} {Sum Rate Maximization Algorithms for MIMO Relay Networks in Wireless Communications}
+\end{talks}
+
+
+\sitem{13:30-14:50}{Contributed Talks C2\\ \chair{Hulin Wu}}
+
+\begin{talks}
+\talk{14:50-15:10}   {Mehiddin Al-Baali} {Reducing the number of updates for
+the limited memory quasi-Newton methods}
+
+\talk{15:10-15:30}   {Zhouhong Wang} {On the Convergence Order of the Central Path for Second Order Cone Optimization}
+
+\talk{15:30-15:50}   {Zhi-Feng Pang} {Data Clustering Based On The Total Variation Energy Functional}
+\end{talks}
+
+
+\sitem{15:50-16:10} {Coffee Break}
+
+\sitem{16:10-17:30} {Contributed Talks C3\\ \chair{Yangfeng Su}}
+
+\begin{talks}
+\talk{16:10-16:30}  {Yong Xia} {On Minimizing the Ratio of Quadratic Functions over an Ellipsoid}
+
+\talk{16:30-16:50}  {Shaohua Pan} {Multi-stage Convex Relaxation Approach for PSD Structured Low-rank Optimization Problems}
+
+\talk{16:50-17:10}  {Hailin Sun} {Regularized Mathematical Programs with Stochastic Equilibrium Constraints: Estimating Structural Demand Models}
+
+\talk{17:10-17:30}  {Yanfang Zhang} {Regularizations for Stochastic Linear Variational Inequalities}
+\end{talks}
+
+
+
+\sitem{17:30-18:50} {Contributed Talks C4\\ \chair{Xin Liu}}
+
+\begin{talks}
+\talk{17:30-17:50}  {Zaikun Zhang} {A Subspace Decomposition Framework for Nonlinear Optimization}
+
+\talk{17:50-18:10}  {Shujun Bi} {Multi-stage Convex Relaxation for Rank Regularized
+Minimization Problem}
+
+\talk{18:10-18:30}  {Tianxiang Liu} {A Node-based SDP Relaxation Approach for Sensor
+Network Localization}
+
+\talk{18:30-18:50}  {Qian Dong} {A Distributed Quasi-Newton Method for Data Fitting Problem}
+\end{talks}
+
+
+
+
+\sitem{18:50} {Dinner}% \where{\CONFH}}
+
+\end{schedule}
+
+\np
+
+\whday{September 13, Friday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+
+\sitem{08:00-10:15}{Invited Talks V3\\ \chair{Yuhong Dai}}
+\begin{talks}
+\talk{08:00-08:45}{Zhaojun Bai}{Recent advances in variational principles
+and the steepest descent type methods for matrix eigenvalue problems}
+
+\talk{08:45-09:30}{Andreas Griewank}{Representation and analysis of
+continuous piecewise linear functions in abs-normal form}
+
+\talk{09:30-10:15}{Zaiwen Wen} {Algorithms for eigenvalue optimization}
+\end{talks}
+
+\sitem{10:15-10:30} {Coffee Break}
+
+
+\sitem{10:30-11:50} {Contributed Talks C5\\ \chair{Zhaojun Bai}}
+
+\begin{talks}
+\talk{10:30-11:50}  {Wenwen Zhou} {A modified Primal-dual Augmented Lagrangian Method for Large Scale Nonlinear Optimization}
+
+\talk{10:50-11:10}  {Yilun Wang} {SOARS:  Statistical and Optimization Analysis and Response Surfaces for Computationally Expensive Models}
+
+\talk{11:10-11:30}  {Yuan Shen} {Partial Convolution for Total Variation Problem by Augmented Lagrangian-based Proximal Point Descent Algorithm}
+
+\talk{11:30-11:50}  {Xin Liu} {Symmetric Low-Rank Product
+Matrix Approximation and Gauss Newton Method}
+\end{talks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sitem{11:50-12:30}{Penal Discussion P1\\ \chair{Zaiwen Wen}}
+
+\begin{talks}
+\talk{11:50-12:30}   {All participants} {Open to all related topics}
+\end{talks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\sitem{12:30-13:30}{Lunch}% \where{\CONFV}}
+
+
+\sitem{13:30-15:00}{Invited Talks V4\\ \chair{Gianni Di Pillo}}
+\begin{talks}
+\talk{13:30-14:15}{Yangfeng Su} {Numerical methods for quadratic eigenvalue problems}
+
+\talk{14:15-15:00}{Chao Yang} {Numerical algorithms for energy minimization
+in electronic structure calculation}
+\end{talks}
+
+
+
+\sitem{15:00-16:00}{Contributed Talks C6\\ \chair{Xiaoling Sun}}
+
+\begin{talks}
+\talk{15:00-15:20}   {Zi Xu} {Joint User Grouping and Linear Virtual Beamforming: Complexity,
+Algorithms and Approximation Bounds}
+
+\talk{15:20-15:40}   {Geovani Nunes Grapiglia} {A Derivative-Free Trust-Region Algorithm for Composite Nonsmooth Optimization}
+
+\talk{15:40-16:00}   {Shuxiong Wang} {Feasible Method for Semi-Infinite Programming}
+
+\end{talks}
+
+\sitem{16:00-16:20} {Coffee Break}
+
+\sitem{16:20-17:40} {Contributed Talks C7\\ \chair{Chao Yang}}
+
+\begin{talks}
+\talk{16:20-16:40}   {Shenglong Zhou} {New RIC Bounds vea $l_{q}$-minimization with $0 < q \leq 1$ in Compressed Sensing}
+
+\talk{16:40-17:00}   {Ning Zheng} {Accelerated Modulus-based Matrix Splitting Iteration Methods for Linear Complementarity Problem}
+
+\talk{17:00-17:20}   {Ya-Feng Liu} {Non-Convex $L_q$ Minimization: Complexity Analysis and A Potential Reduction Algorithm}
+
+\talk{17:20-17:40}   {Fangfang Xu} {Covariance Matrix Estimation Using Factor Models  from Incomplete Information}
+\end{talks}
+
+
+
+\sitem{17:40-18:40}{Contributed Talks C8\\ \chair{Yafeng Liu}}
+
+\begin{talks}
+\talk{17:40-18:00}   {Xiaochao Xiu} {Rank-one and Sparse Nonnegative Matrix Decomposition for Surveillance Video}
+
+\talk{18:00-18:20}   {Chunfeng Cui}{Computing k Largest Eigenvalues of Supersymmetric Tensors}
+
+\talk{18:20-18:40}   {Zhenli Sheng} {A Buildup-based Error Minimization Method with Application to Protein Structure Determination}
+
+\end{talks}
+
+\sitem{18:40-21:00} {Conference Banquet}
+
+\end{schedule}
+
+\np
+
+\whday{September 14, Saturday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+
+\sitem{08:00-9:30}{Invited Talks V5\\ \chair{ Andreas Griewank}}
+\begin{talks}
+\talk{08:00-08:45}{Takashi Tsuchiya} {A structural geometrical analysis of ill-conditioned
+semidefinite programs}
+
+\talk{08:45-09:30}{Xiaoling Sun} {Optimization with semi-continuous variables}
+
+\end{talks}
+
+\sitem{09:30-09:40}{Closing Ceremony}
+
+\sitem{09:40-10:00} {Coffee Break}
+\vskip16mm \centerline{\bf Excursion}
+\vskip2mm \centerline{\bf 10:00,\quad Leave for Changbai Mountain}
+\vskip2mm  \centerline{\bf (Estimated time of return Changchun: 21:00, September 15)} \vskip16mm
+%\sitem{18:00-18:10} {Closing Ceremony}
+%
+%\sitem{18:30} {Conference Banquet}
+
+\end{schedule}
+
+
+
+%add contents
+ \clearpage
+ \hypertarget{ABS}{}\tableofcontents
+ \clearpage
+
+
+%begin abstract
+\mainmatter
+
+
+%Invited talks
+\part{Invited Talks}
+%\clearpage
+
+\input{talk.tex}
+
+
+\part{Panel Discussion}
+
+In this conference, we will have two panel discussion sessions.
+In the panel discussion session, all participants are encouraged to
+raise or answer questions about all related topics of this conference,
+and to introduce or discuss the new developments and trends
+of numerical optimization and numerical linear algebra.
+
+
+\np
+
+\indent \bigskip
+
+\np
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{flushleft}
+\hypertarget{LST}{\LARGE \bf List of Participants of ICNONLA 2013}\\[12mm]
+\end{flushleft}
+\begin{flushleft}
+\rm
+
+
+\input{list.tex}
+
+
+\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newpage
+%\setcounter{page}{38}
+\begin{center}
+\rm %\thispagestyle{empty}
+\hypertarget{SIGHT}{\normalsize {\LARGE \bf Excursion Information}}
+\vskip12mm
+\end{center}
+
+\Large \rm
+
+\begin{center}
+\bf Changbai Mountain\footnote{From wikipedia:
+\url{http://en.wikipedia.org/wiki/Changbai_Mountains}.}
+\end{center}
+\large
+
+The Changbai Mountain Range are a mountain range on the border between China and North Korea (41$^\circ$41' to 42$^\circ$51'N;
+127$^\circ$43' to 128$^\circ$16'E). In Russia this range is called ``Vostochno-Manchzhurskie gory" (``East Manchurian mountain range") and considered as a part of more long Manchu-Korean mountain range (``Manchzuro-Koreiskie gory"), which separates China from Korea and Russian Primorsky Krai. The range extends from the Northeast Chinese provinces of Heilongjiang, Jilin and Liaoning to the North Korean provinces of Ryanggang and Chagang. Most peaks exceed 2,000 metres in height, with the highest mountain being Changbai Mountain.
+
+The range represents the mythical birthplace of Buk\={u}ri Yong\u{s}on, ancestor of Nurhaci and the Aisin Gioro Imperial family, who were the founders of the Manchu state and the Chinese Qing Dynasty. The name literally means ``Perpetually White Mountain Region" in Mandarin Chinese.
+
+Changbaishan Nature Reserve, established in 1960, was involved in the UNESCO's ``Man and Biosphere" program in 1980 and becomes part of the world's biosphere reserves. Approved by the State Council in 1986, it becomes a State-level reserve.
+
+The highest mountain is Baekdu Mountain (2,745 m), an active volcano which is also known locally in China as Changbai Mountain. Baekdu Mountain is the source of the Songhua, Tumen (Tuman) and Yalu (Amnok) rivers. Many tributaries of the Liao He also originate from the Changbai Mountains.
+
+The climate in the mountains is very cold during winter, with absolute minima on the highest peaks in January as low as $-$45$^\circ$C ($-$49$^\circ$F), but reaching 17$^\circ$C (62$^\circ$F) in July. Precipitation is low in the winter but in the higher parts very high in the summer, with annual averages reaching as high as 1,150 mm (45 inches) and over 300 mm (12 inches) in July alone. The dry winters mean there are no glaciers even on the highest and wettest peaks, but permafrost extends down to 1,800 metres (5,900 feet) and is continuous on the highest peaks.
+
+
+
+\bigskip
+
+
+\np
+
+
+
+\newpage
+\thispagestyle{empty}~~
+
+%\newpage
+%\thispagestyle{empty}
+\begin{center}
+\Huge \it The organizing committee wishes you a pleasant stay in
+Changchun!
+\vskip20mm
+%
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=0.95\linewidth,height=92mm]{GLY1.png}
+      %          \includegraphics[width=0.95\linewidth,height=82mm]{tulou.jpg}
+    \end{center}
+\end{figure}
+\end{center}
+
+\end{document}

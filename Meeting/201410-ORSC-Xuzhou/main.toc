@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Laplacian matrix}{8}{0}{2}
+\beamer@sectionintoc {3}{Nonlinear dimensionality reduction}{11}{0}{3}
+\beamer@sectionintoc {4}{Laplacian eigenmap-based localization algorithm}{21}{0}{4}
+\beamer@sectionintoc {5}{Conclusion and Future Work}{29}{0}{5}

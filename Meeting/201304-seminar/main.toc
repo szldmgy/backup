@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Related works review}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Matrix decomposition method}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Buildup method}{10}{0}{2}
+\beamer@sectionintoc {3}{Our algorithm}{16}{0}{3}
+\beamer@subsectionintoc {3}{1}{Error function minimization}{21}{0}{3}
+\beamer@sectionintoc {4}{Numerical experiments}{26}{0}{4}
+\beamer@sectionintoc {5}{Ongoing works}{38}{0}{5}

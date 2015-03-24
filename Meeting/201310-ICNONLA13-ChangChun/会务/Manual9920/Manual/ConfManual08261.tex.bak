@@ -1,0 +1,3118 @@
+\documentclass{cctbook}
+
+% add package
+ \usepackage{tocloft}
+ \usepackage{graphicx}
+ \usepackage{url}
+ \usepackage{amsmath, amssymb}
+
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+%\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\usepackage[perpage]{footmisc} % The number of footnote will be reset on every new page.
+\usepackage{eqlist}
+
+% define new command
+% ----------------------
+% define
+ \textheight 21.6cm
+ \textwidth 14.5cm
+ \topmargin  0pt
+ \oddsidemargin=1.0cm
+ \evensidemargin=1.0cm
+
+ \pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\long\def\@makecaption#1#2{%
+ \vskip\abovecaptionskip
+ \sbox\@tempboxa{#2}%
+ \ifdim \wd\@tempboxa >\hsize
+   #2\par
+ \else
+   \global \@minipagefalse
+   \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+ \fi
+ \vskip\belowcaptionskip}
+\makeatother
+
+
+% ----------------------
+% define Content:
+\renewcommand{\contentsname}{Abstracts}
+ \renewcommand{\cftpartpresnum}{\quad}%{\quad  Part \ }
+ \renewcommand{\cftpartaftersnum}{:}
+\renewcommand\partname{Part \Roman{part}}
+\newcommand{\Real}{\mathbb{R}}
+
+\newcommand{\e}{\epsilon}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\wto}{\rightharpoonup}
+
+ \cftbeforesecskip=4mm
+% \renewcommand{\cftsecfont}{\parbox{11cm} }
+\renewcommand{\cftsecfont}{\flushleft\vskip-7mm}
+ \newcommand{\tcont}[2]{\addcontentsline{toc}{section}{{\bf #1}\\#2} \clearpage\phantomsection}
+
+ \setcounter{tocdepth}{2}
+% \clearemptypage
+
+% ----------------------
+% define general new command:
+\newcommand{\bb}{\bigbreak}
+\newcommand{\mb}{\medbreak}
+\newcommand{\bc} {\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\np}{\newpage}
+\newcommand{\und}[1]{\underline {\it #1 }}
+
+% ----------------------
+% commands needed by some paper
+\def\Hnew{H_{\mbox{\scriptsize new}}}
+\def\Hold{H_{\mbox{\scriptsize old}}}
+\def\Wnew{H_{\mbox{\scriptsize new}}^{-1}}
+\def\Wold{H_{\mbox{\scriptsize old}}^{-1}}
+
+\def \fh{\dotfill \hbox{} \\ \hbox{}}
+\newcommand{\lst}[2]{\par\vskip1mm \noindent \parbox[t]{6cm}{\small \bf #1:}
+ \hskip5mm
+\parbox[t]{8cm}{\small #2
+}\vskip3mm}
+\renewcommand\arraystretch{1.3}
+
+\newcommand{\subj}[1]{{\Large\bf #1}}
+\newcommand{\name}[1]{{\bf #1}\\[1mm]}
+\newcommand{\dpt}[1]{#1\\}
+\newcommand{\univ}[1]{#1\\}
+\newcommand{\city}[1]{#1\\}
+\newcommand{\email}[1]{Email: \href{mailto:#1}{\tt #1}\\[2mm]}
+
+
+%---------------------------------------------------------------
+%begin document
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+\thispagestyle{empty} \vspace*{2cm}
+\begin{center}
+\LARGE\bf The 9th International Conference on Numerical Optimization
+and Numerical Linear Algebra \vskip12mm \LARGE\sc September 12-15,
+2013 \vskip6mm \LARGE Changchun, Jilin, China \vskip6mm
+\LARGE\rm\texttt{http://lsec.cc.ac.cn/{\raise-.35ex\hbox{\textasciitilde}}icnonla13}
+\end{center}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{GLY1.png}
+    \end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% front pages
+%\frontmatter
+\newpage
+\thispagestyle{empty}~~
+%\newpage
+
+
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\LARGE\bf The 9th International Conference on Numerical Optimization
+and Numerical Linear Algebra \vskip15mm \LARGE\sc September 12-15,
+2013 \vskip5mm \LARGE Changchun, Jilin, China \vskip5mm
+ \LARGE\rm{\url{http://lsec.cc.ac.cn/~icnonla13}}
+\vskip5mm \LARGE\bf
+---------------------------------------------------------\vskip5mm
+ \hyperlink{INFO}{Information for Participants}\vskip2mm
+ \hyperlink{SPON}{Sponsors}\vskip2mm
+ \hyperlink{COM}{Committees} \vskip2mm
+% \hyperlink{PROG}{Conference Program}\vskip2mm
+ \hyperlink{SCH}{Conference Schedule} \vskip2mm
+ \hyperlink{ABS}{Abstracts} \vskip2mm
+ \hyperlink{LST}{List of Participants}\vskip2mm
+ \hyperlink{SIGHT}{Sightseeing Information}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\let\flag\true
+%\ifx\flag\true \else fi
+
+%\newpage
+\thispagestyle{empty}~~
+\newpage
+\setcounter{page}{1}
+%\vspace*{10mm}
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{INFO}{\normalsize {\LARGE \bf Information for
+Participants}} \vskip12mm
+\end{center}
+\Large \rm
+
+\begin{center}
+{\it\LARGE Conference Hotel and Conference Venue}
+\end{center}
+\begin{center}
+\begin{tabular}{lp{0.8\textwidth}p{\textwidth}}
+\centering
+Hotel:& Guosheng Hotel \\
+&\mbox{长春国盛大酒店}\\
+Address:&No.7008, Renmin Road, Nanguan District, Changchun\\% 361003 \\
+&\mbox{长春市南关区人民大街7008号}\\
+\smallskip
+Venue:& Conference Room in Guosheng Hotel \\
+&\mbox{长春国盛大酒店会议室}\\
+Address:&No.7008, Renmin Road, Nanguan District, Changchun\\% 361003 \\
+&\mbox{长春市南关区人民大街7008号}\\
+\end{tabular}
+\end{center}
+\bigskip
+
+\begin{center}
+\it\LARGE Arrival
+\end{center}
+
+\noindent By air: The distance between Changchun International Airport
+and the conference hotel is about 47.6 km. It will cost you about 79
+RMB (13 USD c.a.) to take a taxi. For the invited speakers, you
+will be picked up at the airport, if
+you have sent your arrival information to the organizing committee.\\[4mm]
+
+By train: There is about 7.7 km from Changchun railway station to the
+conference hotel. The taxi fare is about 17 RMB (2.8 USD c.a.). Xiamen
+North railway station is 15.6 km away from the conference hotel.
+%Participants who arrive there are suggested to take
+%an inter-city high speed train to Xiamen railway station first (22 min., 9 RMB). \\
+\bigskip
+
+\begin{center}
+\it\LARGE On-site Registration
+\end{center}
+
+On-site registration will take place at the {\bf lobby of Guosheng Hotel} on {\bf September 11} from {\bf 11:00} to {\bf 21:00}.
+If you want to register at other time, please contact our conference
+secretary
+\href{mailto:wjp@lsec.cc.ac.cn}{Ms. Jiping Wu}.\\
+\bigskip
+
+\begin{center}
+\it\LARGE Currency
+\end{center}
+
+Chinese currency is RMB. The current rate is about 6.13 RMB for 1 US
+dollar. The exchange of foreign currency can be done at the airport
+or the conference hotel. Please keep the receipt of the exchange so
+that you can change back to your own currency if you have RMB left
+before you leave China. Please notice that some additional
+processing fee will be charged if you exchange currency in China.
+\bigskip
+
+%\begin{center}
+%\it\LARGE Transportation to Conference Venue
+%\end{center}
+%
+%For participants accommodated at our conference hotel (Peony Wanpeng
+%Hotel), in each morning and evening of November 7-9, there will be
+%conference shuttle buses transferring between our conference hotel
+%and conference venue at Xiamen University. The detailed schedule is
+%as follows:
+%\begin{itemize}
+%\item  Start at {\bf 07:40} from {\bf Hotel Lobby} to {\bf Science
+%\& Art Center}
+%\item  Start at {\bf 18:10} for {\bf Science
+%\& Art Center} to {\bf Hotel Lobby}
+%\end{itemize}
+%In the evening of Nov 9, the schedule will be slightly changed due
+%to the conference banquet, but the shuttle buses will still send all
+%the participants stayed at our conference hotel back.
+%
+%For participants who don't stay at our conference hotel or miss the
+%time, we are not responsible for your transportation cost.
+%\bigskip
+
+\begin{center}
+\it\LARGE Contact Information
+\end{center}
+
+If you need any help, please feel free to contact
+\begin{eqlist}
+ \item[~~~~~~~$\bullet$] \href{mailto:liuxin@lsec.cc.ac.cn}{Dr. Xin
+ Liu}: +86-138-1000-2122
+ \item[~~~~~~~$\bullet$] \href{mailto:wjp@lsec.cc.ac.cn}{Ms. Jiping Wu}: +86-136-9106-6084~(in
+ Chinese)
+\end{eqlist}
+
+
+%\begin{figure}
+%\caption{\Large \bf Local Map}
+%    \begin{center}
+%        \includegraphics[width=1.0\textwidth]{localmap.jpg}
+%    \end{center}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{SPON}{\normalsize {\LARGE \bf Sponsors}} \vskip12mm
+\end{center}
+
+\begin{center}
+ \rm
+Academy of Mathematics and Systems Science \\[5mm]
+
+Center for Optimization and Applications, AMSS, CAS\\[5mm]
+
+Chinese Mathematical Society \\[5mm]
+
+Institute of Computational Mathematics and Scientific/Engineering Computing, AMSS, CAS\\[5mm]
+
+Mathematics School and Institute of Jilin University \\[5mm]
+
+National Natural Science Foundation of China\\[5mm]
+
+State Key Laboratory of Scientific and Engineering Computing
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\begin{center}
+\rm
+%\thispagestyle{empty}
+\hypertarget{COM}{\normalsize {\LARGE \bf Committees}} \vskip12mm
+
+{\Large \bf Conference Chair} \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China) \\[10mm]
+
+{\Large \bf Organizing Committee} \\[5mm]
+
+Yuhong Dai (Chinese Academy of Sciences, China) \\[5mm]
+
+Masao Fukushima (Kyoto University, Japan) \\[5mm]
+
+Huilai Li (Jilin University, China) \\[5mm]
+
+Yong Li (Jilin University, China) \\[5mm]
+
+Xin Liu (Chinese Academy of Sciences, China) \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China) \\[10mm]
+
+{\Large \bf Scientific Committee} \\[5mm]
+
+Qun Lin (Chinese Academy of Sciences, China) \\[5mm]
+
+Yinyu Ye (Stanford University, U.S.) \\[5mm]
+
+Yaxiang Yuan (Chinese Academy of Sciences, China)
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\normalsize
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\textwidth=15cm
+%\textheight=22cm
+%\oddsidemargin=1.0cm
+%\evensidemargin=1.0cm
+%\topmargin=-0.25in
+%%\parskip=3mm
+%\oddsidemargin0pt
+%%\openup 2\jot
+%%\pagestyle{empty }
+%%\input{latexhead}
+%\oddsidemargin0pt \evensidemargin0pt \topmargin0pt
+%%\pagenumbering{roman}
+%%\setcounter{page}{3}
+%
+%\newdimen\muluwidth
+%\muluwidth=16cm
+%\advance\muluwidth by -8mm
+%\def\bk{\hspace*{1.2cm}}
+%
+%\def \fh{\dotfill \hbox{} \\ \hbox{}}
+%\def \list#1#2{\par\vskip1mm \noindent \parbox[t]{7.5cm}{\small \bf #1:}
+% \hskip5mm
+%\parbox[t]{8.5cm}{\small #2
+%}\vskip3mm}
+%
+%%\\
+%%{\hskip10mm  \bf #2 {\LARGE \dotfill} #3 }}}
+% %    \hbox to 8mm{\hss #2}}
+%%
+%\newtheorem{assumption}{Assumption}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{definition}{Definition}[section]
+%%\newtheorem{assumption}{Assumption}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{exa}[theorem]{Example}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{center}
+%\Large\bf 9th International Conference on \\
+%Numerical Optimization and Numerical Linear Algebra\\
+%\rm (September 12-15, 2013, Changchun, Jilin, China)\\
+%
+%\medbreak
+%
+%\Large \it Conference Schedule
+%\end{center}
+%
+%\rm \normalsize \bigbreak\medbreak \vskip15mm \bigbreak\medbreak
+%\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\parbox[t]{5cm}{\underline{\bf  12 September,  Morning}}\hskip 2.2cm
+%\parbox[t]{10cm}{}
+%\vskip8mm \centerline{\bf 07:00-08:00, \ Breakfast} \vskip8mm
+%%\vskip10mm
+%%\centerline
+%\centerline{\bf  Opening Ceremony}\vskip4mm
+%
+%\list{\bf 08:00-08:15} {Welcome Address}
+%
+%\list{\bf 08:15-08:30} {Group Photo}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vskip8mm \centerline{\bf  Invited Talks (V1)} \vskip2mm
+%\centerline{\bf (Chair: Ya-xiang Yuan)} \vskip4mm
+%
+%\list{08:30-09:15,\ Liqun Qi} {Symmetric tensors}
+%
+%\list{09:15-10:00,\ Gianni Di Pillo} {A derivative-free approach to constrained global optimization based on non-differentiable exact penalty functions}
+%
+%\vskip8mm \centerline{\bf 10:00-10:20, \ Coffee Break} \vskip8mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\centerline{\bf Invited Talks (V2)} \vskip2mm \centerline{\bf
+%(Chair: Liqun Qi)} \vskip4mm
+%
+%\list{10:20-11:05,\ Hulin Wu}
+%{Nonlinear high-dimensional optimization problems in reverse engineering of biological systems}
+%
+%\list{11:05-11:50,\ Wotao Yin} {Distributed sparse optimization}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newpage
+%\centerline{\bf Penal Discussion (P1)} \vskip2mm \centerline{\bf
+%(Chair: Wotao Yin) } \vskip4mm
+%
+%\list{11:50-12:30,\ All particpants} {Open to all workshop related topics} \vskip8mm
+%
+%%\newpage
+%\vskip16mm \centerline{\bf 12:30-13:30,\quad Lunch} \vskip16mm
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\newpage
+%\noindent
+%\parbox[t]{5cm}{\underline{\bf 12 September, Afternoon}}\hskip 2.2cm
+%\hskip10mm\parbox[t]{10cm}{}
+%\vskip10mm
+%
+%
+%
+%\centerline{\bf Contributed Talks (C1)} \vskip2mm \centerline{\bf
+%(Chair: Takashi Tsuchiya)} \vskip4mm
+%
+%\list{13:30-13:50,\ S. Jimenez} {A Quadratic Iterative Method to Compute Eigenvectors}
+%
+%\list{13:50-14:10,\ Wei Bian} {Complexity Analysis of Interior Point Algorithms for Non-Lipschitz and Nonconvex Minimization}
+%
+%\list{14:10-14:30,\ Lijun Liu} {Dual Purpose Subspace Tracking on Noncompact Stiefel Manifold}
+%
+%\list{14:30-14:50,\ Cong Sun} {Sum Rate Maximization Algorithms for MIMO Relay Networks in Wireless Communications}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\vskip8mm \centerline{\bf Contributed Talks (C2)} \vskip2mm \centerline{\bf
+%(Chair: Hulin Wu)} \vskip4mm
+%
+%\list{14:50-15:10,\ Mehiddin Al-Baali} {Reducing the number of updates for
+%the limited memory quasi-Newton methods}
+%
+%\list{15:10-15:30,\ Zhouhong Wang} {On the Convergence Order of the Central Path for Second Order Cone Optimization}
+%
+%\list{15:30-15:50,\ Zhi-Feng Pang} {Data Clustering Based On The Total Variation Energy Functional}
+%
+%\vskip8mm \centerline{\bf 15:50-16:10, \ Coffee Break} \vskip8mm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newpage \centerline{\bf Contributed Talks (C3)} \vskip2mm
+%\centerline{\bf (Chair: Yangfeng Su) } \vskip4mm
+%
+%
+%\list{16:10-16:30,\ Yong Xia} {On Minimizing the Ratio of Quadratic Functions over an Ellipsoid}
+%
+%\list{16:30-16:50,\ Shaohua Pan} {Multi-stage Convex Relaxation Approach for PSD Structured Low-rank Optimization Problems}
+%
+%\list{16:50-17:10,\ Hailin Sun} {Regularized Mathematical Programs with Stochastic Equilibrium Constraints: Estimating Structural Demand Models}
+%
+%\list{17:10-17:30,\ Yanfang Zhang} {Regularizations for Stochastic Linear Variational Inequalities}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\vskip8mm \centerline{\bf Contributed Talks (C4)} \vskip2mm \centerline{\bf
+%(Chair: Xin Liu) } \vskip4mm
+%
+%\list{17:30-17:50,\ Zaikun Zhang} {A Subspace Decomposition Framework for Nonlinear Optimization}
+%
+%\list{17:50-18:10,\ Shujun Bi} {Multi-stage Convex Relaxation for Rank Regularized
+%Minimization Problem}
+%
+%\list{18:10-18:30,\ Tianxiang Liu} {A Node-based SDP Relaxation Approach for Sensor
+%Network Localization}
+%
+%\list{18:30-18:50,\ Qian Dong} {TBA}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vskip16mm \centerline{\bf 18:50-20:30,\quad Dinner} \vskip16mm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+%\parbox[t]{5cm}{\underline{\bf  13 September,  Morning}}\hskip 2.2cm
+%\parbox[t]{10cm}{}
+%\vskip8mm \centerline{\bf 07:00-08:00, \ Breakfast} \vskip10mm
+%%\vskip10mm
+%%\centerline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\vskip8mm
+%\centerline{\bf  Invited Talks (A3)} \vskip2mm \centerline{\bf
+%(Chair: Yuhong Dai)} \vskip4mm
+%
+%\list{08:00-08:45,\ Zhaojun Bai}{Recent advances in variational principles
+%and the steepest descent type methods for matrix eigenvalue problems}
+%
+%\list{08:45-09:30,\ Andreas Griewank}{Representation and analysis of
+%continuous piecewise linear functions in abs-normal form}
+%
+%\list{09:30-10:15,\ Zaiwen Wen} {Algorithms for eigenvalue optimization}
+%
+%\vskip8mm \centerline{\bf 10:15-10:30, \ Coffee Break} \vskip8mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \centerline{\bf Contributed Talks (C5)} \vskip2mm \centerline{\bf
+%(Chair: Zhaojun Bai)} \vskip4mm
+%
+%\list{10:30-10:50,\ Wenwen Zhou} {A modified Primal-dual Augmented Lagrangian Method for Large Scale Nonlinear Optimization}
+%
+%\list{10:50-11:10,\ Yilun Wang} {SOARS:  Statistical and Optimization Analysis and Response Surfaces for Computationally Expensive Models}
+%
+%\list{11:10-11:30,\ Yuan Shen} {Partial Convolution for Total Variation Problem by Augmented Lagrangian-based Proximal Point Descent Algorithm}
+%
+%\list{11:30-11:50,\ Xin Liu} {Symmetric Low-Rank Product
+%Matrix Approximation and Gauss Newton Method}
+%
+%
+%\vskip8mm \centerline{\bf Penal Discussion (P2)} \vskip2mm \centerline{\bf
+%(Chair: Zaiwen Wen) } \vskip4mm
+%
+%\list{11:50-12:30,\ All particpants} {Open to all workshop related topics} \vskip8mm
+%
+%%\newpage
+%\vskip16mm \centerline{\bf 12:30-13:30,\quad Lunch} \vskip16mm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\newpage
+%\noindent
+%\parbox[t]{5cm}{\underline{\bf 13 September, Afternoon}}\hskip 2.2cm
+%\hskip10mm\parbox[t]{10cm}{}
+%\vskip10mm
+%
+%
+%\centerline{\bf Invited Talks (A4)} \vskip2mm \centerline{\bf
+%(Chair: Gianni Di Pillo)} \vskip4mm
+%
+%\list{13:30-14:15,\ Xiaoling Sun} {Optimization with semi-continuous variables}
+%
+%\list{14:15-15:00,\ Chao Yang} {Numerical algorithms for energy minimization
+%in electronic structure calculation}
+%
+%%\newpage
+%\vskip8mm \centerline{\bf Contributed Talks (C6)} \vskip2mm
+%\centerline{\bf (Chair: Xiaoling Sun) } \vskip4mm
+%
+%
+%\list{15:00-15:20,\ Zi Xu} {Joint User Grouping and Linear Virtual Beamforming: Complexity,
+%Algorithms and Approximation Bounds}
+%
+%\list{15:20-15:40,\ Geovani Nunes Grapiglia} {A Derivative-Free Trust-Region Algorithm for Composite Nonsmooth Optimization}
+%
+%\list{15:40-16:00,\ Shuxiong Wang} {TBA}
+%
+%
+%\vskip8mm \centerline{\bf 16:00-16:20, \ Coffee Break} \vskip8mm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\centerline{\bf Contributed Talks (C7)} \vskip2mm \centerline{\bf
+%(Chair: Chao Yang) } \vskip4mm
+%
+%\list{16:20-16:40,\ Shenglong Zhou} {New RIC Bounds vea $l_{q}$-minimization with $0 < q \leq 1$ in Compressed Sensing}
+%
+%\list{16:40-17:00,\ Ning Zheng} {Accelerated Modulus-based Matrix Splitting Iteration Methods for Linear Complementarity Problem}
+%
+%\list{17:00-17:20,\ Ya-Feng Liu} {Non-Convex $L_q$ Minimization: Complexity Analysis and A Potential Reduction Algorithm}
+%
+%\list{17:20-17:40,\ Fangfang Xu} {Covariance Matrix Estimation Using Factor Models  from Incomplete Information}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vskip8mm \centerline{\bf Contributed Talks (C8)} \vskip2mm \centerline{\bf
+%(Chair: Yafeng Liu) } \vskip4mm
+%
+%\list{17:40-18:00,\ Xiaochao Xiu} {Rank-one and Sparse Nonnegative Matrix Decomposition for Surveillance Video}
+%
+%\list{18:00-18:20,\ Chunfeng Cui}{Computing k Largest Eigenvalues of Supersymmetric Tensors}
+%
+%\list{18:20-18:40,\ Zhenli Sheng} {TBA}
+%
+%
+%\vskip16mm \centerline{\bf 18:40-21:00,\quad Conference Banquet} \vskip16mm
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+%\parbox[t]{5cm}{\underline{\bf  14 September,  Morning}}\hskip 2.2cm
+%\parbox[t]{10cm}{}
+%\vskip8mm \centerline{\bf 07:00-08:00, \ Breakfast} \vskip10mm
+%%\vskip10mm
+%%\centerline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\vskip8mm
+%\centerline{\bf  Invited Talks (A5)} \vskip2mm \centerline{\bf
+%(Chair: Andreas Griewank)} \vskip4mm
+%
+%\list{08:00-08:45,\ Takashi Tsuchiya} {A structural geometrical analysis of ill-conditioned
+%semidefinite programs}
+%
+%\list{08:45-09:30,\ Yangfeng Su} {Numerical methods for quadratic eigenvalue problems}
+%
+%\vskip8mm \centerline{\bf 09:30-09:55, \ Coffee Break} \vskip8mm
+%
+%\vskip16mm \centerline{\bf Excursion}
+%\vskip2mm \centerline{\bf 10:00,\quad Leave for Changbai Mountain}
+%\vskip2mm  \centerline{\bf (Estimated time of return Changchun: 21:00, September 15)} \vskip16mm
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{center}
+\rm \hypertarget{SCH}{\normalsize {\LARGE \bf The 9th International
+ Conference on Numerical Optimization and Numerical Linear Algebra \\[3mm]
+ {\sc September 12-15, 2013}\\[3mm]{\sc Changchun, Jilin, China}\\[7mm]Conference Schedule}} \vskip12mm
+\end{center}
+%
+%
+\newcommand{\whday}[1]{\begin{flushleft}
+{\Large \bf \underline{#1}}
+\end{flushleft}}
+
+\newcommand{\where}[1]{{(\bf#1)}}
+\newcommand{\chair}[1]{{\bf Chair:~#1}}
+%\newcommand{\chair}{Chair:~~~~~~~~~~~}
+\newenvironment{schedule}{\begin{eqlist}\large}{\end{eqlist}}
+\newenvironment{talks}{\begin{eqlist}\normalsize}{\end{eqlist}}
+\newcommand{\sitem}[2]{\item[\bf#1~]{\bf#2}}
+\newcommand{\talk}[3]{\item[\bf#1~]{\bf#2},~#3}
+
+\newcommand{\CONFV}{Cafeteria, Xiamen University}
+\newcommand{\CONFH}{Restaurant, Peony Wanpeng Hotel}
+
+
+\whday{September 12, Thursday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+\sitem{08:00-08:30}{Opening Ceremony}
+
+\begin{talks}
+\sitem{08:00-08:10}{Welcome Address}
+
+\sitem{08:10-08:30}{Group Photo}
+\end{talks}
+
+\sitem{08:30-10:00}{Invited Talks V1\\ \chair{Y.X. Yuan}}
+
+\begin{talks}
+\talk{08:30-09:15}{Liqun Qi} {Symmetric tensors}
+
+\talk{09:15-10:00}{Gianni Di Pillo} {A derivative-free approach to constrained global optimization based on non-differentiable exact penalty functions}
+\end{talks}
+
+\sitem{10:00-10:20} {Coffee Break}
+
+\sitem{10:20-11:50}{Invited Talks V2\\ \chair{Liqun Qi}}
+
+\begin{talks}
+\talk{10:20-11:05}{Hulin Wu}
+{Nonlinear high-dimensional optimization problems in reverse engineering of biological systems}
+\talk{11:05-11:50}{Wotao Yin} {Distributed sparse optimization}
+\end{talks}
+
+\sitem{11:50-12:30}{Penal Discussion P1\\ \chair{Wotao Yin}}
+
+\begin{talks}
+\talk{11:50-12:30}   {All participants} {Open to all workshop related topics}
+\end{talks}
+
+\sitem{12:30-13:30}{Lunch} %\where{\CONFV}}
+
+\sitem{13:30-14:50}{Contributed Talks C1\\ \chair{Takashi Tsuchiya}}
+
+\begin{talks}
+\talk{13:30-13:50}   {S. Jimenez} {A Quadratic Iterative Method to Compute Eigenvectors}
+
+\talk{13:50-14:10}   {Wei Bian} {Complexity Analysis of Interior Point Algorithms for Non-Lipschitz and Nonconvex Minimization}
+
+\talk{14:10-14:30}   {Lijun Liu} {Dual Purpose Subspace Tracking on Noncompact Stiefel Manifold}
+
+\talk{14:30-14:50}   {Cong Sun} {Sum Rate Maximization Algorithms for MIMO Relay Networks in Wireless Communications}
+\end{talks}
+
+
+\sitem{13:30-14:50}{Contributed Talks C2\\ \chair{Hulin Wu}}
+
+\begin{talks}
+\talk{14:50-15:10}   {Mehiddin Al-Baali} {Reducing the number of updates for
+the limited memory quasi-Newton methods}
+
+\talk{15:10-15:30}   {Zhouhong Wang} {On the Convergence Order of the Central Path for Second Order Cone Optimization}
+
+\talk{15:30-15:50}   {Zhi-Feng Pang} {Data Clustering Based On The Total Variation Energy Functional}
+\end{talks}
+
+
+\sitem{15:50-16:10} {Coffee Break}
+
+\sitem{16:10-17:30} {Contributed Talks C3\\ \chair{Yangfeng Su}}
+
+\begin{talks}
+\talk{16:10-16:30}  {Yong Xia} {On Minimizing the Ratio of Quadratic Functions over an Ellipsoid}
+
+\talk{16:30-16:50}  {Shaohua Pan} {Multi-stage Convex Relaxation Approach for PSD Structured Low-rank Optimization Problems}
+
+\talk{16:50-17:10}  {Hailin Sun} {Regularized Mathematical Programs with Stochastic Equilibrium Constraints: Estimating Structural Demand Models}
+
+\talk{17:10-17:30}  {Yanfang Zhang} {Regularizations for Stochastic Linear Variational Inequalities}
+\end{talks}
+
+
+
+\sitem{17:30-18:50} {Contributed Talks C4\\ \chair{Xin Liu}}
+
+\begin{talks}
+\talk{17:30-17:50}  {Zaikun Zhang} {A Subspace Decomposition Framework for Nonlinear Optimization}
+
+\talk{17:50-18:10}  {Shujun Bi} {Multi-stage Convex Relaxation for Rank Regularized
+Minimization Problem}
+
+\talk{18:10-18:30}  {Tianxiang Liu} {A Node-based SDP Relaxation Approach for Sensor
+Network Localization}
+
+\talk{18:30-18:50}  {Qian Dong} {A Distributed Quasi-Newton Method for Data Fitting Problem}
+\end{talks}
+
+
+
+
+\sitem{18:50} {Dinner}% \where{\CONFH}}
+
+\end{schedule}
+
+\np
+
+\whday{September 13, Friday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+
+\sitem{08:00-10:15}{Invited Talks V3\\ \chair{Yuhong Dai}}
+\begin{talks}
+\talk{08:00-08:45}{Zhaojun Bai}{Recent advances in variational principles
+and the steepest descent type methods for matrix eigenvalue problems}
+
+\talk{08:45-09:30}{Andreas Griewank}{Representation and analysis of
+continuous piecewise linear functions in abs-normal form}
+
+\talk{09:30-10:15}{Zaiwen Wen} {Algorithms for eigenvalue optimization}
+\end{talks}
+
+\sitem{10:15-10:30} {Coffee Break}
+
+
+\sitem{10:30-11:50} {Contributed Talks C5\\ \chair{Zhaojun Bai}}
+
+\begin{talks}
+\talk{10:30-11:50}  {Wenwen Zhou} {A modified Primal-dual Augmented Lagrangian Method for Large Scale Nonlinear Optimization}
+
+\talk{10:50-11:10}  {Yilun Wang} {SOARS:  Statistical and Optimization Analysis and Response Surfaces for Computationally Expensive Models}
+
+\talk{11:10-11:30}  {Yuan Shen} {Partial Convolution for Total Variation Problem by Augmented Lagrangian-based Proximal Point Descent Algorithm}
+
+\talk{11:30-11:50}  {Xin Liu} {Symmetric Low-Rank Product
+Matrix Approximation and Gauss Newton Method}
+\end{talks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sitem{11:50-12:30}{Penal Discussion P1\\ \chair{Zaiwen Wen}}
+
+\begin{talks}
+\talk{11:50-12:30}   {All participants} {Open to all workshop related topics}
+\end{talks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\sitem{12:30-13:30}{Lunch}% \where{\CONFV}}
+
+
+\sitem{13:30-15:00}{Invited Talks V4\\ \chair{Gianni Di Pillo}}
+\begin{talks}
+\talk{13:30-14:15}{Xiaoling Sun} {Optimization with semi-continuous variables}
+
+\talk{14:15-15:00}{Chao Yang} {Numerical algorithms for energy minimization
+in electronic structure calculation}
+\end{talks}
+
+
+
+\sitem{15:00-16:00}{Contributed Talks C6\\ \chair{Xiaoling Sun}}
+
+\begin{talks}
+\talk{15:00-15:20}   {Zi Xu} {Joint User Grouping and Linear Virtual Beamforming: Complexity,
+Algorithms and Approximation Bounds}
+
+\talk{15:20-15:40}   {Geovani Nunes Grapiglia} {A Derivative-Free Trust-Region Algorithm for Composite Nonsmooth Optimization}
+
+\talk{15:40-16:00}   {Shuxiong Wang} {Feasible Method for Semi-Infinite Programming}
+
+\end{talks}
+
+\sitem{16:00-16:20} {Coffee Break}
+
+\sitem{16:20-17:40} {Contributed Talks C7\\ \chair{Chao Yang}}
+
+\begin{talks}
+\talk{16:20-16:40}   {Shenglong Zhou} {New RIC Bounds vea $l_{q}$-minimization with $0 < q \leq 1$ in Compressed Sensing}
+
+\talk{16:40-17:00}   {Ning Zheng} {Accelerated Modulus-based Matrix Splitting Iteration Methods for Linear Complementarity Problem}
+
+\talk{17:00-17:20}   {Ya-Feng Liu} {Non-Convex $L_q$ Minimization: Complexity Analysis and A Potential Reduction Algorithm}
+
+\talk{17:20-17:40}   {Fangfang Xu} {Covariance Matrix Estimation Using Factor Models  from Incomplete Information}
+\end{talks}
+
+
+
+\sitem{17:40-18:40}{Contributed Talks C8\\ \chair{Yafeng Liu}}
+
+\begin{talks}
+\talk{17:40-18:00}   {Xiaochao Xiu} {Rank-one and Sparse Nonnegative Matrix Decomposition for Surveillance Video}
+
+\talk{18:00-18:20}   {Chunfeng Cui}{Computing k Largest Eigenvalues of Supersymmetric Tensors}
+
+\talk{18:20-18:40}   {Zhenli Sheng} {A Buildup-based Error Minimization Method with Application to Protein Structure Determination}
+
+\end{talks}
+
+\sitem{18:40-21:00} {Conference Banquet \where{\CONFH}}
+
+\end{schedule}
+
+\np
+
+\whday{September 14, Saturday}
+
+\setlength{\itemsep}{10mm}
+
+\begin{schedule}
+
+\sitem{08:00-9:30}{Invited Talks V5\\ \chair{ Andreas Griewank}}
+\begin{talks}
+\talk{08:00-08:45}{Takashi Tsuchiya} {A structural geometrical analysis of ill-conditioned
+semidefinite programs}
+
+\talk{08:45-09:30}{Yangfeng Su} {Numerical methods for quadratic eigenvalue problems}
+
+\end{talks}
+
+%\sitem{10:30-10:50} {Coffee Break}
+%
+%\sitem{10:50-12:30}{Invited Talks V6\\ \chair{O. Burdakov}}
+%\begin{talks}
+%\talk{10:50-11:40}{T. Koch}{What Could a Million CPUs Do to Solve
+%Integer Programs?}
+%
+%\talk{11:40-12:30}{H.C. Zhang}{ A $C^0$ Interior Penalty Method for
+%the Fourth Order Obstacle Problem with Nonhomogeneous Dirichlet
+%Boundary}
+%\end{talks}
+%
+%\sitem{12:30-14:00}{Lunch \where{\CONFV}}
+%
+%\sitem{14:00-16:00}{Contributed Talks C6\\ \chair{R. Chan}}
+%
+%\begin{talks}
+%\talk{14:00-14:20}   {G.L. Yuan} {Analysis of Conjugate Gradient for
+%Nonsmooth Problems}
+%
+%\talk{14:20-14:40}   {Z.Y. Huang} {Explicit Resolvent Numerical
+%Methods for Systems of General Variational Inclusions}
+%
+%\talk{14:40-15:00}   {X.F. Wang} {The Linearized Alternating
+%Direction Method for Dantzig Selector}
+%
+%\talk{15:00-15:20}   {L.Y. Yuan} {A Novel Filled Function Method for
+%Nonlinear Equations}
+%
+%\talk{15:20-15:40}   {T. Sun} {Adaptive Surface-related Multiple
+%Substraction Using Sparseness Norm Method}
+%
+%\talk{15:40-16:00}   {C. Sun} {A Hybrid Algorithm for Power
+%Maximization Interference Alignment Problem of MIMO Channels}
+%\end{talks}
+%
+%\sitem{16:00-16:20} {Coffee Break}
+%
+%\np
+%
+%\sitem{16:20-18:00} {Contributed Talks C7\\ \chair{X. Liu}}
+%
+%\begin{talks}
+%
+%\talk{16:20-16:40}   {Z.J. Bai} {Nonnegative Inverse Eigenvalue
+%Problems with Partial Eigendata}
+%
+%\talk{16:40-17:00}   {Y.F. Zhang} {Stochastic Variational
+%Inequalities: Residual Minimization Smoothing/Sample Average
+%Approximations}
+%
+%\talk{17:00-17:20}   {X.L. Fu} {A Self-adaptive Relaxed-PPA
+%Contraction Method for Convex Programming with Linear Constraints}
+%
+%\talk{17:20-17:40}   {H.L. Sun} {Approximations of Joint Chance
+%Constrained Optimization Problems}
+%
+%\talk{17:40-18:00}   {L.Q. Wu} {A New Solution Concept in a 3-player
+%Cooperative Game}
+%
+%\end{talks}
+
+\sitem{9:30-9:55} {Coffee Break}
+\vskip16mm \centerline{\bf Excursion}
+\vskip2mm \centerline{\bf 10:00,\quad Leave for Changbai Mountain}
+\vskip2mm  \centerline{\bf (Estimated time of return Changchun: 21:00, September 15)} \vskip16mm
+%\sitem{18:00-18:10} {Closing Ceremony}
+%
+%\sitem{18:30} {Conference Banquet}
+
+\end{schedule}
+
+%\np
+
+%\whday{November 10, Thursday}
+%\begin{schedule}
+%\sitem{8:00} {Start from the Conference Hotel}
+%
+%\sitem{} {Fujian Tulou - whole day excursion}
+%
+%\sitem{18:30} {Dinner \where{\CONFH}}
+%
+%\end{schedule}
+%\bigskip
+%
+%\whday{November 11, Friday}
+%\begin{schedule}
+%\sitem{8:00} {Start from the Conference Hotel}
+%
+%\sitem{} {Gulangyu Island - half day excursion}
+%
+%\sitem{12:30} {Lunch \where{\CONFH}}
+%
+%\end{schedule}
+
+%add contents
+ \clearpage
+ \hypertarget{ABS}{}\tableofcontents
+ \clearpage
+
+
+%begin abstract
+\mainmatter
+
+
+%Invited talks
+\part{Invited Talks}
+%\clearpage
+
+%--------------------------------------------------------------1
+%--------------------------------------------------------------1
+\bc \subj{Recent Advances in Variational Principles and
+The Steepest Descent Type Methods for Matrix Eigenvalue Problems}
+\bb\name{Zhaojun Bai} \ec\bb\bb
+
+The variational principles, such as minimax principle andtrace min principle, are of great importance in theoryand computation of Hermitian eigenvalue problem. In this talk,we begin with recent results on the extension of theseprinciples beyond Hermitian eigenvalue problem. Thenwe focus on the application of newly established principlesin the development of the steepest descent and conjugate gradienttype methods for ill-conditioned generalized Hermitian eigenvalueproblems, and linear response eigenvalue problems arisingfrom the density functional theory (DFT) and time-dependent DFTin computational material science.\\
+
+This is a joint work with Yunfeng Cai,  Ren-cang Li,Dario Rocca and Giulia Galli.
+
+
+\tcont{Recent Advances in Variational Principles and
+The Steepest Descent Type Methods for Matrix Eigenvalue Problems}{Zhaojun Bai}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{A derivative-free approach to constrained global optimization based on non-differentiable
+exact penalty functions}
+\bb\name{Gianni Di Pillo} \ec
+
+
+In the field of global optimization many efforts have been devoted to globally solving bound constrained optimization
+problems $\{\min f(x), \ l\le x \le u,\ x, l, u \in \Re^n$, $f:\Re^n \rightarrow \Re\}$ without using the derivatives
+of $f$. In this talk we show how derivative-free bound constrained global optimization methods can be used for globally
+solving optimization problems where also general constraints $\{g(x)\le 0, g:\Re^n\rightarrow\Re^p\}$ are present,
+without using neither the derivatives of $f$ nor the derivatives of $g$. This is of great practical importance in many
+real-world problems where only problem functions values are available.  To our aim we make use of a non-differentiable
+exact penalty function $P_q(x;\varepsilon)$. We exploit the property that, under weak assumptions, there exists a
+threshold value $\bar \varepsilon>0$ of the penalty parameter $\varepsilon$ such that, for any $\varepsilon \in (0,
+\bar \varepsilon]$, any unconstrained global minimizer of $P_q$ is a global solution of the related constrained problem
+and conversely. On these bases, we describe an algorithm that combines a derivative-free bound constrained global
+minimization technique for minimizing $P_q$ for given values of $\varepsilon$ and a derivative-free automatic rule for
+updating $\varepsilon$ that acts only a finite number of times. We prove that the algorithm produces a sequence
+$\{x_k\}$ such that any limit point of the sequence is a global solution of the general constrained problem. In the
+algorithm any efficient derivative-free bound constrained global minimization technique can be used. In particular, we
+adopt an improved version of the DIRECT algorithm. In addition, to improve the performance, the approach is enriched by
+resorting to local searches, in a multistart framework, based on the proof that for every global minimum point there
+exists a neighborhood of attraction for the local search. Some numerical experimentation confirms the effectiveness of
+the approach.\\
+
+Joint work with Stefano Lucidi, Francesco Rinaldi.
+
+\tcont{A derivative-free approach to constrained global optimization based on non-differentiable
+exact penalty functions}{Gianni Di Pillo}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+\bc \subj{Representation and Analysis of Continuous Piecewise Linear Functions in Abs-normal Form} \bb\name{Andreas Griewank} \ec\bb\bb
+
+It follows from the well known min/max representation given by Scholtes
+in his recent Springer book, that all piecewise linear continuous
+functions \(y = F(x) : \R^n \to \R^m\)  can be written in a so-called abs-normal
+Form.
+
+This means in particular, that all nonsmoothness is encapsulated in s absolute
+value functions that are applied to intermediate switching variables \(z_i\)
+for \(i=1 \hdots s\). The relation between the vectors \(x, z\)$, and $\(y\) is described by
+four matrices \(Y, L, J\), and \(Z\), s.t.
+\[
+\left(\begin{matrix} z \\ y  \end{matrix}\right) = \left(\begin{matrix} b \\ c \end{matrix}\right)  + \left(\begin{matrix} Z & L \\ J & Y \end{matrix}\right)  \left(\begin{matrix} x \\ |z| \end{matrix}\right)
+\]
+which can be generated by ADOL-C or other
+Automatic Differentation Tools. Hence L is a  lower triangular matrix, and therefor \(
+z_i\) can be computed successive from previous results.
+We show that in the square case n=m the system of equations F(x) = 0 can
+be rewritten in terms of the variable vector z as a linear
+complementarity problem. The transformation itself and the properties of
+the LCP depend on the Schur complement \(S = L - Z J^{-1} Y\). We discuss
+associated linear algebra computations and highlight various theoretical
+and numerical effects via examples.
+
+
+
+
+\tcont{Representation and Analysis of Continuous Piecewise Linear Functions in Abs-normal Form}{Andreas Griewank}
+
+\np
+
+
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+\bc \subj{Theory of Tensors (Hypermatrices)} \bb\name{Liqun Qi} \ec\bb\bb
+
+A matrix is an $m \times n$ array of real or complex numbers. The study of matrices has
+long been a fundamental tool in mathematical disciplines and many application fields.
+A tensor (hypermatrix) is an $n_1 \times ... \times n_m$ array of real or complex numbers. In the
+recent years, several important concepts of matrices, such as eigenvalues, eigenvectors,
+ tensors (hypermatrices) and studied extensively. They have been applied or linked
+to some related areas such as tensor approximation, tensor decomposition, higher
+order tensor magnetic resonance imaging and spectral hypergraph theory, blind source
+separation, tensor principal component analysis, etc. It is now a time to make tensor
+(hypermatrix) theory a mathematical discipline, a useful tool for the above mentioned
+areas, and a base of tensor theory. Here, the last term tensor" is in the sense of
+geometry or physics.\\
+
+Some important concepts of matrices, such as the inverse, can be extended to
+even-order tensors (hypermatrices), when the tensors (hypermatrices) are treated as
+matrices. On the other hand, some concepts of matrices, can have more than one
+natural extensions in tensors (hypermatrices), such as eigenvalues can be extended to
+eigenvalues or E-eigenvalues, irreducible matrices can be extended to irreducible ten-
+sors or weakly irreducible tensors, symmetric matrices can be extended to symmetric
+tensors or strongly symmetric tensors, etc. Thus, tensor (hypermatrix) theory is rich
+to be studied and explored.\\
+
+In this talk, I intend to review these issues and the scope of the theory of tensors
+(hypermatrices).
+
+\tcont{Theory of Tensors (Hypermatrices)}{Liqun Qi}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{Numerical Methods for Quadratic Eigenvalue Problems} \bb\name{Yangfeng Su} \ec\bb\bb
+
+Quadratic eigenvalue problems (QEPs) appear in almost all vibration analysis of systems, such as buildings, circuits, acoustic structures, and so on. Conventional numerical method for QEPs is to linearize a QEP as a doublly-sized generalized eigenvalue problem (GEP), then call a linear eigen-solver to solve the GEP, e.g. the QZ algorithm for dense GEP, the IRA (implicitly restarted Arnoldi method) for sparseGEP. This method may encounter two difficulties. The first one is that although the linear eigen-solver is good, the eigen-solutions for the original QEP may be bad, in sense of condition number and backward error. The second is that the linearized GEP has its own structure, and the structure is not explorered in a general linear eigen-solver.\\
+
+In this talk, we will review recent advances of numerical methods for QEPs.
+
+\tcont{Numerical Methods for Quadratic Eigenvalue Problems}{Yangfeng Su}
+
+\np
+
+
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+
+
+\bc \subj{Optimization with Semi-Continuous Variables} \bb\name{Xiaoling Sun}
+\ec\bb\bb
+
+In many real-world applications of optimization models, the decision variables often have to take certain minimum positive values if they are nonzero, due to managerial and technological considerations. Such variables are called semi-continuous variables.  For instance, in the production planning problems, the semi-continuous variables can be used to describe the state of a production process that is either turned off (inactive),
+hence nothing is produced, or turned on (active) such that the amount of the production has to  lie in certain interval. Optimization problems with semi-continuous variables  can be modeled as mixed-integer programs with special
+structures and are in general NP-hard.\\
+
+In this talk, we discuss some recent developments for this class of challenging optimization problems. Our focuses are on efficient MIQP reformulations using SDP and SOCP techniques. In particular, we discuss the relations between perspective reformations and Lagrangian decomposition of the problems. A new lift-and-convexification approach will be also presented. We also report some computational results for different convex reformulations for test problems from portfolio selection, subset selection and compressed sensing.
+
+\tcont{Optimization with Semi-Continuous Variables}{Xiaoling Sun}
+
+\np
+
+
+
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+
+
+\bc \subj{A structural geometrical analysis of ill-conditioned semidefinite programs}
+\bb\name{Takashi Tsuchiya} \ec\bb\bb
+
+While linear programming and semidefinite programing have many nice propertiesin common, they can be quite different in the absence of interior-feasibility.  In particular, the existence of weak infeasibility and finite duality gap is oneof the major difficulties in semidefinite programming.In this talk, we develop a geometrical analysis of ill-conditioned semidefinite programs to shed new light on their common structures.\\
+
+This is a joint work with Bruno F. Louren\c{c}o of Tokyo Institute of Technology and Masakazu Muramatsu of the University of Electro-Communications.
+
+\tcont{A structural geometrical analysis of ill-conditioned semidefinite programs}{Takashi Tsuchiya}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+%\def\RR{{\cal R}}
+%\def\XX{{\cal X}}
+%\def\vlam{\underline{\lambda}}
+%\def\vnab{\underline{\nabla}}
+%\def\vx{\underline{x}}
+%\bc \subj{The Lagrange Method and SAO with Bounds on the Dual
+%Variables} \bb\name{M.J.D. Powell} \ec\bb\bb
+%
+%In the Lagrange method for constrained optimization, estimates of
+%the Lagrange multipliers (dual variables), $\vlam  \!\in\! \RR^m$
+%say, are adjusted in an outer iteration, and the Lagrange function
+%$L ( \vx, \vlam )$, $\vx \!\in\! \XX$, is minimized for each
+%$\vlam$, where $\vx \!\in\! \RR^n$ is the vector of primal
+%variables, and where $\XX$ is a prescribed compact subset of
+%$\RR^n$. Let $\phi ( \vlam )$ be the least value of $L ( \cdot,
+%\vlam )$. Assuming only that all functions are continuous, it is
+%proved that $\phi ( \vlam )$, $\vlam \!\in\! \RR^m$, is concave.
+%Further, if the minimizer of $L ( \cdot, \vlam )$ is unique, then
+%$\phi ( \vlam )$ is differentiable at $\vlam \!\in\! \RR^m$, the
+%components of $\vnab \phi ( \vlam )$ being values of the constraint
+%functions. These properties, and some difficulties that occur when
+%the minimizer of $L ( \vx, \vlam )$, $\vx \!\in\! \XX$, is not
+%unique, are illustrated by an example that has two variables and one
+%equality constraint.
+%
+%The name SAO stands for Sequential Approximate Optimization. Now
+%quadratic approximations are made to the objective and constraint
+%functions of the given calculation, and the method above is applied
+%using these approximations instead of the original functions, the
+%approximations being updated in an outermost iteration. They have
+%diagonal second derivative matrices, in order that minimizing every
+%$L ( \cdot, \vlam )$ is easy, which allows $n$ to be huge. The
+%quadratic constraints are often inconsistent, however, so the bounds
+%$\| \vlam \|_{\infty} \!\leq\! \Lambda$ may be imposed for some
+%constant $\Lambda$. It is proved that, if $\vlam$ maximizes $\phi (
+%\vlam )$ subject to $\| \vlam \|_{\infty} \!\leq\! \Lambda$, and if
+%a unique vector $\vx ( \vlam ) \!\in\! \XX$ minimizes $L ( \cdot,
+%\vlam )$, then $\vx ( \vlam )$ minimizes the objective function plus
+%$\Lambda$ times the $L_1$ norm of the violations of the current
+%constraints. This result is highly useful for controlling the
+%updating of the quadratic approximations in the outermost iteration
+%of the SAO method.
+%
+%\tcont{The Lagrange Method and SAO with Bounds on the Dual
+%Variables}{M.J.D. Powell}
+%
+%\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{Algorithms for Eigenvalue Optimization}
+\bb\name{Zaiwen Wen} \ec\bb\bb
+
+Eigenvalue computation has been a fundamental algorithmic component for solving semidefinite programming, low-rank matrix optimization, sparse principal component analysis, sparse inverse covariance matrix estimation, the total energy minimization in electronic structure calculation, and many other data-intensive applications in science andengineering. This talk will present a few recent advance on both linear and nonlinear eigenvalue optimization.
+
+\tcont{Algorithms for Eigenvalue Optimization}{Zaiwen Wen}
+
+\np
+
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{Nonlinear High-Dimensional Optimization Problems in Reverse Engineering of Biological Systems} \bb\name{Hulin Wu} \ec\bb\bb
+
+The cutting-edge and innovative biomedical technologies now are available to produce huge amount of high-throughput and high-resolution complex data to gain insight of a biological system. Recently many new quantitative and computational sciences such as bioinformatics, systems biology and Big Data science have evolved from various disciplines to become major tools to deal with the complex data in biomedical research. A great challenge is to integrate the multi-scale and multi-level high-dimensional data to understand the biological systems and their interactions in a quantitative and dynamic way. In order to quantify a biological system, it is necessary to reverse engineer a mathematical model such as differential equation models based on the high-dimensional and complex experimental data, which usually requires to optimize a nonlinear high-dimensional objective function derived from statistical concepts and methods. This is very challenging from both computational and theoretical perspectives. Computationally it is not an easy task to optimize a nonlinear objective function of a high-dimensional matrix (model parameters) with complex constraints. Theoretically it is not easy to establish the algorithm convergence results since it requires to consider numerical error (deterministic), model approximation error (deterministic), and data noise (random). I will use gene regulatory network modeling as an example to propose these complex optimization problems and issues. Some initial ideas will be proposed to potentially address these problems.
+
+
+\tcont{Nonlinear High-Dimensional Optimization Problems in Reverse Engineering of Biological Systems}{Hulin Wu}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{Numerical Algorithms for Energy Minimization in Electronic Structure Calculation} \bb\name{Chao Yang} \ec\bb\bb
+
+In Kohn-Sham density functional theory based electronic structure calculation, the ground-state energy of a multi-electron system can be obtained by minimizing the Kohn-Sham total energy functional over a manifold of orthonormal single-particle wavefunctions. One may solve the constrained minimization problem directly, or seek a solution that satisfies the first order necessary condition, which defines a set of nonlinear eigenvalue problems and a fixed point mapthat takes the ground-state electron density to itself. For metallic systems at a non-zero temperature, the Mermin free energy functional is a more suitable objective function to minimize.This functional contains an extra entropy term.  As a result, its first order necessary condition contains an additional equation that defines the chemical potential and occupation numbers for all eigenstates. For this type of problem, the widely used self-consistent field (SCF) iteration seeks the solution to two sets of equations in an alternating fashion. However, it is not clear yet whether an alternating direction method is effective when we try to minimize the Mermin free energy directly. We will examine this problem in detail.
+
+\tcont{Numerical Algorithms for Energy Minimization in Electronic Structure Calculation}{Chao Yang}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+\bc \subj{Distributed Sparse Optimization}
+\bb\name{Wotao Yin} \ec\bb\bb
+
+Sparse optimization has found interesting
+applications in many data-processing areas such as
+compressed sensing, machine learning, signal
+processing, medical imaging, finance, etc. After
+reviewing compressed sensing and sparse
+optimization, this talk then introduces novel
+algorithms tailored for very large scale sparse
+optimization problems with very big data. Besides the
+typical complexity analysis, we analyze the overhead
+due to parallel and distributed computing. Numerical
+results are presented to demonstrate the scalability of
+the parallel codes for handling problems with
+hundreds of gigabytes of data under 2 minutes on the
+Amazon EC2 cloud computer.\\
+
+The work is joint with Zhimin Peng and Ming Yan.
+
+\tcont{Distributed Sparse Optimization}{Wotao Yin}
+
+\np
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+%\bc \subj{An Arnoldi-like Approach for Generalized Eigenvalue
+%Problems} \bb\name{Shao-Liang Zhang} \ec\bb\bb
+%
+%The Arnoldi was proposed to compute a few eigenpairs of large-scale
+%generalized eigenvalue problems. For the iterative computation of
+%eigenpairs, this method generates the basis of a subspace by solving
+%linear systems. This leads to considerable computation time for the
+%large-scale problems. In this talk, to reduce the computation
+%time,we try to propose an Arnoldi(M,W,G) approach based on the
+%Arnoldi method.
+%
+%\tcont{An Arnoldi-like Approach for Generalized Eigenvalue
+%Problems}{Shao-Liang Zhang}
+% \np
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%contributed talks
+\part{Contributed Talks}
+%\clearpage
+
+
+
+
+%--------------------------------------------------------------23
+%--------------------------------------------------------------23
+
+\bc \subj{Reducing The Number of Updates for
+The Limited Memory Quasi-Newton Methods}\bb\name{Mehiddin Al-Baali} \ec\bb\bb
+
+The limited-memory L-BFGS method of Nocedal for large-scale unconstrained optimization will be considered. On each iteration of this method a fixed number, say m, of updates is usually employed. Since the number of function and gradient evaluations required to solve an optimization problem is usually decreased, while the cost of updates is increased, as m increased, the choice of m plays an important role in practice. The possibility of defining m sufficiently large and employing a small number of updates in certain cases will be proposed on the basis of certain simple measures for Hessian approximations. We will focus on our recent damped technique, in modified quasi-Newton methods for unconstrained optimization, which extends that of Powell (1978) in the damped BFGS method for constrained optimization that uses Lagrange functions. Some numerical results will be described to show, in particular, that the proposed measures improve the performance of the L-BFGS method substantially when applied to certain unconstrained optimization problems. Since the damped technique enforces safely the positive definiteness property of any quasi-Newton update, other results will be presented.\\
+
+
+Keywords: Large-Scale Optimization, L-BFGS Method, Damped-Technique, Line Search Framework.
+
+\tcont{Reducing The Number of Updates for
+The Limited Memory Quasi-Newton Methods}{Mehiddin Al-Baali}
+
+\np
+
+%--------------------------------------------------------------1
+%--------------------------------------------------------------1
+
+\bc \subj{Multi-stage Convex Relaxation for Rank Regularized
+Minimization Problem}\bb\name{Shujun Bi}\ec\bb\bb
+In this talk, we introduce a multi-stage convex relaxation approach to the rank regularized problem with a certain ball constraint. Specifically, we first reformulate this nonconvex and nonsmooth problem as an equivalent continuous augmented optimization problem with a semi-bilinear equality constraint by a variational characterization of rank function, and then show that the penalty problem yielded by adding the semi-bilinear constraint to the objective is exact in the sense that it has the same global optimal solution set as the equivalent continuous augmented optimization problem. By solving the penalty problem in an alternating way, we propose a framework to design the multi-stage convex relaxation approach for the rank regularized problem. This class of approaches consist of solving a sequence of semi-nuclear norm convex regularized problems, and particularly includes the adaptive semi-nuclear norm method with a truncated technique （see Miao, Pan and Sun, 2013）. We apply the multi-stage convex relaxation approach to the rank regularized least square problem, and establish the error bound of the optimal solution of the $k$-th stage to the global optimal solution under some condition weaker than the RIP, which reveals that the proposed multi-stage convex relaxation approach is superior to the nuclear norm convex relaxation. Finally, numerical results are reported to illustrate the efficiency of the proposed method. \\
+
+Keywords: rank regularized problem; exact penalty; multi-stage convex relaxation; rank regularized least square.
+
+\tcont{Multi-stage Convex Relaxation for Rank Regularized
+Minimization Problem}{Shujun Bi}
+
+\np
+
+
+
+%--------------------------------------------------------------2
+%--------------------------------------------------------------2
+
+
+
+
+\bc \subj{Complexity Analysis of Interior Point Algorithms for Non-Lipschitz and Nonconvex Minimization}\bb\name{Wei Bian}\ec\bb\bb
+
+We propose a first order interior point algorithm for a class of non-Lipschitz and nonconvex minimization problems
+with box constraints, which arise from applications in variable selection and regularized optimization. The objective
+functions of these problems are continuously differentiable typically at interior points of the feasible set. Our
+first order algorithm is easy to implement and the objective function value is reduced monotonically along
+the iteration points. We show that the worst-case iteration complexity for finding an $\epsilon$ scaled first
+order stationary point is $O(\epsilon^{-2})$. Furthermore, we develop a second order interior point algorithm
+using the Hessian matrix, and solve a quadratic program with a ball constraint at each iteration. Although the
+second order interior point algorithm costs more computational time than that of the first order algorithm in
+each iteration, its worst-case iteration complexity for finding an $\epsilon$ scaled second order stationary
+point is reduced to $O(\epsilon^{-\frac{3}{2}})$. Note that an $\epsilon$ scaled second order stationary point
+must also be an $\epsilon$ scaled first order stationary point.\\
+
+
+This is a join work with Xiaojun Chen and Yinyu Ye.
+
+
+\tcont{Complexity Analysis of Interior Point Algorithms for Non-Lipschitz and Nonconvex Minimization} {Wei Bian}
+
+\np
+
+
+%--------------------------------------------------------------3
+%--------------------------------------------------------------3
+
+
+
+\bc \subj{Computing k Largest Eigenvalues of Supersymmetric Tensors}\bb\name{Chunfeng Cui
+}\ec\bb\bb
+
+A tensor is a multidimensional array. Computing the largest eigenvalue of super-symmetric tensors is equivalent to solving a constrained homogenous polynomial optimization problem. We put forward a new model for computing the k largest eigenvalues based on the exact Jacobian relaxation.
+　　Furthermore, it is well-known in numerical algebra that the k-largest eigenvectors and the best rank-k approximation of symmetric matrices are equivalent, yet it is not true for supersymmetric tensors. We will analysis different formulations in the tensor case. Some preliminary numerical results will be presented.\\
+
+This work is joint with Prof. Yu-Hong Dai and Prof. Jiawang Nie.
+ \tcont{Computing k Largest Eigenvalues of Supersymmetric Tensors}{Chunfeng Cui}
+
+\np
+
+%--------------------------------------------------------------13
+%--------------------------------------------------------------13
+
+\bc \subj{A Distributed Quasi-Newton Method for Data Fitting Problem}\bb\name{Qian Dong
+}\ec\bb\bb
+
+Many structured data-fitting applications require the solution of an optimization problem involving a sum over a potentially large number of measurements. We study a Quasi-Newton method that is distributed among the processors. The method involves every processor minimizing its own object function by a Quasi-Newton step while exchanging information locally with other processors in the network over a time-varying topology. Preliminary theoretical analysis and numerical experiments show that this method is promising.
+
+ \tcont{A Distributed Quasi-Newton Method for Data Fitting Problem}{Qian Dong}
+
+\np
+
+%--------------------------------------------------------------13
+%--------------------------------------------------------------13
+
+
+\bc \subj{A Derivative-Free Trust-Region Algorithm for Composite Nonsmooth Optimization}\bb\name{Geovani Nunes Grapiglia} \ec\bb\bb
+
+A derivative-free trust-region algorithm is proposed for minimizing the nonsmooth composite function $F(x)=h(f(x))$, where $f$ is smooth and $h$ is convex. This formulation includes pro\-blems of finding feasible points of nonlinear systems of inequalities (where $h(f)\equiv\|f^{+}\|_{p}$, with $f_{i}^{+}=\max\left\{f_{i},0\right\}$ and $1\leq p \leq+\infty$), finite minimax pro\-blems (where $h(f)\equiv\max_{1\leq i\leq m}f_{i}$), and best $L_{1}$, $L_{2}$ and $L_{\infty}$ approximation pro\-blems (where $h(f)\equiv\|f\|_{p}$, $p=1,2,\infty$). The algorithm combine ideas from Powell (1983), Yuan (1985) and Conn, Scheinberg and Vicente (2009). Under some conditions, global convergence results are given. Preliminary numerical tests indicate that the algorithm is promising.
+
+
+ \tcont{A Derivative-Free Trust-Region Algorithm for Composite Nonsmooth Optimization}{Geovani Nunes Grapiglia}
+
+\np
+
+
+
+%--------------------------------------------------------------16
+%--------------------------------------------------------------16
+
+\bc \subj{A Quadratic Iterative Method to Compute Eigenvectors}\bb\name{S. Jimenez} \ec\bb\bb
+
+We combine two iterative methods, a first one with linear convergence as a primer and a second one with quadratic convergence, and obtain an effectively quadratic iterative method that converges towards an eigenvector of a square matrix that corresponds to the eigenvalue with greater real part. The method can also be adjusted to converge towards eigenvectors of other eigenvalues.
+
+This is a joint work with L. Vazquez.
+
+ \tcont{A Quadratic Iterative Method to Compute Eigenvectors}{S. Jimenez}
+
+\np
+
+
+%--------------------------------------------------------------4
+%--------------------------------------------------------------4
+
+\bc \subj{Dual Purpose Subspace Tracking on Noncompact Stiefel Manifold}\bb\name{Lijun Liu}\ec\bb\bb
+
+Fast estimation and tracking of the principal or minor subspace of a sequence of random vectors is a major problem in many applications. Due to the numerical complexity of the task, eigenvalue decomposition (EVD) cannot be directly performed at every time step. This observation motivates research to find a way to recursively compute the subspace basis, which are usually formulated as optimization problems with orthogonality constraints. However, it is generally difficult to solve such optimization problems since the constraints can lead to many local minimizers and, in particular, several of these problems in special forms are NP-hard. Moreover, even generating a sequence of feasible points is not easy since preserving the orthogonality constraints can be numerically expensive.\\
+
+In this talk, we address the problem of subspace tracking for the principal subspace as well as the minor subspace in a dual learning style utilizing the geometric structure of Grassmann manifold. We restate the subspace tracking problem as an optimization of an extended Rayleigh Quotient on the noncompact Stiefel manifold. A dual purpose gradient procedure for the extended Rayleigh Quotient is obtained by introducing a Riemannian metric on the noncompact Stiefel manifold. Compared to the other subspace tracking algorithms, the proposed algorithm has demonstrated an increased stability, a low complexity and good performances.
+
+\tcont{Dual Purpose Subspace Tracking on Noncompact Stiefel Manifold}{Lijun Liu}
+
+\np
+
+
+
+%--------------------------------------------------------------14
+%--------------------------------------------------------------14
+
+\bc \subj{A Node-based SDP Relaxation Approach for Sensor Network Localization}\bb\name{Tianxiang Liu}\ec\bb\bb
+
+In this report we propose a new model to solve the sensor network localization problem. This method is based on the semidefinite programming (SDP) relaxation, which is actually a further relaxation of the node-based SDP, called RNSDP. To reduce problem scale, in the precondition, we use a trick of edge sparsification. After RNSDP, we use a gradient search method to refine the solution. Numerical results show the efficiency of this method for random produced medium-sized localization problems.
+
+\tcont{A Node-based SDP Relaxation Approach for Sensor Network Localization}{Tianxiang Liu}
+
+\np
+
+
+
+%--------------------------------------------------------------18
+%--------------------------------------------------------------18
+
+
+
+\bc \subj{Symmetric Low-Rank Product Matrix Approximation and Gauss Newton Method}
+\bb\name{Xin Liu} \ec\bb\bb
+
+We consider computing an eigenspace of an n by n symmetric matrix
+A corresponding to a set of k largest positive eigenvalues.
+We derive an efficient formula for applying the Gauss-Newton
+method to this problem, formulated as minimizing the Frobenius norm
+of A-XX’ where X is n by k and XX’ is called a symmetric low-rank
+product (SLRP). Preliminary numerical results are presented to demonstrate the potential of the algorithm in suitable applications.
+
+\tcont{Symmetric Low-Rank Product Matrix Approximation and Gauss Newton Method}{Xin Liu}
+
+\np
+
+
+%--------------------------------------------------------------18
+%--------------------------------------------------------------18
+
+
+\bc \subj{Non-Convex $L_q$ Minimization: Complexity Analysis and A Potential Reduction Algorithm}\bb\name{Ya-Feng Liu} \ec\bb\bb
+
+We consider the $L_q$ minimization problem: finding a minimizer of $\|\max\left\{b-Ax,0\right\}\|_q^q+c^Tx$ subject to $l\leq x\leq u$ for given $A\in\mathcal{R}^{m\times n}, b\in\mathcal{R}^m, c,l,u\in\mathcal{R}^n$ and the parameter $q\in(0,1).$ This problem can be regarded as a non-convex approximation of the sparse $L_0$ minimization problem, which finds a large number of applications such as wireless communications, signal processing, discriminant analysis, and machine learning. In this talk, we shall first give some exact recovery results, i.e., under which conditions, the solution of the $L_q$ minimization problem will be the global minimizer of its corresponding sparse $L_0$ minimization problem.
+We shall also show that, the $L_q$ minimization problem is strongly NP-hard for any given $q\in(0,1),$ including its smoothed version. Finally, we shall extend the interior-point potential reduction algorithm to solve the $L_q$ minimization problem. The potential reduction algorithm is guaranteed to return an $\epsilon$-KKT solution of the $L_q$ minimization problem in polynomial time.\\
+
+This is a joint work with Shiqian Ma, Yu-Hong Dai, and Shuzhong Zhang.
+
+\tcont{Non-Convex $L_q$ Minimization: Complexity Analysis and A Potential Reduction Algorithm}{Ya-Feng Liu}
+
+\np
+
+%--------------------------------------------------------------18
+%--------------------------------------------------------------18
+
+\bc \subj{Multi-stage Convex Relaxation Approach for PSD Structured Low-rank Optimization Problems}\bb\name{Shaohua Pan}\ec\bb\bb
+
+This paper is concerned with positive semidefinite (PSD) structured low-rank matrix optimization problems. For this class of NP-hard problems, we use a family of spectral functions to reformulate it as a mathematical program with PSD equilibrium constraints (MPSDEC for short), and show that the penalty problem of this MPSDEC, yielded by adding the equilibrium constraints to the objective, is exact in the sense that it has the same global optimal solution set as the MPSDEC problem when the penalty parameter is over a certain threshold. Then, by solving the exact penalty problem of the MPSDEC in an alternating way, we propose a unified framework to design the multi-stage convex relaxation approach for the PSD structured low-rank optimization problem, which consists of solving a sequence of weighted trace-norm minimization problems. This framework particularly includes the reweighted trace-norm minimization method with a truncated technique (see Mohan 2010 and Miao 2013). For the proposed multi-stage convex relaxation approach, we establish the error bound between the optimal solution of the $k$-th stage and the global optimal solution under a weaker condition than the RIP. Numerical results are also reported for several classes low-rank structured matrix recovery, including the low-rank covariance matrix recovery, the low-rank correlation matrix recovery, the low-rank density matrix recovery, and the low-rank Toeplitz matrix recovery, which verify the efficiency of the proposed approach.
+Keywords: Multi-stage convex relaxation; structure; low-rank matrix recovery; mathematical program with PSD equilibrium constraints.
+
+
+\tcont{Multi-stage Convex Relaxation Approach for PSD Structured Low-rank Optimization Problems}{Shaohua Pan}
+
+\np
+
+
+
+\bc \subj{Data Clustering Based On The Total Variation Energy Functional }\bb\name{Zhi-Feng Pang} \ec\bb\bb
+
+The performance of the data clustering highly relies on the proposed model and the numerical algorithms. Following from the extension of the total variation  functional in the spatially continuous setting, in this report we propose some efficient numerical methods to solve it based on the alternating direction method of multipliers(ADMM) and the primal-dual method(PDM). We show the convergence of proposed numerical methods under the framework of variational inequalities. Some numerical examples are arranged for solving the balanced clustering problem and the unbalanced clustering problem to illustrate the efficiency of our proposed methods.
+
+ \tcont{Data Clustering Based On The Total Variation Energy Functional }{Zhi-Feng Pang}
+
+\np
+
+
+
+
+
+%--------------------------------------------------------------15
+%--------------------------------------------------------------15
+
+
+\bc \subj{Partial Convolution for Total Variation Problem by Augmented Lagrangian-based Proximal Point Descent Algorithm}\bb\name{Yuan Shen}\ec\bb\bb
+
+In the field of image processing field, recovering an image from its blurry and noisy observation is a classic problem. A new dedicated alternating minimization method (ADM) arises from a new structured total variation (TV) regularization-based optimization problem has been proposed and intensively studied. This algorithm is called ``Fast Total Variation Deconvolution" (FTVD), and its per-iteration computational cost is dominated by only several fast Fourier transforms (FFT) and convolution operations which are cheap to compute, so they are practical methods. However, this algorithm is only applicable to full convolution model, hence they can not handle more difficult problems. In this paper, we propose a partial convolution model as well as a dedicated algorithm which is based on the idea of Ye and Yuan's ADM. Extensive numerical results show that our algorithm can produce result with much better quality while its speed performance is still comparable with several state-of-the-art algorithms.
+
+\tcont{Partial Convolution for Total Variation Problem by Augmented Lagrangian-based Proximal Point Descent Algorithm}{Yuan Shen}
+
+\np
+%--------------------------------------------------------------5
+%--------------------------------------------------------------5
+
+\bc \subj{A Buildup-based Error Minimization Method with Application to Protein Structure Determination}\bb\name{Zhenli Sheng}\ec\bb\bb
+
+Geometric build up method is a fast algorithm particularly designed for distance geometry problem
+with exact or extremely small noise distances. We incorporate it with error minimization procedure
+to handle large noise given distances, which are the real-world cases. A new error function has been
+proposed, and a fast algorithm is designed to minimize the error function. Besides, extensive numerical
+experiments have been finished on a variety number of proteins, from several hundreds to several
+thousands, which show that it provides very accurate conformations of these proteins quickly, thus
+prove that it is a powerful algorithm for this problem.
+
+\tcont{A Buildup-based Error Minimization Method with Application to Protein Structure Determination}{Zhenli Sheng}
+
+\np
+%--------------------------------------------------------------5
+%--------------------------------------------------------------5
+
+
+
+
+\bc \subj{Sum Rate Maximization Algorithms for MIMO Relay Networks in Wireless Communications} \bb\name{Cong Sun} \ec\bb\bb
+
+Sum rate maximization problem is always of great interests in the field of wireless communications. For MIMO relay networks, we propose a new approach to approximate sum rate maximization, and prove it is a lower bound of achievable sum rate. To solve the nonlinear nonconvex optimization problem, we first change the fraction function into a non-fraction function in the objective function, and show that the optimization problems share the same stationary points. By applying the alternating minimization method, we decompose the complex problem into several subproblems that are easier handled with. Moreover, we prove that the proposed models always lead to rank one solutions. From practical demand, we also add orthogonal constraints and solve the corresponding problem.
+
+\tcont{Sum Rate Maximization Algorithms for MIMO Relay Networks in Wireless Communications}{Cong Sun}
+
+\np
+
+%--------------------------------------------------------------12
+%--------------------------------------------------------------12
+
+\bc \subj{Regularized Mathematical Programs with Stochastic Equilibrium Constraints: Estimating Structural Demand Models}\bb\name{Hailin Sun} \ec\bb\bb
+
+The article considers a particular class of optimization problems involving set-valued stochastic equilibrium constraints. A solution procedure is developed by relying on an approximation scheme for the equilibrium constraints, based on regularization, that replaces them by equilibrium constraints involving only single-valued Lipschitz continuous functions. In addition, sampling has the further effect of replacing the `simplified' equilibrium constraints by more manageable ones obtained by implicitly discretizing the (given) probability measure so as to render the problem computationally tractable. Convergence is obtained by relying, in particular, on the graphical convergence of the approximated equilibrium constraints. The problem of estimating the characteristics of a demand model, a widely studied problem in micro-economics, serves both as motivation and illustration of the regularization and sampling procedure.
+
+ \tcont{Regularized Mathematical Programs with Stochastic Equilibrium Constraints: Estimating Structural Demand Models}{Hailin Sun}
+
+ \np
+
+
+
+%--------------------------------------------------------------6
+%--------------------------------------------------------------6
+
+
+\bc \subj{Feasible Method for Semi-Infinite Programming}\bb\name{Shuxiong Wang} \ec\bb\bb
+
+Semi-infinite programming refers to optimization problems involving a finite number of decision variables with an infinite many constraints.
+        We present an novel feasible method to solve this problem by constructing the inner approximate region of the origin problem. The man idea
+        is to subdivide the parameter set and construct finite many constraints related to the subdivision points which implies the origin infinitely many constraints.
+        This approximation guarantees feasibility of the original problem: each iterative point is feasible for the origin problem.
+        Under standard assumptions, we prove that the solution of the approximate problem converges to the solution of the origin problem.
+        Numerical experiments show the performance of our method.
+
+ \tcont{Feasible Method for Semi-Infinite Programming}{Shuxiong Wang}
+
+ \np
+
+
+
+%--------------------------------------------------------------6
+%--------------------------------------------------------------6
+\newcommand{\K}{\mathcal{K}}
+%\newcommand{\R}{\mathbb{R}}
+
+\bc \subj{SOARS:  Statistical and Optimization Analysis and Response Surfaces for Computationally Expensive Models}\bb\name{Yilun Wang} \ec\bb\bb
+
+
+We are developing a new framework of Statistical and Optimization Analysis and Response Surfaces (SOARS, for short) for Computationally Expensive Objective Functions. The objective functions are computationally expensive often because they are either involving large scale complex computational simulations or complicated data processing procedure.  An important application is parameter calibration of large scale complex model, where the objective function is a distance between the measured data and model output. Unlike most of parameter estimation methods, we are not only searching a single optimal solution, but also calculate its probability distribution and perform related sensitivity analysis.  In brief, (global) optimization, sensitivity analysis and uncertainty analysis are the research tasks. One of our innovations is to build the framework ``SOARS" to integrate them together via the adoption of response surface (also called surrogate, emulator,  or metamodel), and make SOARS suitable for relatively high dimensional problems.  In addition, for each of its component (optimization, sensitivity analysis and uncertainty analysis), we have proposed new efficient algorithms, especially for relatively high dimensional cases.
+
+ \tcont{SOARS:  Statistical and Optimization Analysis and Response Surfaces for Computationally Expensive Models}{Yilun Wang}
+
+
+\np
+
+%--------------------------------------------------------------7
+%--------------------------------------------------------------7
+
+
+\bc \subj{On the Convergence Order of the Central Path for Second Order Cone Optimization }\bb\name{Zhouhong Wang} \ec\bb\bb
+
+In this talk, we will discuss the possible convergence order of the central path of Second Order Cone Optimization  (SOCO) based upon the optimal partition for SOCO proposed by Bonnans and Ram\'irez (2005). First we will show that the optimal partition for SOCO can be identified along the central path when the barrier parameter $\mu$ is small enough. Then Some examples are presented to illustrate the possible convergence order of the central path of SOCO.\\
+
+Key words: Second Order Cone Optimization; Optimal Partition; Convergence Order of Central Path.
+
+
+\tcont{On the Convergence Order of the Central Path for Second Order Cone Optimization}{Zhouhong Wang}
+
+\np
+
+
+%--------------------------------------------------------------7
+%--------------------------------------------------------------7
+
+
+
+\bc \subj{On Minimizing the Ratio of Quadratic Functions over an Ellipsoid}\bb\name{Yong Xia} \ec\bb\bb
+
+In this talk, we study the optimization problem (RQ) of minimizing the ratio of two quadratic functions over a possibly degenerate ellipsoid. The well-definition of problem (RQ) is fully characterized. We show any well-defined (RQ) admits a semi-definite programming reformulation (SDP) without any assumption. Moreover, the minimum of (RQ) is attained if and only if (SDP) has a unique solution. We finally make some extensions.
+
+ \tcont{On Minimizing the Ratio of Quadratic Functions over an Ellipsoid}{Yong Xia}
+
+\np
+
+
+%--------------------------------------------------------------7
+%--------------------------------------------------------------7
+
+
+\bc \subj{Rank-one and Sparse Nonnegative Matrix Decomposition for Surveillance Video} \bb\name{Xiaochao Xiu} \ec\bb\bb
+
+This paper presents rank-one and sparse nonnegative matrix decomposition model for surveillance video. Based on its convex relaxation, we establish the alternating direction methods of multipliers. We also introduce a statistical approach to solve the original model with the help of its special properties. Numerical experiments are given to illustrate the efficiency of our algorithms.
+
+
+
+\tcont{Rank-one and Sparse Nonnegative Matrix Decomposition for Surveillance Video}{Xiaochao Xiu}
+
+\np
+
+
+
+
+
+%--------------------------------------------------------------9
+%--------------------------------------------------------------9
+
+\bc \subj{Covariance Matrix Estimation Using Factor Models  from Incomplete Information}\bb\name{Fangfang Xu}\ec\bb\bb
+Covariance matrix estimation plays an important role in risk management, asset pricing, and portfolio allocation. This task becomes very challenging when the dimensionality is comparable or much larger than the sample size. A widely used approach for reducing dimensionality is a multi-factor model. Although it has been well studied and quite successful in many applications, the quality of the estimated covariance matrix is often degraded due to a nontrivial amount of missing data in the factor matrix for both technical and cost reasons. Since the factor matrix is only approximately low rank or even has full rank, existing matrix completion algorithms are not applicable. In this paper, we consider a new matrix completion model based on the factor model directly and apply the alternating direction method of multiplier for the recovery. Numerical experiments show that our proposed models and algorithms are helpful.
+ \tcont{Covariance Matrix Estimation Using Factor Models  from Incomplete Information}{Fangfang Xu}
+
+\np
+
+%--------------------------------------------------------------10
+%--------------------------------------------------------------10
+
+
+\bc \subj{Joint User Grouping and Linear Virtual Beamforming: Complexity,
+Algorithms and Approximation Bounds}\bb\name{Zi Xu} \ec\bb\bb
+
+In this work, we consider the problem of properly selecting a subset of users to form the virtual multi-antenna system, while at the same time designing their joint transmission strategies. In the aim of designing practical algorithms with provable theoretical performance, we focus on a class of simple yet important scenarios in which either multiple transmitters cooperatively transmit to a receiver, or a single transmitter transmits to the receiver with the help of a set of cooperative relays. We formulate the joint problems in different settings as cardinality constrained programs that contain both discrete and continuous variables. We then leverage the technique of semi-definite relaxation to obtain approximated solutions for them. The effectiveness of the proposed algorithms is evaluated via both theoretical analysis as well as extensive numerical experiments. We expect that our approach can be applied to solve cross-layer resource allocation problems in many other wireless communication systems as well.
+
+\tcont{Joint User Grouping and Linear Virtual Beamforming: Complexity,
+Algorithms and Approximation Bounds}{Zi Xu}
+
+\np
+
+
+%--------------------------------------------------------------8
+%--------------------------------------------------------------8
+
+\bc \subj{Regularizations for Stochastic Linear Variational Inequalities}\bb\name{Yanfang Zhang} \ec\bb\bb
+
+This paper applies the Moreau-Yosida regularization to a convex expected residual minimization formulation for a class of stochastic linear variational inequalities. To have the convexity of the corresponding sample average approximation problem , we adopt the Tikhonov regularization. We show that any cluster point of minimizers of the Tikhonov regularization for the sample average approximation problem is a minimizer of the expected residual minimization formulation with probability one as the sample size goes to infinity and the Tikhonov regularization parameter goes to zero. Moreover, we prove that the minimizer is the least l2-norm solution of the expected residual minimization formulation. We also prove the semi-smoothness of the gradient of the Moreau-Yosida and Tikhonov regularizations for the sample average approximation problem.
+
+\tcont{Regularizations for Stochastic Linear Variational Inequalities}{Yanfang Zhang}
+
+\np
+
+
+
+%%--------------------------------------------------------------17
+%%--------------------------------------------------------------17
+
+
+\bc \subj{A Subspace Decomposition Framework for Nonlinear Optimization}\bb\name{Zaikun Zhang} \ec\bb\bb
+
+We discuss a general subspace decomposition framework for optimization
+(for the moment without constraints). Two versions of the framework are
+presented, namely a Levenberg-Marquardt version and a trust-region one.
+We establish global (asymptotic) convergence and derive global rates for
+both of them. We also discuss how to exploit the framework to design
+parallel and multilevel derivative-free algorithms for large-scale
+problems.\\
+
+This is a joint work with S. Gratton (ENSEEIHT-INT and CERFACS, France)
+and L. N. Vicente (University of Coimbra, Portugal).
+
+
+\tcont{A Subspace Decomposition Framework for Nonlinear Optimization}{Zaikun Zhang}
+
+\np
+
+
+%%--------------------------------------------------------------17
+%%--------------------------------------------------------------17
+
+
+\bc \subj{Accelerated Modulus-based Matrix Splitting Iteration Methods for Linear Complementarity Problem} \bb\name{Ning Zheng} \ec\bb\bb
+
+For the large sparse linear complementarity problem, a class of accelerated modulusbased matrix splitting iteration methods is established by reformulating it as a general implicit fixed-point equation, which covers the known modulus-based matrix splitting iteration methods. The convergence conditions are presented when the system matrix is either a positive definite matrix or an H+-matrix, and the optimal iteration parameters in accelerated modulus-based AOR method are determined by minimizing the spectral radius of the iteration matrix. Numerical experiments further show that the proposed methods are efficient and accelerate the convergence performance of the modulus-based matrix splitting iteration methods with less iteration steps and CPU time.
+
+
+\tcont{Accelerated Modulus-based Matrix Splitting Iteration Methods for Linear Complementarity Problem}{Ning Zheng}
+
+\np
+
+%%--------------------------------------------------------------17
+%%--------------------------------------------------------------17
+
+\bc \subj{New RIC Bounds vea $l_{q}$-minimization with $0 < q \leq 1$ in Compressed Sensing}\bb\name{Shenglong Zhou}
+\ec\bb\bb
+
+The restricted isometry constants (RICs) play an important role in exact recovery theory of sparse signals via $l_{q}$($0 < q \leq 1$)
+relaxations in compressed sensing. Recently, Cai and Zhang have achieved a sharp bound $\delta_{tk}<\sqrt{1-1/t}$ for $t \geq \frac{4}{3}$
+to guarantee the exact recovery of $k$ sparse signals through the $l_{1}$ minimization. This paper aims to establish new RICs bounds via $l_{q}$($0 < q \leq 1$)
+relaxation. Based on a key inequality on $l_{q}$ norm, we show that (i) the exact recovery can be succeeded via $l_{1/2}$ and $l_{1}$ minimization if $\delta_{tk}<\sqrt{1-1/t}$
+for $t \geq 1$, (ii) several sufficient conditions can be derived, such as for any $q\in (0,\frac{1}{2})$, $\delta_{2k} < 0.5547$ when $k\geq 2$, for any $q\in (\frac{1}{2})$,
+$\delta_{2k}<0.6782$ when $k\geq 1$, (iii) the bound on $\delta_{k}$ is given as well as for any $0 < q \leq 1$, especially for $q = \frac{1}{2},1$, we obtain
+$\delta_{k} < \frac{1}{3}$ when $k$($\geq 2$) is even or $\delta_{k} < 0.3203$ when is  $k$($\geq 3$) odd.\\
+
+Keywords: compressed sensing, bound, restricted isometry constant, $l_{q}$ minimization, exact recovery.
+
+
+
+
+\tcont{New RIC Bounds vea $l_{q}$-minimization with $0 < q \leq 1$ in Compressed Sensing}{Shenglong Zhou}
+
+\np
+
+%--------------------------------------------------------------11
+%--------------------------------------------------------------11
+
+\bc \subj{A Modified Primal-dual Augmented Lagrangian Method for Large Scale Nonlinear Optimization}\bb\name{Wenwen Zhou} \ec\bb\bb
+
+The Primal Dual Augmented Lagrangian approach [1] has been proposed for large-scale nonconvex optimization.  This approach has a number of promising features including a natural extension to a matrix-free environment. Our numerical experience indicates that the algorithm can have difficulty when the problem is locally infeasible or badly scaled.  The addition of a modified version of the feasibility restoration phase[2] typically used in filter methods is proposed with the added goal of improving Lagrange multiplier estimates when the problem is feasible.
+
+\tcont{A Modified Primal-dual Augmented Lagrangian Method for Large Scale Nonlinear Optimization}{Wenwen Zhou}
+
+\np
+
+
+
+
+
+
+
+%--------------------------------------------------------------21
+%--------------------------------------------------------------21
+
+
+
+
+%\bc \subj{Hybrid Divide-and-Conquer Methods for Solving Polynomial
+%Systems}\bb\name{Bo Yu}\ec\bb\bb
+%
+%In this talk, a brief introduction of some hybrid divide-and-conquer
+%methods for solving polynomial systems will be given. At first, for
+%polynomial systems derived from mixed trigonometric polynomial
+%systems, a hybrid homotopy and its improved symmetric version will
+%be introduced, and the sketch of a hybrid divide-and-conquer method
+%for this special class of polynomial systems will be formulated.
+%Then, a framework of a general-purpose hybrid divide-and-conquer
+%method for solving deficient polynomial systems will be given. Some
+%numerical results will also be given to show the efficiency of the
+%proposed algorithm.
+%
+% \tcont{Hybrid Divide-and-Conquer Methods for Solving Polynomial
+%Systems}{Bo Yu}
+%
+%\np
+%
+%%--------------------------------------------------------------22
+%%--------------------------------------------------------------22
+%\bc \subj{Analysis of Conjugate Gradient for Nonsmooth
+%Problems}\bb\name{Gonglin Yuan} \ec\bb\bb
+%
+%The conjugate gradient (CG) method is one of the most popular
+%methods for solving smooth unconstrained optimization problems due
+%to its simplicity and low memory requirement. However, the usage of
+%CG methods are mainly restricted in solving smooth optimization
+%problems so far. The purpose of this report is to present efficient
+%conjugate gradient-type methods to solve nonsmooth optimization
+%problems. By using the Moreau-Yosida regulation (smoothing)
+%approach, we propose a modified Polak-Ribi\`{e}re-Polyak (PRP) CG
+%algorithm for solving a nonsmooth unconstrained convex minimization
+%problem. Our algorithm possesses the following three desired
+%properties. (i) The search direction satisfies the sufficiently
+%descent property and belongs to a trust region automatically; (ii)
+%The search direction makes use of not only gradient information but
+%also function information; (iii) The algorithm inherits an important
+%property of the well-known PRP method: the tendency to turn towards
+%the steepest descent direction if a small step is generated away
+%from the solution, preventing a sequence of tiny steps from
+%happening. Under standard conditions, we show that the algorithm
+%converges globally to an optimal solution. Numerical experiment
+%shows that our algorithm is effective and suitable for solving
+%large-scale nonsmooth unconstrained convex optimization problems.
+%
+%This is a joint work with Zengxin Wei and Guoyin Li.
+%
+%\tcont{Analysis of Conjugate Gradient for Nonsmooth
+%Problems}{Gonglin Yuan}
+%
+%\np
+%
+%
+%%--------------------------------------------------------------24
+%%--------------------------------------------------------------24
+%
+%
+%\bc \subj{A Novel Filled Function Method for Nonlinear
+%Equations}\bb\name{Liuyang Yuan} \ec\bb\bb
+%
+%In this paper a novel filled function method is suggested for
+%solving box-constrained systems of nonlinear equations. Firstly, the
+%original problem is converted into an equivalent global optimization
+%problem. Subsequently, a novel filled function with one parameter is
+%proposed for solving the converted global optimization problem. Some
+%properties of the filled function are studied and discussed.
+%Finally, an algorithm based on the proposed novel filled function
+%for solving systems of nonlinear equations is presented. The
+%objective function value can be reduced by quarter in each iteration
+%of our algorithm. The implementation of the algorithm on several
+%test problems is reported with satisfactory numerical results.
+%
+%\tcont{A Novel Filled Function Method for Nonlinear
+%Equations}{Liuyang Yuan}
+%
+%\np
+%
+%
+%
+%%--------------------------------------------------------------26
+%%--------------------------------------------------------------26
+%\bc \subj{Nonconvex $\ell_p$-Regularization and Box Constrained
+%Model for Image Restoration}\bb\name{Chao Zhang}\ec\bb\bb
+%
+%Nonsmooth nonconvex regularization has remarkable advantages for the
+%restoration of piecewise constant images. Constrained optimization
+%can improve the image reconstruction using a priori information. In
+%this paper, we study regularized nonsmooth nonconvex minimization
+%with box constraints for image restoration. We present a computable
+%positive constant $\theta$ for using nonconvex nonsmooth
+%regularization, and show that the difference between each pixel and
+%its four adjacent neighbors is either 0 or larger than $\theta$ in
+%the recovered image. Moreover, we give an explicit form of $\theta$
+%for the box constrained image restoration model with the
+%non-Lipschitz nonconvex $\ell_p$-norm ($0<p<1$) regularization. Our
+%theoretical results show that any local minimizer of this imaging
+%restoration problem is composed of constant regions surrounded by
+%closed contours and
+%%neat
+%edges. Numerical examples are presented to validate the theoretical
+%results and show that the proposed model can recover image
+%restoration results very well.
+%
+%This is a joint work with Xiaojun Chen and Michael K. Ng.
+%
+% \tcont{Nonconvex $\ell_p$-Regularization and Box Constrained
+%Model for Image Restoration}{Chao Zhang}
+%
+%\np
+%
+%%--------------------------------------------------------------27
+%%--------------------------------------------------------------27
+%
+%\bc \subj{On the {Second-order} Directional Derivatives of Singular
+%Values of Matrices and Symmetric Matrix-valued
+%Functions}\bb\name{Liwei Zhang} \ec\bb\bb
+%
+%The (parabolic) second-order directional derivatives of singular
+%values
+% of matrices and  symmetric matrix-valued
+% functions induced by real-valued functions
+% % of the form $F(X)=P\mbox{diag}[f(\lambda_1(X)),\cdots,f(\lambda_n(X))]P^T$
+% play important roles in studying
+% %matrix cone optimization, especially the second-order directional derivatives are required in characterizing
+% second-order optimality conditions for different types of matrix cone optimization
+% problems.  We
+% propose  a direct  way  to derive the formula for the
+% second-order directional derivative of any eigenvalue of a symmetric matrix in Torki (2001),
+%  from which a formula for the second-order directional derivative of any singular value of a  matrix is established.
+% We demonstrate a formula for the
+% second-order directional derivative of the symmetric
+% matrix-valued function. As applications, the second-order
+% derivative for the projection operator over the SDP cone  is derived and used to get the
+% second-order tangent set of the SDP cone in  Bonnans and  Shapiro (2000), and the tangent cone and  the
+% second-order tangent set of the epigraph of the nuclear norm are given as well.
+%\tcont{On the {Second-order} Directional Derivatives of Singular
+%Values of Matrices and Symmetric Matrix-valued Functions}{Liwei
+%Zhang}
+%
+%\np
+%
+%%--------------------------------------------------------------28
+%%--------------------------------------------------------------28
+%
+%\bc \subj{Stochastic Variational Inequalities: Residual Minimization
+%Smoothing/Sample Average Approximations}\bb\name{Yanfang Zhang}
+%\ec\bb\bb
+%
+% The stochastic variational
+%inequality (SVI) has been used widely, in engineering and economics,
+%as an effective mathematical model for a number of equilibrium
+%problems involving uncertain data.  This paper presents a new
+%expected residual  minimization (ERM) formulation for a class of
+%SVI. The objective of the ERM-formulation is Lipschitz continuous
+%and semismooth which helps us guarantee the existence of a solution
+%and convergence of approximation methods. We propose, a globally
+%convergent (a.s.) smoothing sample average approximation (SSAA)
+%method
+% to minimize the residual function; this minimization problem
+%is convex for linear SVI if the expected matrix is positive
+%semi-definite. We show that the ERM problem and its SSAA problems
+%have minimizers in a compact set and any cluster point of minimizers
+%and stationary points of the SSAA problems is a minimizer and a
+%stationary point of the ERM problem (a.s.).  Our examples come from
+%applications involving traffic flow problems. We show that the
+%conditions we impose are satisfied and that the solutions,
+%efficiently generated by the SSAA-procedure, have desirable
+%properties.
+%
+%This is a joint work with Xiaojun Chen and Roger J-B Wets.
+%
+%\tcont{Stochastic Variational Inequalities: Residual Minimization
+%Smoothing/Sample Average Approximations}{Yanfang Zhang}
+%
+%\np
+%
+%%--------------------------------------------------------------18
+%%--------------------------------------------------------------18
+%
+%
+%\bc \subj{Computing Dominant SVD of Large and Unstructured Matrices
+%} \bb\name{Yin Zhang}\ec\bb\bb
+%
+%Singular value decompositions (SVD) is a fundamental computational
+%tool in many data-intensive applications where usually a dominant
+%part of SVD is computed such as in principal component analysis.
+%Various algorithms have been developed for efficiently computing
+%dominant SVD of large sparse matrices, but they may not be the most
+%suitable for large and unstructured matrices.  We propose a limited
+%memory Krylov subspace optimization scheme to significantly
+%accelerate the simple subspace iteration scheme. Theoretical and
+%extensive numerical results will be presented showing a superior
+%performance of the proposed algorithm over a wide range of
+%unstructured matrices.
+%
+%Joint work with Xin Liu and Zaiwen Wen.
+%
+%\tcont{Computing Dominant SVD of Large and Unstructured Matrices
+%}{Yin Zhang}
+%
+%\np
+%
+%%--------------------------------------------------------------29
+%%--------------------------------------------------------------29
+%
+%
+%\bc \subj{Sobolev Seminorm of Quadratic Functions with Applications
+%to Derivative-Free Optimization}\bb\name{Zaikun Zhang}\ec\bb\bb
+%
+%In this talk, we inspect the classical $H^1$ Sobolev~seminorm of
+%quadratic functions over balls of $\Real^n$.~We express the~seminorm
+%explicitly in terms of the coefficients of the quadratic function
+%under consideration. The seminorm gives some new insights into the
+%least-norm interpolation widely used in derivative-free
+%optimization. It shows the geometrical/analytical essence of the
+%least-norm interpolation and explains why it is successful.~We
+%finally present some numerical results to show that $H^1$ seminorm
+%is helpful to the model selection of derivative-free optimization.
+%
+%\tcont{Sobolev Seminorm of Quadratic Functions with Applications to
+%Derivative-Free Optimization}{Zaikun Zhang}
+%
+%\np
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{flushleft}
+\hypertarget{LST}{\LARGE \bf List of Participants of ICNONLA 2013}\\[12mm]
+\end{flushleft}
+\begin{flushleft}
+\rm
+
+%\bb \name{Yanqin Bai} \dpt{Department of Mathematics} \univ{Shanghai
+%University} \city{Shanghai, China} \email{yqbai@shu.edu.cn}
+%
+%\bb \name{Zhengjian Bai} \dpt{School of Mathematical Sciences}
+%\univ{Xiamen University} \city{Xiamen, China}
+%\email{zjbai@xmu.edu.cn}
+%
+%\bb \name{Yuting Bao} \dpt{School of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{yutingworld@126.com}
+%
+%\bb \name{Wei Bian} \dpt{Department of Mathematics} \univ{Harbin
+%Institute of Technology} \city{Harbin, China}
+%\email{Bianweilvse520@163.com}
+%
+%\bb \name{Oleg Burdakov} \dpt{Department of Mathematics}
+%\univ{Linkoping University} \city{SE -581 83 Linkoping, Sweden}
+%\email{Oleg.Burdakov@liu.se}
+%
+%\bb \name{Hongyan Cai} \dpt{Institute of Geology and Geophysics}
+%\univ{Chinese Academy of Science} \city{Beijing, China} {Email:
+%\href{mailto:Hy_cai75@163.com}{\texttt{Hy\_cai75@163.com}}}\\[2mm]
+%
+%\bb \name{Raymond H. Chan} \dpt{Department of Mathematics}
+%\univ{Chinese University of Hong Kong} \city{Hong Kong}
+%\email{rchan@math.cuhk.edu.hk}
+%
+%\bb \name{Bilian Chen} \dpt{Department of Systems Engineering and
+%Engineering Management} \univ{The Chinese University of Hong Kong}
+%\city{Shatin，Hong Kong} \email{blchen@se.cuhk.edu.hk}
+%
+%\bb \name{Guizhi Chen} \dpt{School of Mathematical Sciences}
+%\univ{Xiamen University} \city{Xiamen, China}
+%\email{chengz@xmu.edu.cn}
+%
+%\bb \name{Jiawei Chen} \dpt{School of Mathematics and Statistics}
+%\univ{Wuhan University} \city{Wuhan, China} \email{jeky99@126.com}
+%
+%\bb \name{Jinhua Chen} \dpt{School of Mathematical Sciences}
+%\univ{Xiamen University}\city{Xiamen,
+%China}\email{jinxiuchina@xmu.edu.cn}
+%
+%\bb \name{Jun Chen} \dpt{School of Mathematics and Statistics}
+%\univ{Wuhan University} \city{Wuhan, China}
+%\email{flywalkor@sina.com}
+%
+%\bb \name{Ning Chen} \dpt{School of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China}
+%\email{chenning861212@163.com}
+%
+%\bb \name{Xiaojun Chen} \dpt{Department of Applied Mathematics}
+%\univ{The Hong Kong Polytechnic University} \city{Hong Kong}
+%\email{maxjchen@polyu.edu.hk}
+%
+%\bb \name{Zhong Chen} \dpt{Department of Mathematics} \univ{Yangtze
+%University} \city{Jingzhou, China} \email{czhong@yangtzeu.edu.cn}
+%
+%\bb \name{Dandan Cui} \dpt{School of Mathematics and Computer
+%Science} \univ{Gannan Normal University} \city{Ganzhou, China}
+%\email{cuidandan09@126.com}
+%
+%\bb \name{Yuhong Dai} \dpt{Institute of Computational Mathematics
+%and Scientific/Engineering Computing} \univ{Chinese Academy of
+%Sciences} \city{Beijing, China} \email{dyh@lsec.cc.ac.cn}
+%
+%\bb \name{Bin Fan} \dpt{School of Mathematics and Computer Science}
+%\univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{543308280@qq.com}
+%
+%\bb \name{Jinyan Fan} \dpt{Department of Mathematics} \univ{Shanghai
+%Jiaotong University} \city{Shanghai, China}
+%\email{jyfan@sjtu.edu.cn}
+%
+%\bb \name{Shiqiang Feng} \dpt{College of Mathematic and Information}
+%\univ{China West Normal University} \city{Nanchong, China}
+%\email{cwnufsq@163.com}
+%
+%\bb \name{Yuming Feng} \dpt{National Science Library} \univ{Chinese
+%Academy of Sciences} \city{Beijing, China}
+%\email{fengym@mail.las.ac.cn}
+%
+%\bb \name{Xiaoling Fu} \univ{Southest University} \city{Nanjing,
+%China} \email{Fufei1980@163.com}
+%
+%\bb \name{Masao Fukushima} \dpt{Department of Applied Mathematics
+%and Physics} \univ{Graduate School of Informatics, Kyoto University}
+%\city{Kyoto 606-8501, Japan} \email{fuku@i.kyoto-u.ac.jp}
+%
+%
+%\bb \name{Suluan Gao} \dpt{Department of Mathematics and Information
+%Sciences} \univ{Guangxi University} \city{Nanning, China}
+%\email{gaosuluan815@163.com}
+%
+%\bb \name{Joshua David Griffin} \univ{Georgia Institute of
+%Technology} \city{Atlanta，USA} \email{Joshua.Griffin@sas.com}
+%
+%\bb \name{Jian Gu} \dpt{College of Science} \univ{Dalian Ocean
+%University} \city{Dalian, China} \email{gujian82@yahoo.cn}
+%
+%\bb \name{Ke Guo} \dpt{College of Mathematic and Information}
+%\univ{China West Normal University} \city{Nanchong, China}
+%\email{robertjo@126.com}
+%
+%\bb \name{Bingsheng He} \dpt{Department of Mathematics}
+%\univ{Nanjing University} \city{Nanjing, China}
+%\email{hebma@nju.edu.cn}
+%
+%\bb \name{Hongjin He} \dpt{Department of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{hehj2003@163.com}
+%
+%\bb \name{Bo Jiang} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{jiangbo@lsec.cc.ac.cn}
+%
+%\bb \name{Jianlin Jiang} \dpt{College of Science} \univ{Nanjing
+%University of Aeronautics and Astronautics} \city{Nanjing, China}
+%{Email:
+%\href{mailto:jiangjianlin_nju@163.com}{\texttt{jiangjianlin\_nju@163.com}}}\\[2mm]
+%
+%\bb \name{Elizabeth W. Karas} \dpt{Departamento de Matemática}
+%\univ{Universidade Federal do Paraná} \city{Curitiba, Brasil}
+%\email{ewkaras@ufpr.br}
+%
+%\bb \name{C.Tim Kelley} \dpt{Department of Mathematics, College of
+%Physical and Mathematical Sciences} \univ{North Carolina State
+%University} \city{Raleigh, NC 27695-8205, USA} {Email:
+%\href{mailto:tim_kelley@ncsu.edu}{\texttt{tim\_kelley@ncsu.edu}}}\\[2mm]
+%
+%\bb \name{T. Koch} \univ{ZIB} \city{Berlin, Germany}
+%\email{koch@zib.de}
+%
+%\bb \name{Deren Han} \dpt{School of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China}
+%\email{handeren@njnu.edu.cn}
+%
+%\bb \name{Chunlin Hao} \dpt{College of Applied Sciences}
+%\univ{Beijing University of Technology} \city{Beijing, Chian}
+%\email{haochl@bjut.edu.cn}
+%
+%\bb \name{Jie Hu} \dpt{Academy of Mathematics and Systems Science}
+%\univ{Chinese Academy of Sciences} \city{Beijing, China}
+%\email{orsc@amt.ac.cn}
+%
+%\bb \name{Yaping Hu} \dpt{School of Science} \univ{East China
+%University of Science and Technology} \city{Shanghai, China}
+%\email{yapinghu@163.com}
+%
+%\bb \name{Zhenyu Huang} \dpt{Department of Mathematics}
+%\univ{Nanjing University} \city{Nanjing, China}
+%\email{zhenyu@nju.edu.cn}
+%
+%\bb \name{An Li} \dpt{School of Mathematical Sciences} \univ{Xiamen
+%University} \city{Xiamen, China} \email{anlee@xmu.edu.cn}
+%
+%\bb \name{Meng Li} \dpt{College of Science} \univ{Xi'an Jiaotong
+%University} \city{ Xi'an, China} {Email:
+%\href{mailto:Lm_huijiale@stu.xjtu.edu.cn}{\texttt{Lm\_huijiale@stu.xjtu.edu.cn}}}\\[2mm]
+%
+%\bb \name{Jinghui Li} \dpt{School of Mathematics and Computer
+%Science} \univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{liujh07@qq.com}
+%
+%\bb \name{Qingna Li} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{qnl@lsec.cc.ac.cn}
+%
+%\bb \name{Zhenhua Li} \dpt{Institute of Geology and Geophysics}
+%\univ{Chinese Academy of Science} \city{Beijing, China}
+%\email{lizhenhua@mail.iggcas.ac.cn}
+%
+%\bb \name{Zhening Li} \dpt{Department of Mathematics} \univ{Shanghai
+%University} \city{Shanghai, China} \email{zheningli@shu.edu.cn}
+%
+%\bb \name{Yanan Lin} \dpt{School of Mathematical Sciences}
+%\univ{Xiamen University}\city{Xiamen, China}
+%\email{ynlin@xmu.edu.cn}
+%
+%\bb \name{Xiaoyi Liu} \dpt{School of Mathematical Sciences}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{308581578@qq.com}
+%
+%\bb \name{Xin Liu} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{liuxin@lsec.cc.ac.cn}
+%
+%\bb \name{Xinwei Liu} \dpt{Department of Applied Mathematics}
+%\univ{Hebei University of Technology} \city{Tianjin, China}
+%\email{mathlxw@hebut.edu.cn}
+%
+%\bb \name{Sha Lu} \dpt{School of Science} \univ{East China
+%University of Science and Technology} \city{Shanghai, China} {Email:
+%\href{mailto:lusha_nn@126.com}{\texttt{lusha\_nn@126.com}}}\\[2mm]
+%
+%\bb \name{Changfeng Ma} \dpt{School of Mathematics and Computer
+%Science} \univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{macf@fjnu.edu.cn}
+%
+%\bb \name{Yun Ma} \dpt{School of Mathematics} \univ{Nanjing Normal
+%University} \city{Nanjing, China} \email{my.0129@163.com}
+%
+%\bb \name{Luiz Carlos Matioli} \dpt{Departamento de Matemática }
+%\univ{Universidade Federal do Paraná} \city{Curitiba, Brasil}
+%\email{matioli@ufpr.br}
+%
+%\bb \name{Benedetta Morini} \dpt{Department of Energy Engineering
+%``Sergio Stecco"} \univ{University of Florence} \city{Viale Morgagni
+%40-50134 FIRENZE，Italy} \email{benedetta.morini@unifi.it}
+%
+%\bb \name{Puyan Nie} \dpt{Institute of Industrial Economics}
+%\univ{Jinan University} \city{Guangzhou, China}
+%\email{pynie2005@yahoo.com.cn}
+%
+%\bb \name{Datian Niu}\univ{Dalian Nationalities University}
+%\city{Dalian, China} \email{niudt@dlnu.edu.cn}
+%
+%\bb \name{Liping Pang} \dpt{School of Mathematical Sciences}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{lppang@dlut.edu.cn}
+%
+%\bb \name{Gianni Di Pillo} \dpt{Department of Computer and System
+%Sciences} \univ{Sapienza University of Rome} \city{Via Ariosto,
+%25-00185 Roma, Italy} \email{dipillo@dis.uniroma1.it}
+%
+%\bb \name{Michael J.D. Powell} \dpt{Department of Applied
+%Mathematics and Theoretical Physics, Centre for Mathematical
+%Sciences} \univ{University of Cambridge} \city{Cambridge CB3 0WA,
+%England} \email{M.J.D.Powell@damtp.cam.ac.uk}
+%
+%\bb \name{Peter Richtarik} \dpt{School of Mathematics}
+%\univ{University of Edinburgh} \city{Edinburgh, EH9 3JZ, UK}
+%\email{peter.richtarik@ed.ac.uk}
+%
+%\bb \name{Yuan Shen} \dpt{Department of Mathematics} \univ{Nanjing
+%University} \city{Nanjing, China} \email{ocsiban@126.com}
+%
+%\bb \name{Xinghua Shi} \dpt{School of Mathematical Sciences}
+%\univ{Fudan University} \city{Shanghai, China}
+%\email{10110180031@fudan.edu.cn}
+%
+%\bb \name{Ting Shi} \dpt{Department of Mathematics and Information
+%Sciences} \univ{Guangxi University} \city{Nanning, China}
+%\email{xiaoyao0215@yahoo.com.cn}
+%
+%\bb \name{Cong Sun} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{suncong@lsec.cc.ac.cn}
+%
+%\bb \name{Hailin Sun}\univ{Harbin Institute of Technology}
+%\city{Harbin, China} \email{mathhlsun@gmail.com}
+%
+%\bb \name{Tao Sun} \dpt{Institute of Geology and Geophysics}
+%\univ{Chinese Academy of Science} \city{Beijing, China}
+%\email{sunjt@mail.ustc.edu.cn}
+%
+%\bb \name{Wenyu Sun} \dpt{Department of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{wysun@njnu.edu.cn}
+%
+%\bb \name{Min Tao} \dpt{Department of Mathematics} \univ{Nanjing
+%University} \city{Nanjing, China} \email{taomin0903@gmail.com}
+%
+%\bb \name{Lloyd Nick Trefethen} \dpt{Oxford University Mathematical
+%Institute} \univ{Oxford University} \city{Oxford OX1 3LB, UK}
+%\email{trefethen@maths.ox.ac.uk}
+%
+%\bb \name{Chengjing Wang} \univ{Southwest Jiaotong University}
+%\city{Chengdu, China} \email{renascencewang@hotmail.com}
+%
+%\bb \name{Guan Wang} \dpt{College of Science} \univ{Xi'an Jiaotong
+%University} \city{ Xi'an, China} \email{Wghappy123@stu.xjtu.edu.cn}
+%
+%\bb \name{Liping Wang} \dpt{Department of Mathematics} \univ{Nanjing
+%University of Aeronautics and Astronautics} \city{Nanjing, China}
+%\email{wlpmath@yahoo.com.cn}
+%
+%\bb \name{Liumei Wang} \dpt{School of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China}
+%\email{Wangliumei111@sina.com}
+%
+%\bb \name{Xiangfeng Wang} \dpt{Department of Mathematics}
+%\univ{Nanjing University} \city{Nanjing, China}
+%\email{xfwang.nju@gmail.com}
+%
+%\bb \name{Xiao Wang} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{wangxiao@lsec.cc.ac.cn}
+%
+%\bb \name{Xiuyu Wang} \univ{Changchun University of Technology}
+%\city{Changchun, China} \email{wxyjxw@sina.cn}
+%
+%\bb \name{Yanfei Wang} \dpt{Institute of Geology and Geophysics}
+%\univ{Chinese Academy of Science} \city{Beijing, China}
+%\email{yfwang@mail.iggcas.ac.cn}
+%
+%\bb \name{Yimin Wei} \dpt{School of Mathematical Sciences}
+%\univ{Fudan University} \city{Shanghai 200433, China}
+%\email{ymwei@fudan.edu.cn, yimin.wei@gmail.com}
+%
+%\bb \name{Zengxin Wei} \dpt{Department of Mathematics and
+%Information Sciences} \univ{Guangxi University} \city{Nanning,
+%China} \email{zxwei@gxu.edu.cn}
+%
+%\bb \name{Zaiwen Wen} \dpt{Department of Mathematics and Institute
+%of Natural Sciences} \univ{Shanghai Jiaotong University}
+%\city{Shanghai, China} \email{Zw2109@sjtu.edu.cn}
+%
+%\bb \name{Chao Wu} \dpt{School of Mathematics and Computer Science}
+%\univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{229099671@qq.com}
+%
+%\bb \name{Leqin Wu} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{wlq@lsec.cc.ac.cn}
+%
+%\bb \name{Jiping Wu} \dpt{Institute of Computational Mathematics and
+%Scientific/Engineering Computing} \univ{Chinese Academy of Sciences}
+%\city{Beijing, China} \email{wjp@lsec.cc.ac.cn}
+%
+%\bb \name{Qiong Wu} \dpt{School of Mathematics} \univ{Nanjing Normal
+%University} \city{Nanjing, China} \email{qiongyaochen@163.com}
+%
+%\bb \name{Cheng Xiao} \dpt{School of Mathematical Sciences}
+%\univ{Fudan University} \city{Shanghai, China}
+%\email{09210180027@fudan.edu.cn}
+%
+%\bb \name{Xiantao Xiao} \dpt{School of Mathematical Science}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{xtzhang@dlut.edu.cn}
+%
+%\bb\name{Naihua Xiu}\dpt{Department of Applied
+%Mathematics}\univ{Beijing Jiaotong University}\city{Beijing 100044,
+%China}\email{nhxiu@bjtu.edu.cn}
+%
+%\bb \name{Yi Xu} \dpt{Department of Mathematics} \univ{Nanjing
+%University} \city{Nanjing, China} \email{Yi.xu1983@gmail.com}
+%
+%\bb \name{Dan Xue} \dpt{Department of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{wtxuedan@126.com}
+%
+%\bb \name{Wei Xue} \dpt{School of Mathematics and Computer Science}
+%\univ{Gannan Normal University} \city{Ganzhou, China}
+%\email{wxmaths@163.com}
+%
+%\bb \name{Fenlin Yang} \dpt{School of Mathematical Science}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{yangfenlinlin@126.com}
+%
+%\bb \name{Junfeng Yang} \dpt{Department of Mathematics}
+%\univ{Nanjing University} \city{Nanjing, China}
+%\email{jfyang@nju.edu.cn}
+%
+%\bb \name{Li Yang} \dpt{College of Mathematics and Information}
+%\univ{China West Normal University} \city{Nanchong, China}
+%\email{yang288@yeah.net}
+%
+%\bb \name{Qingzhi Yang} \dpt{School of Mathematical Sciences}
+%\univ{Nankai University} \city{Tianjin, China}
+%\email{qz-yang@nankai.edu.cn}
+%
+%\bb \name{Xiaoqiu Yang} \dpt{South China Sea Institute of
+%Oceanology} \univ{Chinese Academy of Sciences} \city{Guangzhou,
+%China} \email{yxq2081@scsio.ac.cn}
+%
+%\bb \name{Yuning Yang} \dpt{School of Mathematical Sciences}
+%\univ{Nankai University} \city{Tianjin, China}
+%\email{nk0310145@gmail.com}
+%
+%\bb \name{Hongming You} \dpt{School of Mathematics and Computer
+%Science} \univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{386667250@qq.com}
+%
+%\bb \name{De Yu} \dpt{School of Mathematics and Computer Science}
+%\univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{297125145@qq.com}
+%
+%\bb \name{Bo Yu} \dpt{School of Mathematical Sciences} \univ{Dalian
+%University of Technology} \city{Dalian, China}
+%\email{yubo@dlut.edu.cn}
+%
+%\bb \name{Gaohang Yu} \dpt{School of Mathematics and Computer
+%Science} \univ{Gannan Normal University} \city{Ganzhou, China}
+%\email{maghyu@163.com}
+%
+%\bb \name{Gonglin Yuan} \dpt{Department of Mathematics and
+%Information Sciences} \univ{Guangxi University} \city{Nanning,
+%China} \email{glyuan@gxu.edu.cn}
+%
+%\bb \name{Liuyang Yuan} \dpt{School of Mathematics and Statistics}
+%\univ{Wuhan University} \city{Wuhan, China}
+%\email{yangly0601@126.com}
+%
+%\bb \name{Yaxiang Yuan} \dpt{Institute of Computational Mathematics
+%and Scientific/Engineering Computing} \univ{Chinese Academy of
+%Sciences} \city{Beijing, China} \email{yyx@lsec.cc.ac.cn}
+%
+%\bb \name{Chao Zhang} \dpt{Department of Applied Mathematics}
+%\univ{Beijing Jiaotong University} \city{Beijing 100044, China}
+%\email{chzhang2@bjtu.edu.cn}
+%
+%\bb \name{Hongchao Zhang} \dpt{Department of Mathematics} \univ{
+%Center for Computational \& Technology (CCT), Luisanne State
+%University} \city{Baton Rouge, LA 70803, USA}
+%\email{hozhang@math.lsu.edu}
+%
+%\bb \name{Hongwei Zhang} \dpt{School of Mathematical Sciences}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{hwzhang@dlut.edu.cn}
+%
+%\bb \name{Liang Zhang} \dpt{School of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{burgers@yeah.net}
+%
+%\bb \name{Liwei Zhang} \dpt{School of Mathematical Sciences}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{lwzhang@dlut.edu.cn}
+%
+%\bb \name{Qifeng Zhang} \dpt{School of Mathematics and Statistics}
+%\univ{Huazhong University of Science and Technology} \city{Wuhan,
+%China} \email{zhangqifeng0504@163.com}
+%
+%\bb \name{Shao-Liang Zhang} \univ{Nagoya University} \city{Nagoya,
+%Aichi, 464-8603, Japan} \email{zhang@na.cse.nagoya-u.ac.jp}
+%
+%\bb \name{Shenggui Zhang} \dpt{School of Mathematics and Computer
+%Science} \univ{Fujian Normal University} \city{Fuzhou, China}
+%\email{zsgll@fjnu.edu.cn}
+%
+%\bb \name{Xinli Zhang}  \dpt{Department of Mathematics}
+%\univ{Nanjing Normal University} \city{Nanjing, China}
+%\email{zxl0616@stu.xjtu.edu.cn}
+%
+%\bb \name{Yanfang Zhang} \dpt{Department of Applied Mathematics}
+%\univ{The Hong Kong Polytechnic University} \city{Hong Kong}
+%\email{09900332R@polyu.edu.hk}
+%
+%\bb \name{Yin Zhang} \dpt{Department of Computational and Applied
+%Mathematics} \univ{Rice University} \city{Houston, Texas 77005, USA}
+%\email{yzhang@rice.edu}
+%
+%\bb \name{Yongfu Zhang} \dpt{School of Mathematical Sciences}
+%\univ{Dalian University of Technology} \city{Dalian, China}
+%\email{zhyf88888@163.com}
+%
+%\bb \name{Zaikun Zhang} \dpt{Institute of Computational Mathematics
+%and Scientific/Engineering Computing} \univ{Chinese Academy of
+%Sciences} \city{Beijing, China} \email{zhangzk@lsec.cc.ac.cn}
+%
+%\bb \name{Lijuan Zhao} \dpt{Department of Mathematics} \univ{Nanjing
+%Normal University} \city{Nanjing, China} \email{zzlljj210@163.com}
+%
+%\bb \name{Qiumei Zhao} \dpt{Department of Mathematics and
+%Information Sciences} \univ{Guangxi University} \city{Nanning,
+%China} \email{zhaoqm87@163.com}
+%
+%\bb \name{Xiaoming Zhao} \dpt{School of Mathematical Sciences}
+%\univ{Nankai University} \city{Tianjin, China}
+%\email{nk0310145@gmail.com}
+%
+%\bb \name{Xinyuan Zhao} \dpt{College of Applied Science}
+%\univ{Beijing University of Technology} \city{Beijing, China}
+%\email{xyzhao@bjut.edu.cn}
+%
+%\bb \name{Wenxing Zhu} \univ{Fuzhou University} \city{Fuzhou, China}
+%\email{wxzhu@fzu.edu.cn}
+
+\bb \name{Mehiddin Al-Baali}
+\dpt{Department of Mathematics \& Statistics }
+\univ{Sultan Qaboos University}
+\city{Muscat, Sultanate of Oman}
+\email{albaali@squ.edu.om}
+
+\bb \name{Congpei An}
+\dpt{Deparment of Mathematics}
+\univ{Jinan University}
+\city{Guangzhou, China}
+\email{andbach@163.com}
+
+\bb \name{Xue Bai}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{baxia\_2011@163.com}
+
+\bb \name{Zhaojun Bai}
+\dpt{Department of Computer Science}
+\univ{University of California at Davis}
+\city{Davis, USA}
+\email{bai@cs.ucdavis.edu}
+
+\bb \name{Shujun Ben}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{beamilan@163.com}
+
+\bb \name{Yaqian Bi}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{byq\_optim@163.com}
+
+\bb \name{Wei Bian}
+\dpt{School of Science}
+\univ{Harbin Institute of Technology}
+\city{Harbin, China}
+\email{bianweilvse520@163.com}
+
+\bb \name{Xingju Cai}
+\dpt{School of Mathematical Sciences}
+\univ{Nanjing Normal University}
+\city{Nanjing, China}
+\email{caixingju@njnu.edu.cn}
+
+\bb \name{Liang Chen}
+\dpt{School of Mathematical Sciences}
+\univ{Huaibei Normal University}
+\city{Huaibei, China}
+\email{clmyf2@163.com}
+
+\bb \name{Chunfeng Cui}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{cuichf@lsec.cc.ac.cn}
+
+\bb \name{Yuhong Dai}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{dyh@lsec.cc.ac.cn}
+
+\bb \name{Junliang Dong}
+\dpt{College of Applied Sciences}
+\univ{Beijing University of Technology}
+\city{Beijing, China}
+\email{dongjl@bjut.edu.cn}
+
+\bb \name{Qian Dong}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{dongqian@lsec.cc.ac.cn}
+
+\bb \name{Jinyan Fan}
+\dpt{Deparment of Mathematics}
+\univ{Shanghai Jiao Tong University}
+\city{Shanghai, China}
+\email{jyfan@sjtu.edu.cn}
+
+\bb \name{Geovani Nunes Grapiglia}
+\dpt{Graduate Program in Mathematics and Applied Mathematics}
+\univ{Federal University of Paran\'a}
+\city{Curitiba,Paran\'a, Brazil}
+\email{geovani\_mat@hotmail.com}
+
+\bb \name{Andreas Griewank}
+\dpt{institute of mathematics}
+\univ{Humboldt University}
+\city{Berlin, Germany}
+\email{kerger@mathematik.hu-berlin.de}
+
+\bb \name{Ming Gu}
+\dpt{Department of Mathematics}
+\univ{University of California at Berkeley}
+\city{Berkeley, USA}
+\email{mgu@math.berkeley.edu}
+
+\bb \name{Deren Han}
+\dpt{School of Mathematical Sciences}
+\univ{Nanjing Normal University}
+\city{Nanjing, China}
+\email{handeren@njnu.edu.cn}
+
+\bb \name{Le Han}
+\dpt{School of Science}
+\univ{South China University of Technology}
+\city{Guangzhou, China}
+\email{hanle@scut.edu.cn}
+
+\bb \name{Jie Hu}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{orsc@amt.ac.cn}
+
+\bb \name{Aiqun Huang}
+\dpt{School of Mathematics and Statistics}
+\univ{Huazhong University of Science and Technology}
+\city{Wuhan, China}
+\email{aiqunhuang@hust.edu.cn}
+
+\bb \name{Jianchao Huang}
+\dpt{Deparment of Mathematics}
+\univ{Shanghai Jiao Tong University}
+\city{Shanghai, China}
+\email{huangjccn@gmail.com}
+
+\bb \name{Jianlin Jiang}
+\dpt{Deparment of Mathematics}
+\univ{Nanjing University of Aeronautics and Astronautics}
+\city{Nanjing, China}
+\email{jiangjianlin\_nju@yahoo.com}
+
+\bb \name{Yanling Jiang}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{lanbaihe88@126.com}
+
+\bb \name{Salvador Jiménez}
+\dpt{Deparment of Mathematics}
+\univ{Universidad Politecnica de Madrid}
+\city{Madrid, Spain}
+\email{s.jimenez@upm.es}
+
+\bb \name{Huilai Li}
+\dpt{Mathematics School}
+\univ{Jilin University}
+\city{Jilin, China}
+\email{lihuilai@jlu.edu.cn}
+
+\bb \name{Qingchun Li}
+\dpt{School of Mathematics and Statistics}
+\univ{Beihua University}
+\city{Jilin, China}
+\email{Liqingchun01@163.com}
+
+\bb \name{Qiong Li}
+\dpt{College of Science}
+\univ{China Three Gorges University}
+\city{Yichang, China}
+\email{liqiongmanj@163.com}
+
+\bb \name{Yong Li}
+\dpt{Mathematics School}
+\univ{Jilin University}
+\city{Jilin, China}
+\email{liyong@jlu.edu.cn}
+
+\bb \name{Yusheng Li}
+\dpt{School of Mathematical Sciences}
+\univ{University of Science and Technology of China}
+\city{Hefei, China}
+\email{lysh@mail.ustc.edu.cn}
+
+\bb \name{Lijun Liu}
+\dpt{School of Science}
+\univ{Dalian Nationalities Universtiy}
+\city{Dalian, China}
+\email{Liulijun@dlnu.edu.cn}
+
+\bb \name{Tianxiang Liu}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{liutx@lsec.cc.ac.cn}
+
+\bb \name{Xin Liu}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{liuxin@lsec.cc.ac.cn}
+
+\bb \name{Xinwei Liu}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{Optim2008@163.com}
+
+\bb \name{Yafeng Liu}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{yafliu@lsec.cc.ac.cn}
+
+\bb \name{Yigui Ou}
+\dpt{College of Information Science \& Technology}
+\univ{Hainan University}
+\city{Haikou, China}
+\email{ouyigui@126.com}
+
+\bb \name{Shaohua Pan}
+\dpt{School of Science}
+\univ{South China University of Technology}
+\city{Guangzhou, China}
+\email{shhpan@scut.edu.cn}
+
+\bb \name{Shenglin Pan}
+\dpt{Mathematics School}
+\univ{Jilin University}
+\city{Jilin, China}
+
+\bb \name{Zilian Pan}
+\univ{Zxtra-d Life Science}
+\email{Celine-pan@yahoo.com}
+
+\bb \name{Zhifeng Pang}
+\dpt{School of Mathematics and Information Sciences}
+\univ{Henan University}
+\city{Henan, China}
+\email{zhifengpang@163.com}
+
+\bb \name{Gianni Di Pillo}
+\dpt{Faculty of Engineering}
+\univ{University of Roma}
+\city{Rome, Italy}
+\email{dipillo@dis.uniroma1.it}
+
+\bb \name{Liqun Qi}
+\dpt{Department of Applied Mathematics}
+\univ{The Hong Kong Polytechnic University}
+\city{Hongkong, China}
+\email{maqilq@polyu.edu.hk}
+
+\bb \name{Yuan Shen}
+\dpt{College of Applied Sciences}
+\univ{Nanjing University of Finance \& Economics}
+\city{Nanjing, China}
+\email{ocsiban@126.com}
+
+\bb \name{Zhenli Sheng}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{szl@lsec.cc.ac.cn}
+
+\bb \name{Yangfeng Su}
+\dpt{Department of Management Science}
+\univ{Fudan University}
+\city{Shanghai, China}
+\email{yfsu@fudan.edu.cn}
+
+\bb \name{Cong Sun}
+\dpt{School of Science}
+\univ{Beijing University of Posts and Telecommunications}
+\city{Beijing, China}
+\email{suncong@lsec.cc.ac.cn}
+
+\bb \name{Hailin Sun}
+\dpt{School of Science}
+\univ{Nanjing University of Science \& Technology}
+\city{Nanjing, China}
+\email{mathhlsun@gmail.com}
+
+\bb \name{Liming Sun}
+\dpt{School of Mathematics and Statistics}
+\univ{Nanjing Audit University}
+\city{Nanjing, China}
+\email{Sunli\_ming@163.com}
+
+\bb \name{Ting Sun}
+\dpt{College of Applied Sciences}
+\univ{Beijing University of Technology}
+\city{Beijing, China}
+\email{971834529@qq.com}
+
+\bb \name{Xiaoling Sun}
+\dpt{Department of Management Science}
+\univ{Fudan University}
+\city{Shanghai, China}
+\email{xls@fudan.edu.cn}
+
+\bb \name{Takashi Tsuchiya}
+\univ{National Graduate Research Institute for Policy Studies}
+\city{Tokyo, Japan}
+\email{tsuchiya@grips.ac.jp}
+
+\bb \name{Liping Wang}
+\dpt{Deparment of Mathematics}
+\univ{Nanjing University of Aeronautics and Astronautics}
+\city{Nanjing, China}
+\email{wlpmath@nuaa.edu.cn}
+
+\bb \name{Shuxiong Wang}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{wsx@lsec.cc.ac.cn}
+
+\bb \name{Yilun Wang}
+\dpt{School of Mathematical Sciences}
+\univ{University of Electronic Science and Technology of China}
+\city{Chengdu, China}
+\email{yilun.wang@gmail.com}
+
+\bb \name{Zhouhong Wang}
+\dpt{School of Science}
+\univ{Beijing Jiaotong University}
+\city{Beijing, China}
+\email{wangzhhng@163.com}
+
+\bb \name{Longfei Wei}
+\dpt{School of Science}
+\univ{Hebei University of Technology}
+\city{Tianjin, China}
+\email{wlfei2008@126.com}
+
+\bb \name{Lu Wei}
+\dpt{College of Applied Sciences}
+\univ{Beijing University of Technology}
+\city{Beijing, China}
+\email{Weilu880604@126.com}
+
+\bb \name{Yimin Wei}
+\dpt{Department of Management Science}
+\univ{Fudan University}
+\city{Shanghai, China}
+\email{Yimin.wei@gmail.com}
+
+\bb \name{Zaiwen Wen}
+\dpt{Deparment of Mathematics}
+\univ{Shanghai Jiaotong University}
+\city{Shanghai, China}
+\email{zw2109@sjtu.edu.cn}
+
+\bb \name{Hulin Wu}
+\dpt{Department of Biostatistics and Computational Biology}
+\univ{University of Rochester}
+\city{NewYork, USA}
+\email{hulin\_wu@urmc.rochester.edu}
+
+\bb \name{Jian Wu}
+\dpt{College of Mathematics and Computer Science}
+\univ{Gannan Normal University}
+\city{Ganzhou, China}
+\email{davy.wu@qq.com}
+
+\bb \name{Jiping Wu}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{wjp@lsec.cc.ac.cn}
+
+\bb \name{Yong Xia}
+\dpt{School of Mathematics and System Sciences}
+\univ{Beihang University}
+\city{Beijing, China}
+\email{dearyxia@gmail.com}
+
+\bb \name{Dongxiu Xie}
+\dpt{School of Science}
+\univ{Beijing Information Science \& Technology University}
+\city{Beijing, China}
+
+\bb \name{Xinchang Xie}
+\dpt{School of Mathematical Sciences}
+\univ{University of Science and Technology of China}
+\city{Hefei, China}
+\email{xcxie@mail.ustc.edu.cn}
+
+\bb \name{Naihua Xiu}
+\dpt{School of Science}
+\univ{Beijing Jiaotong University}
+\city{Beijing, China}
+\email{nhxiu@bjtu.edu.cn}
+
+\bb \name{Xianchao Xiu}
+\dpt{School of Science}
+\univ{Beijing Jiaotong University}
+\city{Beijing, China}
+\email{11121760@bjtu.edu.cn}
+
+\bb \name{Fangfang Xu}
+\dpt{Deparment of Mathematics}
+\univ{Shanghai Jiao Tong University}
+\city{Shanghai, China}
+\email{happyxufangfang@126.com}
+
+\bb \name{Haiwen Xu}
+\dpt{Flight College}
+\univ{Civil Aviation Flight university of China}
+\city{Guanghan, China}
+\email{xuhaiwen\_dream@163.com}
+
+\bb \name{Liyan Xu}
+\dpt{School of Science}
+\univ{Harbin Engineering University}
+\city{Harbin, China}
+\email{xuliyan@hrbeu.edu.cn}
+
+\bb \name{Zi Xu}
+\dpt{Deparment of Mathematics}
+\univ{Shanghai Jiao Tong University}
+\city{Shanghai, China}
+\email{xuzi@shu.edu.cn}
+
+\bb \name{Tao Yan}
+\dpt{School of Mathematical Sciences}
+\univ{University of Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{tyan@njust.edu.cn}
+
+\bb \name{Chao Yang}
+\dpt{Computational Research Division }
+\univ{Lawrence Berkeley National Laboratory}
+\city{Berkeley, USA}
+\email{cyang@lbl.gov }
+
+\bb \name{Jiaojiao Yang}
+\dpt{School of Mathematical Sciences}
+\univ{University of Science and Technology of China}
+\city{Hefei, China}
+\email{jiao904@mail.ustc.edu.cn}
+
+\bb \name{Junfeng Yang}
+\dpt{Deparment of Mathematics}
+\univ{Nanjing University}
+\city{Nanjing, China}
+\email{jfyang@nju.edu.cn}
+
+\bb \name{Yueting Yang}
+\dpt{School of Mathematics and Statistics}
+\univ{Beihua University}
+\city{Jilin, China}
+\email{Yueting\_yang@126.com}
+
+\bb \name{Zhouwang Yang}
+\dpt{School of Mathematical Sciences}
+\univ{University of Science and Technology of China}
+\city{Hefei, China}
+\email{yangzw@ustc.edu.cn}
+
+\bb \name{Hongxia Yin}
+\dpt{Department of Mathematics and Statistics}
+\univ{Minnesota State University}
+\city{Mankato, USA}
+\email{skye.dauer@mnsu.edu}
+
+\bb \name{Wotao Yin}
+\dpt{Department of Computational and Applied Mathematics (CAAM)}
+\univ{Rice University}
+\city{Los Angels, USA}
+\email{wotao.yin@rice.edu}
+
+\bb \name{Gaohang Yu}
+\dpt{College of Mathematics and Computer Science}
+\univ{Gannan Normal University}
+\city{Ganzhou, China}
+\email{maghyu@163.com}
+
+\bb \name{Ya-xiang Yuan}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{yyx@lsec.cc.ac.cn}
+
+\bb \name{Haibin Zhang}
+\dpt{College of Applied Sciences}
+\univ{Beijing University of Technology}
+\city{Beijing, China}
+\email{zhanghaibin@bjut.edu.cn}
+
+\bb \name{Shaoliang Zhang}
+\univ{Nagoya University}
+\city{Nagoya, Aichi, Japan}
+\email{zhang@na.cse.nagoya-u.ac.jp}
+
+\bb \name{Yanfang Zhang}
+\dpt{Academy of Mathematics and Systems Science}
+\univ{Chinese Academy of Sciences}
+\city{Beijing, China}
+\email{yfzhang@lsec.cc.ac.cn}
+
+\bb \name{Zaikun  Zhang}
+\dpt{Deparment of Mathematics}
+\univ{University of Coimbra}
+\city{Coimbra, Portugal}
+\email{zhang@mat.uc.pt}
+
+\bb \name{Ning Zheng}
+\dpt{Department of Mathematics}
+\univ{Tongji University}
+\city{Shanghai, China}
+\email{6zhengning@tongji.edu.cn}
+
+\bb \name{Shenglong Zhou}
+\dpt{School of Science}
+\univ{Beijing Jiaotong University}
+\city{Beijing, China}
+\email{Longnan\_zsl@126.com}
+
+\bb \name{Wenwen Zhou}
+\univ{SAS}
+\email{Wenwen.Zhou@sas.com}
+
+\bb \name{Yongkui Zou}
+\dpt{Mathematics School}
+\univ{Jilin University}
+\city{Jilin, China}
+\email{zouyk@jlu.edu.cn}
+
+
+
+\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newpage
+%\setcounter{page}{38}
+\begin{center}
+\rm %\thispagestyle{empty}
+\hypertarget{SIGHT}{\normalsize {\LARGE \bf Excursion Information}}
+\vskip12mm
+\end{center}
+
+\Large \rm
+
+\begin{center}
+\bf Fujian Tulou\footnote{from Wikipedia:
+\url{http://en.wikipedia.org/wiki/Fujian_Tulou}.}
+\end{center}
+\large
+
+{\bf Fujian Tulou} (Chinese: \mbox{福建土楼}; pinyin: F\'{u}
+Ji\`{a}n T\v{u} L\'{o}u, literally, ``Fujian earthen structures") is
+a type of Chinese rural dwellings of the Hakka and others in the
+mountainous areas in southeastern Fujian, China. They were mostly
+built between the 12th and the 20th centuries.
+
+A tulou is usually a large, enclosed and fortified earth building,
+rectangular or circular in configuration, with very thick
+load-bearing rammed earth walls between three and five storeys high
+and housing up to 80 families. Smaller interior buildings are often
+enclosed by these huge peripheral walls which can contain halls,
+storehouses, wells and living areas, the whole structure resembling
+a small fortified city.
+
+The fortified outer structures are formed by compacting earth, mixed
+with stone, bamboo, wood and other readily available materials, to
+form walls up to 6 feet (1.8 m) thick. Branches, strips of wood and
+bamboo chips are often laid in the wall as additional reinforcement.
+The end result is a well-lit, well-ventilated, windproof and
+earthquake-proof building that is warm in winter and cool in
+summer.Tulous usually have only one main gate, guarded by
+4–5-inch-thick (100–130 mm) wooden doors reinforced with an outer
+shell of iron plate. The top level of these earth buildings has gun
+holes for defensive purposes.
+
+A total of 46 Fujian Tulou sites, including Chuxi tulou cluster,
+Tianluokeng tulou cluster, Hekeng tulou cluster, Gaobei tulou
+cluster, Dadi tulou cluster, Hongkeng tulou cluster, Yangxian lou,
+Huiyuan lou, Zhengfu lou and Hegui lou, have been inscribed in 2008
+by UNESCO as World Heritage Site, as ``exceptional examples of a
+building tradition and function exemplifying a particular type of
+communal living and defensive organization in a harmonious
+relationship with their environment".
+\bigskip
+
+\np
+
+\begin{center}
+\Large\bf Gulangyu Island\footnote{from Wikipedia:
+\url{http://en.wikipedia.org/wiki/Gulangyu_Island}.}
+\end{center}
+\large
+
+{\bf Gulangyu} (Chinese: \mbox{鼓浪屿}; pinyin: G\v{u} L\`{a}ng
+Y\v{u}, literally, ``Drum Wave Islet") is a car free island off the
+coast of Xiamen, Fujian province in southern China, about 2 square
+kilometres (0.77 sq mi) in area. It is home to about 20,000 people
+and is a very popular tourist destination. Visitors can reach it by
+ferry from Xiamen Island in about 5 minutes. Gulangyu Island is
+renowned for its beaches and winding lanes and its varied
+architecture. The island is on China's list of National Scenic Spots
+and also ranks at the top of the list of the ten most-scenic areas
+in Fujian Province.
+
+Xiamen (formerly known as Amoy) became a treaty port resulting from
+China's loss in the First Opium War and the Treaty of Nanking in
+1842, hence the predominantly Victorian-era style architecture
+throughout Gulangyu Island, where 13 countries including Great
+Britain, France and Japan established consulates, churches, and
+hospitals. Gulangyu was officially designated an International
+Settlement in 1903. Japanese occupation of the island began in 1942,
+and lasted until the end of World War II. The Amoy dialect of
+Hokkien is spoken on the island.
+
+As a place of residence for Westerners during Xiamen's colonial
+past, Gulangyu is famous for its architecture and for hosting
+China's only piano museum, giving it the nickname of ``Piano Island"
+or ``The Town of Pianos" or ``The Island of Music". There are over
+200 pianos on this island. The Chinese name also has musical roots,
+as ``Gu Lang" means drum waves so-called because of the sound
+generated by the ocean waves hitting the reefs. Yu means "islet".
+
+In addition, on the west beach of the island you can rent pedal
+boats and jet skis. There's a garden of 12 grottos to represent each
+of the animals on the zodiac. Built into the hillside, its a maze of
+caves and tunnels to find all twelve (and the exit). There are many
+boutique hotels to stay in as well. The island of Gulangyu is a
+pedestrian only destination, where the only vehicles on the islands
+are several fire trucks and electric tourist buggies. The narrow
+streets on the island, together with the architecture of various
+styles around the world, give the island a unique appearance.
+
+\newpage
+\thispagestyle{empty}~~
+
+%\newpage
+%\thispagestyle{empty}
+
+\Huge \it The organizing committee wishes you a pleasant stay in
+Xiamen!
+
+\vskip5mm
+%
+\begin{figure}[htbp]
+    \begin{center}
+        \includegraphics[width=0.95\linewidth,height=82mm]{GLY.jpg}
+        \includegraphics[width=0.95\linewidth,height=82mm]{tulou.jpg}
+    \end{center}
+\end{figure}
+
+\end{document}

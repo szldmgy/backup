@@ -1,0 +1,24 @@
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2013.5.21)  14 OCT 2014 20:06
+entering extended mode
+**Title.tex
+(E:\Meeting\201410-ORSC-Xuzhou\Title.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \author[Z
+             henli Sheng]{Zhenli Sheng\\[0.5mm] \email{szl@lsec.cc.ac.cn}}
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.2 \author[Z
+             henli Sheng]{Zhenli Sheng\\[0.5mm] \email{szl@lsec.cc.ac.cn}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+

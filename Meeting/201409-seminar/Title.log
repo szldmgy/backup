@@ -1,0 +1,34 @@
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2013.5.21)  12 SEP 2014 16:50
+entering extended mode
+**Title.tex
+(E:\Meeting\201409-seminar\Title.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for loaded.
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \author[Z
+             henli Sheng]{Zhenli Sheng\\[0.5mm] \email{szl@lsec.cc.ac.cn}}
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.2 \author[Z
+             henli Sheng]{Zhenli Sheng\\[0.5mm] \email{szl@lsec.cc.ac.cn}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 6 strings out of 430478
+ 196 string characters out of 3191002
+ 44928 words of memory out of 3000000
+ 3235 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 5i,0n,4p,123b,14s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.

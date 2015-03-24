@@ -1,0 +1,51 @@
+% File Name: SetUp.tex
+% Function: Make main settings of the document.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-Theme-settings %%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Madrid} % Set the theme of the beamer.
+\usecolortheme{whale}  % Outer color themes. Alternatives: whale, seahorse, dolphin.
+\usecolortheme{orchid}  % Inner color themes. Alternatives: lily, orchid.
+\useinnertheme[shadow]{rounded}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-Theme-settings %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{color,xcolor}
+\usepackage{graphicx,subfigure}
+\usepackage{clock} % Use this package to insert a clock in the beamer.
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \setbeamertemplate{navigation symbols}{} % Disable the buttons at the bottom.
+
+\graphicspath{{Figures/}} % Set the directory where figures are saved.
+
+
+%%%%%%%%%%%%%%%%%%%% BEGIN-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%
+\newtheorem{mybox}{}
+\newtheorem{Con}{Conjecture}[section]
+\newtheorem{Th}{Theorem}[section]
+\newtheorem{Prop}{Proposition}[Th]
+%%%%%%%%%%%%%%%%%%%%% END-Theorem-like Environments %%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN-New Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\brown}{\color{brown}}
+\newcommand{\orange}{\color{orange}}
+\newcommand{\yellow}{\color{yellow}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Tran}[1]{#1^\mathrm{T}}
+\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\dist}{\textnormal{dist}}
+\renewcommand{\baselinestretch}{1.3}
+\large
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END-New Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%

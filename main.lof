@@ -1,13 +1,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 二维平面上的画图问题}}{2}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 蛋白质分子实例, 左侧是点的形式, 右侧是氨基酸片段的形式}}{3}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces 传感器网络示意图}}{3}{figure.1.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces GB-NLS 中的一步所涉及到的子图. 星型点: 未知点, 实心点:已知点. 实线和粗实线: 已知的距离, 虚线: 计算的距离.}}{15}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces GB-NLS 中的一步所涉及到的子图. 星型点: 未知点, 实心点:已知点. 实线和粗实线: 已知的距离, 虚线: 计算的距离.}}{17}{figure.3.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 将 GB-LLS 应用到计算蛋白质 1MQQ (5681个原子) 的 RMSD 结果 (距离是精确的, 距离阈值设为 6\AA ). 结果经过了 $log10$ 函数换算, 表示的是 RMSD 的量级.}}{18}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces 一个简单的例子, 用以表明计算顺序的重要性}}{21}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces 一个简单的例子, 表明舍入误差可能对一个算法造成很大的影响.}}{34}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 将 GB-LLS 应用到计算蛋白质 1MQQ (5681个原子) 的 RMSD 结果 (距离是精确的, 距离阈值设为 6\AA ). 结果经过了 $log10$ 函数换算, 表示的是 RMSD 的量级.}}{20}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 一个简单的例子, 表明计算顺序的重要性}}{23}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 一个简单的例子, 表明舍入误差可能对一个算法造成很大的影响}}{36}{figure.4.3}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.19pt}
+\beamer@sectionintoc {2}{Problem Introduction}{8}{0}{1}
+\beamer@sectionintoc {3}{Related Works}{11}{0}{2}
+\beamer@sectionintoc {4}{Distributed Geometric Buildup Method}{49}{0}{3}
+\beamer@sectionintoc {5}{Two New Models}{63}{0}{4}
+\beamer@sectionintoc {6}{Conclusions and Future work}{72}{0}{5}

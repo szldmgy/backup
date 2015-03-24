@@ -1,0 +1,46 @@
+\BOOKMARK [-1][-]{part.1}{Part I Invited Talks}{}% 1
+\BOOKMARK [0][-]{section*.1}{Expected Residual Minimization for Stochastic Variational InequalitiesXiaojun Chen}{part.1}% 2
+\BOOKMARK [1][-]{section*.2}{Joint Power and Admission Control for a SISO Interference Channel: Complexity Analysis, Algorithm Design, and Distributed ImplementationYu-Hong Dai}{part.1}% 3
+\BOOKMARK [1][-]{section*.3}{Submodular Optimization and Approximation AlgorithmsSatoru Iwata}{part.1}% 4
+\BOOKMARK [1][-]{section*.4}{Trend in Supply Chain Optimization and Humanitarian LogisticsMikio Kubo}{part.1}% 5
+\BOOKMARK [1][-]{section*.5}{Optimal Policy for an Inventory System with Convex Variable Cost and a Fixed Cost Ye Lu}{part.1}% 6
+\BOOKMARK [1][-]{section*.6}{Jacobian SDP Relaxation for Polynomial OptimizationJiawang Nie}{part.1}% 7
+\BOOKMARK [1][-]{section*.7}{ Modeling and Algorithmic Challenges from Financial OptimizationXiaoling Sun}{part.1}% 8
+\BOOKMARK [1][-]{section*.8}{First Order Algorithms for Well Structured Optimization ProblemsMarc Teboulle}{part.1}% 9
+\BOOKMARK [1][-]{section*.9}{Cone Linear Optimization \(CLO\): from LO, SOCO and SDO towards mixed integer CLOTam\341s Terlaky}{part.1}% 10
+\BOOKMARK [1][-]{section*.10}{Sparse and Smoothing Methods for Nonlinear Optimization Without DerivativesLu\355s Nunes Vicente}{part.1}% 11
+\BOOKMARK [1][-]{section*.11}{Optimization with orthogonality constraints and its applicationsZaiwen Wen}{part.1}% 12
+\BOOKMARK [1][-]{section*.12}{On finite convergence of an explicit exchange method for convex semi-infinite programming problems with second-order cone constraintsSoon-Yi Wu}{part.1}% 13
+\BOOKMARK [1][-]{section*.13}{Primal-dual Interior Point Methods for Nonlinear SDP -Local and Global AnalysisHiroshi Yamashita }{part.1}% 14
+\BOOKMARK [1][-]{section*.14}{Some Recent Advances in Alternating Direction Methods: Practice and TheoryYin Zhang}{part.1}% 15
+\BOOKMARK [-1][-]{part.2}{Part II Contributed Talks}{}% 16
+\BOOKMARK [0][-]{section*.16}{Regularized Least squares approximations on the sphere using spherical designsCongpei An}{part.2}% 17
+\BOOKMARK [1][-]{section*.17}{Smoothing Neural Network for Constrained Non-Lipschitz Optimization with ApplicationsWei Bian and Xiaojun Chen}{part.2}% 18
+\BOOKMARK [1][-]{section*.18}{An Adaptive Gradient Algorithm for Large-scale Nonlinear Bound Constrained OptimizationWanyou Cheng and Erbao-Cao}{part.2}% 19
+\BOOKMARK [1][-]{section*.19}{A New Family of Matrix Completion Quasi-Newton MethodsRui Diao}{part.2}% 20
+\BOOKMARK [1][-]{section*.20}{High performance software package for SDP: SDPA version 7Mituhiro Fukuda}{part.2}% 21
+\BOOKMARK [1][-]{section*.21}{M-Stationarity and Stability Analysis for Mathematical Programs with Complementarity ConstraintsLei Guo and Guihua Lin}{part.2}% 22
+\BOOKMARK [1][-]{equation.0.0.1}{Semi-infinite program with infinitely many conic constraints: optimality condition and algorithmsTakayuki Okuno, Shunsuke Hayashi, and Masao Fukushima}{part.2}% 23
+\BOOKMARK [1][-]{section*.23}{On the O\(1/t\) convergence rate of the alternating direction methods for convex optimization and monotone variational inequalitiesBingsheng He}{part.2}% 24
+\BOOKMARK [1][-]{section*.24}{An improved model for truck dispatching in open pit mineBo Jiang}{part.2}% 25
+\BOOKMARK [1][-]{equation.0.0.2}{Global and superlinear convergence of inexact sequential quadratically constrained quadratic programming method for convex programmingAtsushi Kato, Yasushi Narushima, and Hiroshi Yabe}{part.2}% 26
+\BOOKMARK [1][-]{section*.26}{An application of a discrete fixed point theorem for contraction mappings to a game in expansive formH. Kawasaki}{part.2}% 27
+\BOOKMARK [1][-]{section*.27}{Exact Low-rank Matrix Recovery via Nonconvex Mp-MinimizationLingchen Kong and Naihua Xiu}{part.2}% 28
+\BOOKMARK [1][-]{section*.28}{Inexact Solution of NLP Subproblems in MINLPMin Li}{part.2}% 29
+\BOOKMARK [1][-]{section*.29}{Optimal Fleet Sizing via Dynamic Programming and Golden Section SearchQun Lin}{part.2}% 30
+\BOOKMARK [1][-]{section*.30}{Limited Memory Block Krylov Subspace Optimization for Computing Dominant Singular Value DecompositionsXin Liu}{part.2}% 31
+\BOOKMARK [1][-]{section*.31}{Optimal Control Problems with Stopping ConstraintsRyan Loxton}{part.2}% 32
+\BOOKMARK [1][-]{section*.32}{Plan Postponement Strategy: A Definition and Research Model Ying Lu}{part.2}% 33
+\BOOKMARK [1][-]{section*.33}{Klee-Minty's LP and Upper Bounds for Dantzig's Simplex Methodomonari Kitahara and Shinji Mizuno}{part.2}% 34
+\BOOKMARK [1][-]{section*.34}{A smoothing conjugate gradient method for solving nonsmooth systems of equationsYasushi Narushima}{part.2}% 35
+\BOOKMARK [1][-]{section*.35}{Sparse Solutions to Classes of Quadratic Programming ProblemsJiming Peng}{part.2}% 36
+\BOOKMARK [1][-]{section*.36}{A Hybrid Algorithm for Power Maximization Interference Alignment Problem of MIMO Channels Cong Sun}{part.2}% 37
+\BOOKMARK [1][-]{section*.37}{A sufficient condition for chaos in a steepest decent system with sinusoidal perturbation for global optimizationKeiji Tatsumi and Tetsuzo Tanino}{part.2}% 38
+\BOOKMARK [1][-]{section*.38}{An Augmented Lagrangian Trust Region Algorithm for Equality Constrained OptimizationXiao Wang and Ya-Xiang Yuan}{part.2}% 39
+\BOOKMARK [1][-]{section*.39}{S-goodness: Low-Rank Matrix Recovery from Sparse Signal RecoveryLingchen Kong, Levent Tun\347el, and Naihua Xiu}{part.2}% 40
+\BOOKMARK [1][-]{section*.40}{Conjugate gradient methods based on secant conditions that generate descent search directions for unconstrained optimizationHiroshi Yabe and Yasushi Narushima}{part.2}% 41
+\BOOKMARK [1][-]{section*.41}{On the Separation in 2-Period Double Round Robin Tournaments with Minimum BreaksLishun Zeng and Shinji Mizuno}{part.2}% 42
+\BOOKMARK [1][-]{section*.42}{A New Active Set Method For Nonnegative Matrix FactorizationChao Zhang}{part.2}% 43
+\BOOKMARK [1][-]{section*.43}{Moreau-Yosida regularization for stochastic linear variational inequalitiesYanfang Zhang}{part.2}% 44
+\BOOKMARK [1][-]{section*.44}{Sobolev Seminorm of Quadratic Functions with Applications to Derivative-Free OptimizationZaikun Zhang}{part.2}% 45
+\BOOKMARK [1][-]{section*.45}{A discretization method for nonlinear semi-infinite programming based on the flatten aggregate constraint homotopy method for solving the discretized problemZhengyong Zhou and Bo Yu}{part.2}% 46

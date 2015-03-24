@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Related works}{8}{0}{2}
+\beamer@sectionintoc {3}{Our proposed error function and algorithm}{13}{0}{3}
+\beamer@sectionintoc {4}{Numerical experiments}{23}{0}{4}
+\beamer@sectionintoc {5}{Conclusions and Future work}{38}{0}{5}

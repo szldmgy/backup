@@ -1,0 +1,533 @@
+% --------------------------------------------------------------------------- %
+% Poster for the ECCS 2011 Conference about Elementary Dynamic Networks.      %
+% --------------------------------------------------------------------------- %
+% Created with Brian Amberg's LaTeX Poster Template. Please refer for the     %
+% attached README.md file for the details how to compile with `pdflatex`.     %
+% --------------------------------------------------------------------------- %
+% $LastChangedDate:: 2011-09-11 10:57:12 +0200 (V, 11 szept. 2011)          $ %
+% $LastChangedRevision:: 128                                                $ %
+% $LastChangedBy:: rlegendi                                                 $ %
+% $Id:: poster.tex 128 2011-09-11 08:57:12Z rlegendi                        $ %
+% --------------------------------------------------------------------------- %
+\documentclass[a0paper,portrait]{baposter}
+
+\usepackage{relsize}		% For \smaller
+\usepackage{url}			% For \url
+\usepackage{epstopdf}	% Included EPS files automatically converted to PDF to include with pdflatex
+\usepackage{epsf,latexsym,amsfonts,amsbsy}
+\usepackage{cite}
+\usepackage{amsmath, amssymb, amsthm,amscd,amsxtra,amsfonts,bm}
+\usepackage[ruled,vlined]{algorithm2e}
+%%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{pix/}}	% Root directory of the pictures
+\tracingstats=2			% Enabled LaTeX logging with conditionals
+
+%%% Color Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\argmin}{arg\,min}
+\definecolor{bordercol}{RGB}{40,40,40}
+\definecolor{headercol1}{RGB}{186,215,230}
+\definecolor{headercol2}{RGB}{80,80,80}
+\definecolor{headerfontcol}{RGB}{0,0,0}
+\definecolor{boxcolor}{RGB}{186,215,230}
+\definecolor{blue}{rgb}{0,0,.65}
+\definecolor{myblue}{rgb}{0,0,.5}
+\definecolor{mygreen}{rgb}{0,.5,0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{myred}{rgb}{.5,0,0}
+
+\newtheorem{dingyi}{Definition~}[section]
+\newtheorem{dingli}{Theorem~}[section]
+\newtheorem{yinli}{Lemma~}[section]
+\newtheorem{tuilun}{Corollary~}[section]
+\newtheorem{mingti}{Proposition~}[section]
+\newtheorem{caixiang}{Hypothesis~}[section]
+\newtheorem{jiashe}{Assumption~}[section]
+\newtheorem{lizi}{Instance~}[section]
+\newcommand{\zz}{^{\mathrm{T}}}
+\newcommand{\fzz}{^{-\mathrm{T}}}
+\newcommand{\ff}{_{\mathrm{F}}}
+\newcommand{\fs}{^2_{\mathrm{F}}}
+\newcommand{\eproof}{$\quad \Box$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\st}{\;\mathrm{s.t.}\;}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\Lone}{\Lambda_1}
+\newcommand{\Ltwo}{\Lambda_2}
+\newcommand{\Li}{\Lambda_i}
+\newcommand{\LA}{\mathcal{L}_{(\beta_1,\ \beta_2)}}
+\newcommand{\Po}{\mathcal{P}_\Omega}
+\newcommand{\Pob}{\mathcal{P}_{\Omega^c}}
+\newcommand{\Zo}{Z_{\omega}}
+\newcommand{\La}{\mathcal{L}_{\alpha}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\Lb}{\mathcal{L}_{\beta}}
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\brown}{\color{brown}}
+\newcommand{\orange}{\color{orange}}
+\newcommand{\yellow}{\color{yellow}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Tran}[1]{#1^\mathrm{T}}
+%\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\dist}{\textnormal{dist}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Utility functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Save space in lists. Use this after the opening of the list %%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{
+	\setlength{\itemsep}{1pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document Start %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\typeout{Poster rendering started}
+
+%%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\background{
+	\begin{tikzpicture}[remember picture,overlay]%
+	\draw (current page.north west)+(-2em,2em) node[anchor=north west]
+	{\includegraphics[height=1.1\textheight]{background}};
+	\end{tikzpicture}
+}
+
+%%% General Poster Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Eye Catcher, Title, Authors and University Images %%%%%%%%%%%%%%%%%%%%%%
+\begin{poster}{
+	grid=false,
+	% Option is left on true though the eyecatcher is not used. The reason is
+	% that we have a bit nicer looking title and author formatting in the headercol
+	% this way
+	%eyecatcher=false,
+	borderColor=bordercol,
+	headerColorOne=headercol1,
+	headerColorTwo=headercol2,
+	headerFontColor=headerfontcol,
+	% Only simple background color used, no shading, so boxColorTwo isn't necessary
+	boxColorOne=cyan!8!white,
+	headershape=roundedright,
+	headerfont=\Large\sf\bf,
+	textborder=rectangle,
+	background=none,
+	headerborder=open,
+    boxshade=plain
+}
+%%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	Eye Catcher, empty if option eyecatcher=false - unused
+}
+%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\sf\bf
+	A New Error Function and Its Application to \\Distance Geometry Problem
+}
+%%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	\vspace{1mm} {\smaller Zhenli Sheng (szl@lsec.cc.ac.cn)\\
+Institute of Computational Mathematics and Scientific/Engeering Computing, \\
+Academy of Mathematics and Systems Science, Chinese Academy of Sciences}
+}
+%%% Logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+% The logos are compressed a bit into a simple box to make them smaller on the result
+% (Wasn't able to find any bigger of them.)
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+	\fbox{
+		\begin{minipage}{6.5em}
+			%\includegraphics[width=10em,height=4em]{colbud_logo}
+			%\includegraphics[width=4em,height=4em]{elte_logo} \\
+			%\includegraphics[width=10em,height=4em]{dynanets_logo}
+			%\includegraphics[width=4em,height=4em]{aitia_logo}
+            \includegraphics{tinylogo}
+		\end{minipage}
+	}
+}
+
+\headerbox{Brief Introduction}{name=introduction,column=0,row=0}{
+{\color{blue}Distance Geometry Problem} is to find the coordinate vectors $x_{1},x_{2},\ldots,x_{n}$ that satisfy several given distances between them. Mathematically, \\
+{\color{red}Find $x_{1},x_{2},\ldots,x_{n}$, such that
+\vspace{-2mm}
+\begin{eqnarray*}
+\|x_{i}-x_{j}\|=d_{i,j},\quad (i,j) \in S. \\
+\textrm{or} \quad l_{i,j}\leq \|x_{i}-x_{j}\|\leq u_{i,j},\quad (i,j) \in S.
+\end{eqnarray*}}
+\vspace{-5mm}
+%{\color{blue} Philosophy of ADMM}\\
+%An ancient strategy: {\bf divide} and {\bf conquer}\\
+%Mathematical view: {\bf split} and {\bf alternate}\\
+%{\color{blue} Optimization model description}\\
+%\vspace{-5mm}
+%\begin{eqnarray*}
+%\min\limits_{x\in\Omega} f(x) \quad ~\st~ c(x) = 0,
+%\end{eqnarray*}
+%with a splitting structure:\\[1mm]
+%%\begin{itemize}
+%\indent\qquad $\bullet$ $x:=(x_1,x_2,...,x_p)$\\
+%\indent\qquad $\bullet$ $\{x\mid x\in\Omega\}=\bigcap\limits_{i=1}^p \{x\mid x_i\in\Omega_i\}$\\
+%%\end{itemize}
+%* Split variables are connected by equality constraints.
+}
+
+\headerbox{Motivation}{name=function,column=0,below=introduction}{
+\centering
+\includegraphics[width=\linewidth,height=20mm]{springs.jpg}
+\flushleft
+Similar to Hooke's law, we construct force function:
+\vspace{-4mm}
+$$F(x)=\left\{  \begin{array}{ll}
+                  x-1, & x\geq 1, \\
+                  1-\frac{1}{x}, & x<1.
+                \end{array}  \right. $$
+which prevents the spring from the stationary point $x=1$, then the energy function is h(x).
+
+%Augmented Lagrangian function {\color{purple}(Henstenes 1969, Powell 1969, Rockafellar
+%1973)}
+%\begin{eqnarray*}
+%\Lb(x,\lambda) = f(x) - \lambda\zz c(x) +
+%\frac{\beta}{2}||c(x)||^2_2.
+%\end{eqnarray*}
+%
+%Alternating direction method of multiplier (ADMM)
+%{\color{purple}(Glowinski-Marocco 1975, Gabay-Mercier
+%1976, $p=2$, ...)}
+%\begin{eqnarray*}
+%\left\{
+%  \begin{array}{ll}
+%    {\color{myblue}x_1^{k+1}} \gets \argmin\limits_{\color{red}x_1\in \Omega_1}
+%     \Lb({\color{red}x_1},x_2^k,...,x_p^k,\lambda^k); \smallskip \\
+%    {\color{myblue}x_2^{k+1}} \gets \argmin\limits_{\color{red}x_2\in \Omega_2}
+%    \Lb({\color{mygreen}x_1^{k+1}},{\color{red}x_2},x_3^k,...,x_p^k,\lambda^k); \smallskip \\
+%    ... ... \smallskip \\
+%    {\color{myblue}x_p^{k+1}} \gets \argmin\limits_{\color{red}x_p\in \Omega_p}
+%    \Lb({\color{mygreen}x_1^{k+1}},...,{\color{mygreen}x_{p-1}^{k+1}},{\color{red}x_p},\lambda^k); \smallskip \\
+%    {\color{myblue}\lambda^{k+1}} \gets \lambda^k - \tau\,\beta\,
+%    c({\color{mygreen}x_1^{k+1}},...,{\color{mygreen}x_p^{k+1}}).
+%  \end{array}
+%\right.
+%\end{eqnarray*}
+}
+
+\headerbox{Solution Idea}{name=convergence,column=0,below=function}{
+{\blue Alternative Direction Method}  \\
+$\bullet$ Fix the others, adjust one point each time. \\
+$\bullet$ Go Newton's step or solve a small trust region\\ \indent\quad subproblem at each iteration.
+
+{\blue Gradient Method} \\
+\indent\quad {\blue Search direction} can be negative gradient or the direction proposed in \cite{LiuNocedal1989}. \\
+\indent\quad {\blue Stepsize} can be chosen as alternative BB step considered in \cite{DaiFletcher2003}:
+$$\alpha_{k}^{ABB}=\left\{ \begin{array}{ll}
+                          \alpha_k^{BB1}=\frac{\|s_{k-1}\|^2}{s_{k-1}^{T}y_{k-1}}, & \textrm{for odd k}, \\
+                          \alpha_k^{BB2}=\frac{s_{k-1}^{T}y_{k-1}}{\|y_{k-1}\|^2}, & \textrm{for even k}.
+                        \end{array}
+                \right.  $$
+or by nonmonotone line search in \cite{ZhangHager2004}:
+\begin{eqnarray*}
+  f(x_k+\alpha_k d_k)\leq C_k+\delta\alpha_k \nabla f(x_k)^T d_k
+\end{eqnarray*}
+where $\alpha_k=\overline{\alpha}_k \rho^{h_k}$ and $h_k$ is the largest integer such that the above inequality holds. $C_k$ is chosen as a convex combination of all the previous function values.
+
+\indent\quad {\blue Starting point:} Geometric Buildup Method in \cite{SitWuYuan2009} is very fast but accumulation of round error may ruin the result when the number of the points is large. However, it can be used as a warm starting point.
+
+%{\color{blue} Existent results -- based on strict conditions}\\
+%\indent $\bullet$ Two blocks, joint convexity, separability {\color{purple}
+%(Gabay-Mercier 1976)} \\
+%\indent $\bullet$ Multi-blocks, joint convexity, separability\\
+%\indent\quad  {\footnotesize $\bullet$ variant versions  {\color{purple}
+%(He-Yuan et al., Goldfarb-Ma, ...)}} \\
+%\indent\quad  {\footnotesize $\bullet$ strongly convexity  {\color{purple}
+%(Luo, 2012)}} \\
+%\indent $\bullet$ Global linear convergence rate\\
+%\indent\quad  {\footnotesize $\bullet$ linear programming  {\color{purple}
+%(Eckstein-Bertsekas, 1990)}} \\
+%\indent\quad  {\footnotesize $\bullet$ strongly convexity, Lipschitz gradient  {\color{purple}
+%(Deng-Yin)}} \\
+%{\color{blue} Nonconvex and nonseparable case} {\color{purple}
+%(Yang-L.-Zhang)}\cite{YangLiuZhang2012}\\
+%\indent $\bullet$ Some pioneering results on the local convergence and linear local convergence rate \\
+%\indent $\bullet$ Milder restriction on the optimization model: the second order sufficiency at the solution\\
+}
+
+\headerbox{References}{name=references,column=0,below=convergence}{
+\smaller													% Make the whole text smaller
+\vspace{-0.4em} 										% Save some space at the beginning
+\bibliographystyle{plain}							% Use plain style
+\renewcommand{\section}[2]{\vskip 0.05em}		% Omit "References" title
+\begin{thebibliography}{1}							% Simple bibliography with widest label of 1
+\itemsep=-0.01em										% Save space between the separation
+\setlength{\baselineskip}{0.4em}					% Save space with longer lines
+\bibitem{SitWuYuan2009} A. Sit, Z. Wu and Y. Yuan(2009), \emph{A geometric buildup algorithm for the solution of the distance geometry problem using least-squares approximation.}
+\bibitem{DaiFletcher2003} Y. Dai and R. Fletcher(2003), \emph{Projected Barzilar-Borwein method for large-scale box-caonstrained quadratic programming}.
+\bibitem{ZhangHager2004} H. Zhang and W. Hager(2004), \emph{A nonmonotone line search technique and its application to unconstrained optimization}.
+\bibitem{LiuNocedal1989} D. Liu and J. Nocedal (1989), \emph{On the limited memory BFGS method for large scale optimization}.
+%\bibitem{YangLiuZhang2012} J. Yang, X. Liu and Y. Zhang.: \emph{A Class of Stationary Iterative Method for Saddle Point
+%Problems: Convergence and Extension}, finished
+%\bibitem{WenYangLiu2012} Z. Wen, C. Yang, X. Liu and S.
+%Marchesini: \emph{Alternating Direction Methods for Classical and
+%Ptychographic Phase Retrieval}, accepted by Inverse Problem
+%\bibitem{WenPengLiu2012} Z. Wen, X. Peng, X. Liu, X. Bai and X. Sun: \emph{Asset Allocation under the Basel Accord Risk Measures}, finished
+%\bibitem{Zhang2010} Y. Zhang: \emph{     An Alternating Direction Algorithm for Nonnegative Matrix Factorization }, Rice technical report, 2010.
+\end{thebibliography}
+}
+
+\headerbox{Acknowledgements}{name=acknowledgements,column=0,below=references, above=bottom}{
+\smaller						% Make the whole text smaller
+%\vspace{-0.4em}			% Save some space at the beginning
+Thank my supervisor Prof. Ya-xiang Yuan for the useful advice to my research and foundation support for me to attend this workshop, also Dr. Xin Liu for the helpful discussion.
+%Research supported in part
+%by NSFC grant 11101409 and 10831006, and the National Center for
+%Mathematics and Interdisciplinary Sciences, CAS.
+}
+
+\headerbox{Applications}{name=application,span=2,column=1,row=0}{
+\begin{minipage}{50mm}
+\includegraphics[width=\linewidth,height=45mm]{a1.jpg}
+\centering Graph Realization
+\end{minipage}
+\begin{minipage}{49mm}
+\includegraphics[width=\linewidth,height=45mm]{a2.jpg}
+\centering Sensor Network Localization
+\end{minipage}
+\begin{minipage}{51mm}
+\includegraphics[width=\linewidth,height=45mm]{a3.jpg}
+\centering { Protein Structure Determination}
+\end{minipage}
+
+%\begin{minipage}{70mm}
+%\includegraphics[width=\linewidth,height=42mm]{ptph2.jpg}
+%\end{minipage}
+%\hfil
+%\begin{minipage}{80mm}
+%\indent $\bullet$  Details refer to {\color{purple}
+%(Wen-Yang-L.-Marchesini, 2012)}   \cite{WenYangLiu2012} \\[1mm]
+%%
+%\indent $\bullet$  Background: X-ray diffractive
+%imaging, \\
+%\indent\quad transmission electron microscopy\\[1mm]
+%%
+%\indent $\bullet$   Mathematical problem: given $|\mathcal{F} (Q_i \psi)|$ \\
+%\indent\quad for $i=1,\ldots,k$, can
+%we recover $\psi$?\\[1mm]
+%%
+%\indent $\bullet$ {\color{blue} Optimization model: \color{mygreen} nonconvex, nonsmooth}
+%\vspace{-2mm}
+%\begin{eqnarray*}
+%\min\limits_{\hat \psi\in \mathbb{C}^{n}}\sum_{i=1}^k
+%\frac{1}{2}\left|\left||\mathcal{F} Q_i \hat \psi| -
+%b_i\right|\right|_2^2.
+%\end{eqnarray*}
+%\end{minipage}
+%\\[1mm]
+%
+%{\color{blue} Splitting reformulation:}
+%$\min\limits_{\hat \psi\in \mathbb{C}^{n}, {\color{red}z\in
+%\mathbb{C}^{m\times k}}}\sum_{i=1}^k
+%\frac{1}{2}\left|\left||{\color{red}z_i}| - b_i\right|\right|_2^2
+%\quad ~\st~  {\color{red}z_i} = \mathcal{F} Q_i \hat \psi, \quad i =
+%1,...,k.$\\[1mm]
+%%
+%{\color{blue} Augmented Lagrangian:}
+%$\mathcal{L}_{\beta}(z_i,\psi, y_i) = \sum_{i=1}^k \left(\frac{1}{2}
+%\| |{\color{red}z_i}| - b_i\|_2^2 + y_i^* (\mathcal{F} Q_i \psi -
+%{\color{red}z_i}) + \frac{\beta}{2}\|\mathcal{F} Q_i \psi -
+%{\color{red}z_i}\|_2^2 \right).$\\[1mm]
+%%
+%{\color{blue} Updating $z$:}  ${\color{red}(z_i^+)_{(l)}}= \left\{\begin{array}{cc}
+%\frac{|(s_i)_{(l)}|+(b_i)_{(l)}}{(1+\beta)|(s_i)_{(l)}|}(s_i)_{(l)},
+%& \mbox{if\ }
+%(s_i)_{(l)}\neq 0 \mbox{\ and\ } (b_i)_{(l)}> 0;  \\
+%\pm\frac{(b_i)_{(l)}}{1+\beta}, & \mbox{if\ }
+%(s_i)_{(l)}= 0 \mbox{\ and\ } (b_i)_{(l)}> 0;\\
+%0, & \mbox{otherwise},\\
+%\end{array}\right.$ \\
+%\indent\qquad\qquad\qquad where $s_i = y_i + \beta\mathcal{F} Q_i\psi,\ i=1,...,k$. (closed-form formula)\\[1mm]
+%%
+%{\color{blue} Updating $\psi$:} $\psi^+ = \frac{1}{\beta} \left(\sum _{i=1}^k Q_i^* Q_i
+%\right)^{-1}\sum _{i=1}^k Q_i^* \mathcal{F}^* \left( \beta
+%{\color{red}z_i^+} - y_i \right).$ (solving linear system)\\[1mm]
+%%
+%{\color{blue} Updating Lagrangian multiplier $y$:} $y_i^{j+1}= y_i^j + \tau\,\beta\, (\mathcal{F} Q_i \psi^{j+1} -
+%{\color{red}z_i^{j+1}}), \quad i = 1, \ldots, k.$
+}
+
+\headerbox{Error Functions}
+{name=portfolio,span=2,column=1,below=application}{
+{\blue Traditional error functions:}\\
+\indent\quad $\bullet$ stress function: $\sum_{(i,j)\in S} (\|x_{i}-x_{j}\|-d_{i,j})^{2}, $\\
+\indent\quad $\bullet$ smoothed stress function: $\sum_{(i,j)\in S} (\|x_{i}-x_{j}\|^{{\red 2}}-d_{i,j}^{{\red 2}})^{2}, $\\
+\indent\quad $\bullet$ generalized stress function: $\sum_{(i,j)\in S} \min\nolimits^{2} \{\frac{\|x_{i}-x_{j}\|^{2}-l_{i,j}^2}{l_{i,j}^{2}},0\} + \max\nolimits^{2} \{\frac{\|x_{i}-x_{j}\|^{2}-u_{i,j}^2}{u_{i,j}^{2}},0\}.$\\
+All these functions tend to have too many local minimizers.
+
+{\blue Our proposed error function:}\\
+\begin{minipage}{90mm}
+Define h: $\mathbb{R}_{++}\rightarrow R$ as below,
+\begin{displaymath}
+  h(x) = \left\{ \begin{array}{ll}
+                  \frac{1}{2}(x-1)^{2}, & x\geq 1, \\
+                  x-(1+ln(x)),          & x<1.
+                \end{array}   \right.
+\end{displaymath}
+$\bullet$ h(x) is twice continuously differentiable in $(0, +\infty)$, and \\
+\indent\quad it achieves its minimum 0 at 1.\\
+$\bullet$ The error function is {\red $\sum_{(i,j)\in S} h(\frac{\|x_{i}-x_{j}\|^2}{d_{i,j}^2})$}.
+\end{minipage}
+\begin{minipage}{50mm}
+\includegraphics[width=\linewidth,height=36mm]{huke.jpg}
+\end{minipage}
+%\begin{minipage}{68mm}
+%\includegraphics[width=\linewidth,height=42mm]{Var.jpg}
+%\end{minipage}
+%\hfil
+%\begin{minipage}{82mm}
+%\indent $\bullet$  Details refer to {\color{purple}
+%(Peng-Wen-L.-Bai-Sun)}   \cite{WenPengLiu2012} \\[1mm]
+%%
+%\indent $\bullet$  Value at risk: ${\mathrm{VaR}}_{\alpha}(X) \,\triangleq\, - \inf\limits_{x\in\mR} x
+%\, ~\st~ \,
+%{\mathrm{P}}(X>x)\leq$\\
+%\indent \quad $1-\alpha \,=\, - \inf\limits_{x\in\mR} x \,
+%~\st~ \, {\mathrm{F}}_X(x)
+%> \alpha$.\\[1mm]
+%%
+%\indent $\bullet$ {\color{blue} Optimization model: \color{mygreen} combinatorial objective}
+%\vspace{-2mm}
+%\begin{eqnarray*}
+%\min\limits_{u\in \mathcal{U}_{r_0}} (-\tilde{R}u)_{(p)},
+%\end{eqnarray*}
+%where $\mathcal{U}_{r_0} =\{ u \in \R^d \mid \mu\zz u \geq r_0,
+%\mathbf{1}\zz u = 1, u \ge 0 \}$; $(\cdot)_{(p)}$ refers to the
+%$p$-th smallest component of a vector.
+%\end{minipage}
+%\\[1mm]
+%
+%{\color{blue} Splitting reformulation:}
+%$\min_{ u \in \mathcal{U}_{r_0},  \; {\color{red}x \in \R^n}}
+%{\color{red}x_{(p)}} \quad ~\st~ {\color{red}x} + \tilde{R}u = 0.$\\[1mm]
+%%
+%{\color{blue} Augmented Lagrangian:}
+%$\Lb(x,u,\lambda):= {\color{red}x_{(p)}} - \lambda\zz ({\color{red}x}
+%+ \tilde{R} u) + \frac{\beta}{2} \| {\color{red}x} + \tilde{R} u
+%\|^2.$\\[1mm]
+%%
+%{\color{blue} Updating $x$:}  $x_{(i)} = \left\{\begin{array}{ccc} \gamma_{i^*}, &\mbox{if}&
+% i^* \leq i\leq p;\\ v_i, && \mbox{otherwise},
+%\end{array}\right.$ where $v^{(j)} = - \left(\tilde{R} u^{(j)} + \frac{1}{\beta}
+%\lambda^{(j)} \right)$,  $\gamma_i = \frac{ \beta \sum_{j=i}^p v_j - 1}{ \beta (p-i+1) }$ \\
+%\indent\qquad\qquad\qquad $i^*:= \max \{ i \mid i\le p, \; v_{i-1} < \gamma_i  \}$ after sorting $ v_1 \le v_2 \le \ldots \le v_n$. (closed-form formula)\\[1mm]
+%%
+%{\color{blue} Updating $u$:} $ u^{(j+1)}  =   \argmin_{ u \in \mathcal{U}_{r_0}} \;
+% \frac{1}{2} u^\top \tilde{R}^\top \tilde{R} u + b^\top u$, where $b=\tilde{R}^\top (\frac{1}{\beta} \lambda^{(j)}  +
+%{\color{red}x^{(j+1)}})$ (solving QP)\\[1mm]
+%%
+%{\color{blue} Updating Lagrangian multiplier $\lambda$:} $\lambda^{(j+1)} =  \lambda^{(j)} + \beta ({\color{red}x^{(j+1)}}+
+%\tilde{R} u^{(j+1)}).$
+}
+
+\headerbox{Algorithm Framewaork}
+{name=algorithm,span=2,column=1,below=portfolio}{
+%\begin{minipage}{70mm}
+\begin{algorithm}[H]
+\caption{Trust Region Error Minimization Method}
+\SetKwInOut{Init}{Initialization}
+\Init{Choose starting points (or calculate by Buildup) and set the parameters}
+\While{stopping criteria not satisfied}{
+\For{i=1:n}{ Solve trust region subproblem to obtain trial step $s_{i}$, let
+$r_{i} = \frac{\overline{f}(x_{i})-\overline{f}(x_{i}+s_{i})}{q(x_{i})-q(x_{i}+s_{i})}$.\\
+According to $r_{i}$ to determine to accept $s_{i}$ or not, and adjust $\Delta_{i}$\;
+}
+}
+\label{algtr}
+\end{algorithm}
+%\end{minipage}
+%\begin{minipage}{70mm}
+\begin{algorithm}[H]
+\SetKwInOut{Init}{Initialization}
+\Init{Choose starting points (or calculate by Buildup) and set the parameters}
+\While{stopping criteria not satisfied}{
+Calculate search direction $d_{k}$ and stepsize $\alpha_{k}$;
+Set $x_{k}\leftarrow x_{k}+\alpha_{k}d_{k}, k\leftarrow k+1.$
+}
+\caption{Alternative BB/Nonmonotone Line Search Method}
+\label{algNewton}
+\end{algorithm}
+%\end{minipage}
+
+%\begin{minipage}{48mm}
+%\includegraphics[width=0.93\linewidth,height=43mm]{digit0}
+%\end{minipage}
+%\hspace{-5mm}
+%$\Rrightarrow$
+%\begin{minipage}{14mm}
+%\includegraphics[width=0.47\linewidth,height=43mm]{digitPCs}
+%\end{minipage}
+%\hspace{-7mm}
+%\begin{minipage}{92mm}
+%\indent $\bullet$  Principal component analysis (PCA) with structures: \\
+%\indent \quad given dataset $A \in\R^{m\times n}$, find $W, H$ with $k\ll n$
+%columns\\
+%\indent \quad so that $A \approx WH\zz ~~\Leftrightarrow~~ {\bf a}_j \approx
+%\bw_1h_{j1} + \bw_2h_{j2} + \cdots + \bw_kh_{jk}.$ \\
+%\indent \quad with {\color{myred}  prior information} on decomposition pattern $(W,H)$ \\[2mm]
+%\indent $\bullet$   {\color{blue} Optimization model: \color{mygreen} nonconvex, combinatorial constraints}
+%\vspace{-6mm}
+%\begin{eqnarray*}
+%\min_{W\in\R^{m\times k},\ H\in\R^{n\times k}} \|A - WH\zz\|\fs
+%~\st~ W \in \bT_1, \; H \in \bT_2,
+%\end{eqnarray*}
+%%\footnote{details refer to {\color{purple}
+%%(Zhang, 2010)}  \cite{Zhang2010}}
+%where $\bT_1$, $\bT_2$ can be $\{X\mid X\zz X =I\}$, or $\{X \mid
+%X\geq
+%0\}$ (nonnegative matrix factorization, {\color{purple}
+%(Zhang, 2010)}  \cite{Zhang2010}), or any other matrix sets allowing {\color{myred}`easy projection'}.
+%\end{minipage}
+%\\[1mm]
+%\begin{minipage}{85mm}
+%\indent $\bullet$ {\color{blue} Splitting reformulation:} $\min_{W,\ H,\ {\color{red}S_1},\ {\color{red}S_2}} \|A - WH\zz\|\fs$
+%\indent \quad $~\st~ W={\color{red}S_1} \in \bT_1, \; H={\color{red}S_2} \in \bT_2.$\\
+%\indent  $\bullet$  {\color{blue} Augmented Lagrangian:}
+%$\LA(W,H,{\color{red}S_1},{\color{red}S_2},\Lambda)  = $ \\
+%\indent \quad $\|A - WH\zz\|\fs - \Lone\bullet(W-{\color{red}S_1}) -
+%\Ltwo\bullet(H-{\color{red}S_2}) $ \\
+%\indent \quad $+ \frac{\beta_1}{2}\cdot\|W-{\color{red}S_1}\|\fs +
+%\frac{\beta_2}{2}\cdot\|H-{\color{red}S_2}\|\fs.$ \\[2mm]
+%\indent $\bullet$ $\left\{
+%  \begin{array}{ll}
+%    W^{k+1} \gets \arg\min_{W} \LA(W,H^k,{\color{red}S_1^k},{\color{red}S_2^k},\Lambda^k); \smallskip \\
+%    H^{k+1}  \gets \arg\min_{H} \LA(W^{k+1},H,{\color{red}S_1^k},{\color{red}S_2^k},\Lambda^k); \smallskip \\
+%    {\color{red}S_i^{k+1}}  \gets {\rm Proj}\,_{\bT_i}(V_i^{k+1}-\Li^k/\beta_i); \quad{\color{myred}\mbox{Here,}\, i=1,2; }\smallskip \\
+%    \Li^{k+1}  \gets \Li^k -  \beta_i(V_i^{k+1}-{\color{red}S_i^{k+1}}). \quad {\color{myred} V_1=W, V_2=H.}
+%  \end{array}
+%\right.$
+%\end{minipage}
+%\hfil
+%\begin{minipage}{65mm}
+%\includegraphics[width=\linewidth,height=42mm]{digit2t.jpg}
+%\end{minipage}
+}
+
+\headerbox{Numerical Results}
+{name=semf,span=2,column=1,below=algorithm,above=bottom}{
+\begin{minipage}{75mm}
+\includegraphics[width=75mm,height=40mm]{r1.eps}
+\end{minipage}
+\begin{minipage}{75mm}
+\includegraphics[width=75mm,height=40mm]{r2.eps}
+\end{minipage}
+
+\begin{minipage}{75mm}
+\includegraphics[width=75mm,height=40mm]{r3.eps}
+\end{minipage}
+\begin{minipage}{75mm}
+\includegraphics[width=75mm,height=40mm]{r4.eps}
+\end{minipage}
+}
+
+\end{poster}
+\end{document}

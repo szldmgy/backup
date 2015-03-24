@@ -1,0 +1,294 @@
+\documentclass[hyperref={pdfpagelabels=false},table,9pt,compress]{beamer}
+\input{SetUp.tex}
+\usepackage[ruled]{algorithm2e}
+
+\begin{document}
+\begin{CJK*}{GBK}{kai}
+
+\input{Title.tex}
+\input{Outline.tex}
+
+\section{Problem introduction}
+\frame{
+\frametitle{Distance Geometry Problem}
+Find the coordinate vectors $x_{1},x_{2},\ldots,x_{n}$ that satisfy several given distances among them. Mathematically, this problem can be stated as following, \\
+\begin{block}{} %{Distance Geometry Problem}
+Find $x_{1},x_{2},\ldots,x_{n} \in \Real^d$, such that
+\begin{displaymath}
+\|x_{i}-x_{j}\|=d_{ij},\quad (i,j) \in S.
+\end{displaymath}
+or
+$$l_{ij}\leq \|x_i-x_j\|\leq u_{ij},\quad (i,j) \in S.$$
+where $S$ is the given index set.
+\end{block}
+
+\begin{itemize}
+  \item The data given may have some errors.
+  \item This problem can be formulated as a global optimization problem.
+  \item It has many applications.
+\end{itemize}
+}
+
+\section{Models: Various Error Functions}
+\framee{How to Compare Different Models?}{
+\begin{enumerate}
+  \item Smoothness?
+  \item Count the stationary point of gradient.
+  \item Numerical tests on the same instances.
+\end{enumerate}
+}
+
+
+\begin{frame}[fragile]
+\frametitle{Numerical Tools}
+\begin{itemize}
+  \item Ipopt ((\textbf{I}nterior \textbf{P}oint \textbf{OPT}imizer) is a software package for large-scale nonlinear optimization. It is designed to find (local) solutions of mathematical optimization problems of the form
+      \be\begin{array}{cl} \min\limiits_{x\in \Real^n} & f(x) \\ \st & g_L \leq g(x) \leq g_U\\ & x_L \leq x \leq x_U\end{array}\ee
+      where $f(x)$ and $g(x)$ should be twice continuously differentiable. \\[2mm]
+  \item AMPL: A Modeling Language for Mathematical Programming
+  \begin{verbatim}
+   param n;
+   set Vertex := {1..n};
+   set Edge within Vertex cross Vertex;
+   param Dist {Edge} >= 0;
+   param startvar {1..n,1..3};
+   var x {1..n,1..3};
+   minimize Smoothed_Stress_function:
+      sum{(i,j)in Edge} ((x[i,1]-x[j,1])^2 + (x[i,2]-x[j,2])^2 + (x[i,3]-x[j,3])^2 - Dist[i,j]^2)^2;
+  \end{verbatim}
+\end{itemize}
+\end{frame}
+
+
+\framee{Error Functions}{
+\begin{itemize}
+  \item Stress function
+  $$Stress(\xn) = \sum_{(i,j)\in S} (\|x_i-x_j\|-d_{ij})^{2}$$
+  \item Smoothed Stress function
+  $$SStress(\xn) = \sum_{(i,j)\in S} (\|x_i-x_j\|^2-d_{ij}^2)^{2}$$
+  \item Absolute Error function
+  $$AbsErr(\xn) = \sum_{(i,j)\in S} \left|\|x_i-x_j\|^2-d_{ij}^2
+  \right|$$
+\end{itemize}
+}
+
+\framee{Stress VS SStress}{
+\begin{itemize}
+  \item $SStress$ is smoother, thus converges fast
+  \be \frac{\partial Stress}{\partial x_i}=\sum_{j\in N(i)} 2(1-\frac{d_{ij}}{\|x_i-x_j\|})(x_i-x_j)\ee
+  \be \frac{\partial SStress}{\partial x_i}=\sum_{j\in N(i)} 4(\|x_i-x_j\|^2-d_{ij}^2)(x_i-x_j)\ee
+  \item Numerical tests: 100 rand points in $[0,1]\times [0,1]$, with different cutoffs, noiseless, random intial point.
+      \btab{cc|ccc|ccc} \hline
+        % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      \multirow{2}*{cutoff} & \multirow{2}*{per} & \multicolumn{2}{c||}{Stress} & \multicolumn{2}{c|}{SStress} \\ \cline{3-6}
+      & & iter & time & RMSD  & iter & time & RMSD \\ \hline  
+        2 & 100  & 20 & 0.42 & 5.15-03 & 22 & 0.47 & 5.14-03 \\ \hline
+      0.9 & 83.8 & 20 & 0.44 & 5.09-03 & 62 & 1.33 & 5.04-03 \\ \hline
+      0.8 & 71.6 & 16 & 0.31 & 5.17-03 & 60 & 1.10 & 4.87-03 \\ \hline
+      0.7 & 57.9 & 25 & 0.34 & 3.36-01 & 73 & 1.29 & 5.28-03 \\ \hline
+      0.6 & 43.1 & 34 & 0.37 & 2.59-01 & 43 & 0.53 & 2.59-01 \\ \hline
+      0.65& 50.6 & 37 & 0.54 & 5.37-03 & 39 & 0.54 & 4.25-01 \\ \hline
+      \etab
+\end{itemize}
+  \item I also have tested on some other random data and with different noise, the conclusion is that: it is very hard to say which model is better, but SStress sonverges fast.
+}
+
+\framee{SStress VS AbsErr}{
+\begin{itemize}
+  \item $AbsErr$ is more robust with large outliers
+  \begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{abs.jpg}
+  \end{figure}
+  \item $SStress$ is twice continuously differentiable, while $AbsErr$ not. Therefore $SStress$ is used in direct error minimization.
+  \item $AbsErr$ is widely used in SDP-based models with techniques as below,
+      \begin{enumerate}[-]
+        \item $\|x_i-x_j\|^2=e_{ij}^TYe_{ij}$, where $Y=X^TX.$
+        \item $|x|=x_+-x_-$ with $x_+\geq 0, x_-\geq 0.$
+      \end{enumerate}
+\end{itemize}
+}
+
+\framee{Two Error Functions}{
+We construct the following two new error functions to measure the \textbf{Quo}tient \textbf{Err}ors,
+$$QuoErr(\xn)=\sum_{(i,j)\in S} h(\frac{\|x_{i}-x_{j}\|^2}{d_{ij}^2})$$
+where 
+$$h(x) = \left\{ \begin{array}{ll}
+                \frac{1}{2}(x-1)^2 & \textrm{if } x\geq 1, \\
+                x-1-log(x)         & \textrm{if } 0<x<1.
+                \end{array} \right.
+$$
+or
+$$h(x)= x-1-log(x) \quad \forall x>0.$$
+Here, we choose the second function, the gradient can be calculated as
+$$\frac{\partial QuoErr}{\partial x_i}=\sum_{j\in N(i)} (\frac{1}{d_{ij}^2}-\frac{1}{\|x_i-x_j\|^2})(x_i-x_j)$$
+which is not continuous as $x_i=x_j$.
+}
+
+\framee{SStress VS QuoErr}{
+random intial point, noiseless, 
+\btab{cc|cc|cc} \hline
+        % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      \multirow{2}*{cutoff} & \multirow{2}*{per} & \multicolumn{2}{c|}{SStress} & \multicolumn{2}{c}{QuoErr} \\ \cline{3-6}
+      & & iter & time & RMSD  & iter & time & RMSD \\ \hline
+        2 & 100  & 20 & 0.42 & 5.15-03 & 44 & 0.94 & 5.22-03 \\ \hline
+      0.9 & 83.8 & 20 & 0.44 & 5.09-03 & 70 & 1.46 & 5.31-03 \\ \hline
+      0.8 & 71.6 & 16 & 0.31 & 5.17-03 & 57 & 1.04 & 2.69-01 \\ \hline
+      0.7 & 57.9 & 25 & 0.34 & 3.36-01 & 73 & 1.29 & 5.02-03 \\ \hline
+      0.6 & 43.1 & 34 & 0.37 & 2.59-01 & 84 & 1.04 & 5.09-03 \\ \hline
+      0.65& 50.6 & 37 & 0.54 & 5.37-03 & 85 & 1.17 & 5.49-02 \\ \hline
+\etab
+XX.*(1+0.5*(rand-0.5)*2); noise = 0.1; 
+        2 & 100  & 8  & 0.15 & 3.48-02 & 13 & 0.29 & 1.81-02 \\ \hline
+      0.9 & 83.8 & 8  & 0.16 & 3.29-02 & 21 & 0.45 & 1.86-02 \\ \hline
+      0.8 & 71.6 & 8  & 0.18 & 2.93-02 & 15 & 0.27 & 1.93-02 \\ \hline
+      0.7 & 57.9 & 10 & 0.15 & 3.00-02 & 23 & 0.35 & 2.20-02 \\ \hline
+      0.6 & 43.2 & 16 & 0.20 & 2.89-02 & 21 & 0.25 & 2.17-02 \\ \hline
+      0.5 & 28.8 & 10 & 0.08 & 3.25-02 & 28 & 0.23 & 2.58-02 \\ \hline
+      0.4 & 16.4 & 16 & 0.07 & 3.99-02 & 48 & 0.21 & 6.57-02 \\ \hline
+      0.3 &  7.6 & 45 & 0.10 & 1.66-01 & 39 & 0.09 & 1.62-02 \\ \hline
+
+Usually, the QuoErr with no square can get smaller RMSD error.
+}
+
+\framee{Short Summary}{
+\begin{itemize}
+\item In any cases, we can get smaller objective function value than putting the true postion into these functions. Which means there is not so much we can do under these models.
+\item 
+\end{itemize}
+}
+
+\framee{Hessian Matrix}{
+\footnotesize{
+\begin{block}{Hessian Matrix of SStress}
+Let $x=(x_{11},x_{12},x_{13},\ldots,x_{i1},x_{i2},x_{i3},\ldots,x_{n1},x_{n2},x_{n3})$, then the Hessian Matrix $\in \Real^{3n\times 3n}$ can be specified by
+\begin{enumerate}[i)]
+  \item \textbf{(diagonal item)} for $i=1..n, p=1..3$, 
+  \be\frac{\partial^2 SStress}{\partial^2 x_{ip}} = \sum_{j\in N(i)} \left(2(x_{ip}-x_{jp})^2+\|x_i-x_j\|^2-d_{ij}^2 \right) \ee
+  \item \textbf{(nondiagonal item of diagonal block)} for $i=1..n,  p,q\in\{1,2,3\}$ with $p\neq q$,
+  \be\frac{\partial^2 SStress}{\partial x_{ip}\partial x_{iq}} = \sum_{j\in N(i)} 2(x_{ip}-x_{jp})(x_{iq}-x_{jq}) \ee
+  \item \textbf{(diagonal item of nondiagonal block)} for $i=1..n, k\in N(i), p=1..3$,
+  \be\frac{\partial^2 SStress}{\partial x_{ip}\partial x_{kp}} = - 2(x_{ip}-x_{kp})^2-(\|x_i-x_k\|^2-d_{ik}^2) \ee
+  \item \textbf{(nondiagonal item of nondiagonal block)} for $i=1..n, k\in N(i), p,q\in\{1,2,3\}$ with $p\neq q$,
+  \be \frac{\partial^2 SStress}{\partial x_{ip}\partial x_{kq}} = -2(x_{ip}-x_{kp})(x_{iq}-x_{kq}) \ee
+  \item 0, otherwise.
+\end{enumerate}
+\end{block}
+}
+}
+
+\framee{Picture of Hessian Matrix}{
+\vskip-1cm
+\huge{
+$$\left( \begin{array}{ccccc} 
+\diamondsuit  &      &  \Box &      & \Box \\
+      & \diamondsuit &       &      & \Box \\
+\Box  &      &  \diamondsuit &      &      \\
+\vdots&\vdots&       &\ddots&\vdots\\
+\Box  & \Box &       &      & \diamondsuit \\
+\end{array}\right)$$
+}
+\normalsize
+\begin{itemize}
+  \item Hessian is a sparse symmetric matrix.
+  \item Each $\diamondsuit, \Box$ represents a $3\times3$ symmetric submatrix.
+  \item The $(i,j)$-th block is zero matrix if $(i,j)\not\in S$.
+  \item The diagonal $\diamondsuit$ are the negative sum of $\Box$ in the same row/column.
+\end{itemize}
+}
+
+\section{A Model and its SDP Relaxation}
+\framee{A Model for DG with Bounds}{
+\be\label{model:1}
+\begin{split}
+  \max_{x_{i},r_{i}} \quad & \sum_{i=1}^{n} r_i \\
+  \st                \quad & \|x_i-x_j\|+r_i+r_j\leq u_{i,j} \\
+                           & \|x_i-x_j\|-r_i-r_j\geq l_{i,j}, \quad \forall (i,j)\in S\\
+                           &  r_i\geq 0, \quad i=1,2,\ldots,n.
+\end{split} \ee
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{tt.pdf}\\
+\end{figure}
+}
+
+\framee{}{
+Let $X=(x_1,x_2,\ldots,x_n)\in \Real^{3\times n}$ and $e_i$ be the $i-th$ column of Identity matrix in appropriate dimensional space. Then, we have
+\begin{equation}
+\begin{split}
+\|x_i-x_j\|^2 & = \|X(e_i-e_j)\|^2 \\
+              & = e_{ij}^TX^TXe_{ij} \qquad (e_{ij}=e_i-e_j)
+\end{split}
+\end{equation}
+Furthermore, let $R=(r_1,r_2,\ldots,r_n)\in \Real^{1\times n}$ be a row vector,
+\begin{equation}
+\begin{split}
+(u_{ij}-r_i-r_j)^2 & = u_{ij}^2 - 2u_{ij}(r_i+r_j) + (r_i+r_j)^2 \\
+                   & = u_{ij}^2 - 2u_{ij}R(e_i+e_j) + (R(e_i+e_j))^2 \\
+                   & = u_{ij}^2 - 2u_{ij}Rf_{ij}+f_{ij}^TR^TRf_{ij} \qquad (f_{ij}=e_i+e_j )\\
+                   & = u_{ij}^2 + \left\langle\left(\begin{array}{cc}
+                   0 & -u_{ij}f_{ij}^T \\ -u_{ij}f_{ij} & f_{ij}f_{ij}^T \end{array}\right),\left(\begin{array}{cc}
+                   1 & R \\ R^T & R^TR \end{array}\right)\right\rangle
+\end{split}
+\end{equation}
+}
+
+\framee{}{
+To establish the associate SDP model, we let
+$$Y=X^TX, \quad Z=\left(\begin{array}{cc} 1 & R \\ R^T & R^TR \end{array}\right),$$
+and relax them to $Y\succeq0, Z\succeq0$. Therefore, by these notations, we can relax model (\ref{model:1}) to
+\begin{equation}\label{model:SDP}
+\begin{split}
+  \min_{Y,Z} \quad & -\inner{\left(\begin{array}{cc}0&e^T/2\\e/2&0\end{array}\right)}{Z} \\
+  \st        \quad & \inner{e_{ij}e_{ij}^T}{Y}+\inner{\left(\begin{array}{cc}0&-u_{ij}f_{ij}^T\\
+  -u_{ij}f_{ij}&f_{ij}f_{ij}^T\end{array}\right)}{Z}\leq u_{ij}^2\\
+  &\inner{e_{ij}e_{ij}^T}{Y}-\inner{\left(\begin{array}{cc}0&l_{ij}f_{ij}^T\\
+  l_{ij}f_{ij}&f_{ij}f_{ij}^T\end{array}\right)}{Z}\geq l_{ij}^2, \quad \forall (i,j)\in S\\
+  &\inner{\left(\begin{array}{cc}0&e_i^T/2\\e_i/2&0\end{array}\right)}{Z}\geq 0, \quad i=1,2,\dots,n \\
+                           & \inner{e_1e_1^T}{Z}=1 \\
+                           & Y\succeq 0, Z\succeq 0.
+\end{split}
+\end{equation}
+}
+
+%\framee{}{
+%Currently, We would like to exploit the open solver \textbf{SDPT3} to solve this problem. Thus, model (\ref{model:SDP}) can be further reformulate as the standard form for SDPT3.
+%\begin{equation}\label{model:SDPT3}
+%\setlength\arraycolsep{3pt}
+%%\setlength\arraylinesep{5pt}  % need package "tabls"
+%\begin{array}{cccrcccl}
+%  \min\limits_{Y,Z} \quad & && -\inner{\left(\begin{array}{cc}0&e^T/2\\e/2&0\end{array}\right)}{Z} &&&\\
+%  \st        \quad & \inner{e_{ij}e_{ij}^T}{Y}&+&\inner{\left(\begin{array}{cc}0&-u_{ij}f_{ij}^T\\
+%  -u_{ij}f_{ij}&f_{ij}f_{ij}^T\end{array}\right)}{Z}&+&\alpha_{ij}&=&u_{ij}^2\\
+%  &\inner{e_{ij}e_{ij}^T}{Y}&-&\inner{\left(\begin{array}{cc}0&l_{ij}f_{ij}^T\\
+%  l_{ij}f_{ij}&f_{ij}f_{ij}^T\end{array}\right)}{Z}&-&\beta_{ij}&=&l_{ij}^2, \quad \forall (i,j)\in S\\
+%  & & &\inner{\left(\begin{array}{cc}0&e_i^T/2\\e_i/2&0\end{array}\right)}{Z}& +& t_i &= &0, \quad i=1,2,\dots,n \\
+%  && &  \inner{e_1e_1^T}{Z}&&&=&1 \\
+%  & \multicolumn{7}{l}{Y, Z\in K_s^{s_j},\quad \alpha_i, \beta_i, t_i \in K_l^{n_l}.}
+%\end{array}
+%\end{equation}
+%}
+
+
+\section{Ongoing works}
+\frame{
+\frametitle{Ongoing works}
+\begin{itemize}
+  \item Further study the properties of error function, then design a fast algorithm.
+  \item Extend our algorithm to solve distance geometry problem with distance bounds.
+  \item Produce an animation to see how these points were built up one by one.
+\end{itemize}
+}
+
+
+\frame{
+%\frametitle{Q \& A}
+\begin{center}
+  \Large{  \textsc{Thank you for your attention!}}  \\
+  \vspace{0.2cm}
+  {\blue szl@lsec.cc.ac.cn }
+\end{center}
+}
+
+\end{CJK*}
+\end{document}

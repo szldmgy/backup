@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.1.8)  12 MAR 2015 09:32
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.1.8)  24 MAR 2015 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1388,6 +1388,12 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box87
 \rot@mess@toks=\toks36
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks37
+\verbatim@line=\toks38
+\verbatim@in@stream=\read2
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Invalid UTF-8 byte or sequence at line 164 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 414 replaced by U+FFFD.
@@ -1442,7 +1448,7 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algobox=\box95
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/afterpage.sty
 Package: afterpage 1995/10/27 v1.08 After-Page Package (DPC)
-\AP@output=\toks37
+\AP@output=\toks39
 \AP@partial=\box96
 \AP@footins=\box97
 )
@@ -1452,8 +1458,36 @@ Package: changepage 2009/10/20 v1.0c check page and change page layout
 Normal \count register pool exhausted, switching to extended pool.
 \cp@tempcnt=\count277
 )
-\c@Thm=\count278
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 89.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count278
+\lst@gtempboxa=\box98
+\lst@token=\toks40
+\lst@length=\count279
+\lst@currlwidth=\dimen276
+\lst@column=\count280
+\lst@pos=\count281
+\lst@lostspace=\dimen277
+\lst@width=\dimen278
+\lst@newlines=\count282
+\lst@lineno=\count283
+\lst@maxwidth=\dimen279
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count284
+\lst@skipnumbers=\count285
+\lst@framebox=\box99
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+\c@Thm=\count286
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 123.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
@@ -1471,6 +1505,10 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 
 
 Writing index file main.idx
+(/usr/local/texlive/2014/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+Package: xeCJK-listings 2014/05/13 v3.2.12 xeCJK patch file for listings
+\l__xeCJK_listings_flag_int=\count287
+)
 (./main.aux (./chap/abstract.aux) (./chap/pub.aux) (./chap/resume.aux)
 (./chap/thanks.aux))
 \openout1 = `main.aux'.
@@ -1564,7 +1602,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 33.
 LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 33.
-\AtBeginShipoutBox=\box98
+\AtBeginShipoutBox=\box100
 Package hyperref Info: Link coloring ON on input line 33.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1573,7 +1611,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count279
+\c@section@level=\count288
 )
 LaTeX Info: Redefining \ref on input line 33.
 LaTeX Info: Redefining \pageref on input line 33.
@@ -1583,6 +1621,7 @@ LaTeX Info: Redefining \nameref on input line 33.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
+\c@lstlisting=\count289
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
@@ -1609,7 +1648,7 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 . * 'bold italic' with NFSS spec.:
 . <->"[simsun.ttf]/I/ICU:script=hani;language=DFLT;mapping=tex-text;"
 .................................................
-\g_fontspec_family_[simhei.ttf]_int=\count280
+\g_fontspec_family_[simhei.ttf]_int=\count290
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1634,7 +1673,7 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 File: figures/gucas.eps Graphic file (type eps)
 
 <figures/gucas.eps>
-\g_fontspec_family_[simfang.ttf]_int=\count281
+\g_fontspec_family_[simfang.ttf]_int=\count291
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1711,7 +1750,7 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 
 ]
-\g_fontspec_family_[stxingkai.ttf]_int=\count282
+\g_fontspec_family_[stxingkai.ttf]_int=\count292
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1819,172 +1858,192 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 162.
+(hyperref)                removed on input line 141.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 168.
+(hyperref)                removed on input line 176.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 174.
+(hyperref)                removed on input line 182.
 
-[1
+File: figures/GraphRealization.eps Graphic file (type eps)
+<figures/GraphRealization.eps>
+File: figures/GraphRealization2.eps Graphic file (type eps)
+ <figures/GraphRealization2.eps> [1
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 187.
+(hyperref)                removed on input line 197.
+
+File: figures/1PTQ.eps Graphic file (type eps)
+<figures/1PTQ.eps>
+File: figures/1HQQ.jpg Graphic file (type QTm)
+ <use  "figures/1HQQ.jpg" > [2]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 224.
+
+File: figures/adhoc.eps Graphic file (type eps)
+<figures/adhoc.eps>
+File: figures/WirelessSensorNetwork.png Graphic file (type QTm)
+ <use  "figures/WirelessSensorNetwork.png" > [3]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 248.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 203.
+(hyperref)                removed on input line 266.
 
-[2]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 215.
-
+[4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 239.
+(hyperref)                removed on input line 299.
 
-[3] [4
+[5] [6
 
 ]
 第二章
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 251.
+(hyperref)                removed on input line 311.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 271.
+(hyperref)                removed on input line 331.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 274.
+(hyperref)                removed on input line 334.
 
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 313.
-
+[7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 316.
+(hyperref)                removed on input line 373.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 318.
+(hyperref)                removed on input line 376.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 323.
+(hyperref)                removed on input line 378.
 
-[6] [7] [8
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 383.
+
+[8] [9] [10
 
 ]
 第三章
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 367.
-
-[9]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 416.
-
-[10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 448.
+(hyperref)                removed on input line 422.
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 492.
+(hyperref)                removed on input line 471.
 
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 514.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 526.
+(hyperref)                removed on input line 503.
 
 [13]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 553.
+LaTeX Warning: Reference `cha:distribute' on page 14 undefined on input line 54
+7.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 570.
+(hyperref)                removed on input line 554.
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 588.
+
+[15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 615.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 632.
 
 File: figures/DistEx.eps Graphic file (type eps)
-<figures/DistEx.eps> [14]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 597.
-
-[15] [16
-
-]
-第四章
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 637.
-
-[17]
-File: figures/OriginalOrder.eps Graphic file (type eps)
- <figures/OriginalOrder.eps>
+<figures/DistEx.eps> [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
 (hyperref)                removed on input line 659.
 
-[18]
+[17] [18]
+第四章
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 695.
+(hyperref)                removed on input line 721.
+
+[19
+
+]
+File: figures/OriginalOrder.eps Graphic file (type eps)
+ <figures/OriginalOrder.eps>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 743.
+
+[20]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 779.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 698.
+(hyperref)                removed on input line 782.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 712.
+(hyperref)                removed on input line 796.
 
-[19]
+[21]
 Missing character: There is no 对 in font [lmroman12-regular]:mapping=tex-text!
 Missing character: There is no 所 in font [lmroman12-regular]:mapping=tex-text!
 Missing character: There is no 有 in font [lmroman12-regular]:mapping=tex-text!
@@ -1993,130 +2052,160 @@ Missing character: There is no 的 in font [lmroman12-regular]:mapping=tex-text!
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 738.
+(hyperref)                removed on input line 822.
 
-[20]
+[22]
 File: figures/CompOrder.eps Graphic file (type eps)
  <figures/CompOrder.eps>
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 773.
+(hyperref)                removed on input line 857.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 775.
+(hyperref)                removed on input line 859.
 
 
 Underfull \vbox (badness 7576) has occurred while \output is active []
 
- [21]
+ [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 814.
+(hyperref)                removed on input line 898.
 
 
 Underfull \vbox (badness 4048) has occurred while \output is active []
 
- [22]
+ [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 840.
+(hyperref)                removed on input line 925.
 
-[23]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 892.
-
+[25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 910.
+(hyperref)                removed on input line 977.
 
-[24] [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1009.
+(hyperref)                removed on input line 995.
 
-[26]
+[26] [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1036.
+(hyperref)                removed on input line 1094.
+
+[28]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1121.
 
 
-Overfull \hbox (4.80727pt too wide) in paragraph at lines 1042--1068
+Overfull \hbox (4.80727pt too wide) in paragraph at lines 1127--1153
  [][] 
  []
 
-[27]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1151.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
 [29]
 
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.53> not available
-(Font)              size <8> substituted on input line 1190.
-
-
-Overfull \hbox (5.54425pt too wide) in paragraph at lines 1190--1220
- [][] 
- []
-
-[30]
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1287.
-
-[31]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1323.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.00876pt
-(hyperref)                removed on input line 1327.
+(hyperref)                removed on input line 1236.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
+ [30]
+[31]
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.53> not available
+(Font)              size <8> substituted on input line 1275.
+
+
+Overfull \hbox (5.54425pt too wide) in paragraph at lines 1275--1305
+ [][] 
+ []
+
+[32]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1369.
+
+[33]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1389.
+
+[34]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1427.
+
+[35]
 File: figures/doubling.eps Graphic file (type eps)
+ <figures/doubling.eps>
 
-<figures/doubling.eps> [33] [34] (./main.bbl [35
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1473.
+
+[36] [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39]
+[40]
+第五章
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1643.
 
 
-] [36]
-Underfull \hbox (badness 1616) in paragraph at lines 141--144
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.00876pt
+(hyperref)                removed on input line 1663.
+
+[41
+
+] [42
+
+]
+第六章
+[43] [44
+
+] (./main.bbl [45
+
+] [46] [47]
+Underfull \hbox (badness 1616) in paragraph at lines 180--183
 \EU1/lmr/m/n/12.05 geometric framework for nonlinear dimensionality reduction, 
 \EU1/lmr/m/it/12.05 Science\EU1/lmr/m/n/12.05 ,
  []
 
-[37]) [38] (./main.ind)
+[48]) [49] [50
+
+] (./main.ind)
 \openout2 = `chap/pub.aux'.
 
- (./chap/pub.tex) [39
-
+ (./chap/pub.tex) [51
 
 
 ]
 \openout2 = `chap/resume.aux'.
 
- (./chap/resume.tex [40
+ (./chap/resume.tex [52
 
 
 
@@ -2131,10 +2220,10 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.05pt
 (hyperref)                replaced by space on input line 2.
 
-) [41]
+) [53]
 \openout2 = `chap/thanks.aux'.
 
- (./chap/thanks.tex [42
+ (./chap/thanks.tex [54
 
 
 
@@ -2150,17 +2239,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                replaced by space on input line 2.
 
 
-LaTeX Warning: Reference `chap:sobolev' on page 43 undefined on input line 33.
+LaTeX Warning: Reference `chap:sobolev' on page 55 undefined on input line 33.
 
-[43] [44]
+[55]
+
+LaTeX Warning: Citation `SobolevDFO' on page 56 undefined on input line 50.
+
+[56]
 File: figures/zzk.eps Graphic file (type eps)
- <figures/zzk.eps>) [45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1396.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1396.
- (./main.aux (./chap/abstract.aux)
-(./chap/pub.aux) (./chap/resume.aux) (./chap/thanks.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1396.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1396.
+ <figures/zzk.eps>) [57]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1694.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1694.
+ (./main.aux (./chap/abstract.aux) (./chap/pub.aux) (./chap/resume.aux) (./chap
+/thanks.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1694.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1694.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2171,12 +2264,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 28417 strings out of 493734
- 525866 string characters out of 6146349
- 634988 words of memory out of 5000000
- 31253 multiletter control sequences out of 15000+600000
- 22195 words of font info for 136 fonts, out of 8000000 for 9000
+ 30350 strings out of 493734
+ 553215 string characters out of 6146349
+ 821742 words of memory out of 5000000
+ 33147 multiletter control sequences out of 15000+600000
+ 22235 words of font info for 141 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 68i,12n,56p,10423b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,56p,10423b,1280s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (65 pages).
+Output written on main.pdf (77 pages).

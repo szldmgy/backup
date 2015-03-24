@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{Problem Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Error Accumulation}{23}{0}{2}
+\beamer@subsectionintoc {2}{1}{analysis of error accumulation}{24}{0}{2}
+\beamer@subsectionintoc {2}{2}{our improvement}{32}{0}{2}
+\beamer@sectionintoc {3}{Laplacian Eigenmap}{38}{0}{3}
+\beamer@subsectionintoc {3}{1}{Laplacian matrix}{39}{0}{3}
+\beamer@subsectionintoc {3}{2}{Nonlinear Dimensionality Reduction}{42}{0}{3}
+\beamer@subsectionintoc {3}{3}{Laplacian Eigenmap-based Localization Algorithm}{52}{0}{3}
+\beamer@subsectionintoc {3}{4}{possible Laplacian-based Distributed Algorithm }{59}{0}{3}
+\beamer@sectionintoc {4}{Stress Majorization}{62}{0}{4}
+\beamer@subsectionintoc {4}{1}{Principle of Majorization}{63}{0}{4}
+\beamer@subsectionintoc {4}{2}{Stress Majorization}{66}{0}{4}

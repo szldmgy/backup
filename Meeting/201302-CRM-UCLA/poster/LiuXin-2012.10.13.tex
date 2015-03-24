@@ -1,0 +1,148 @@
+\documentclass[mathserif,compress,orchid,cjk]{beamer}
+\usepackage{txfonts}
+
+\mode<presentation> {
+  \usetheme{classic}%{Warsaw}{Madrid}{Madrid}
+  \useinnertheme{umbcboxes}
+   \setbeamercovered{transparent}
+}
+
+\usepackage{CJK}
+\usepackage{hyperref}
+\hypersetup{CJKbookmarks=true}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{color,xcolor}
+\usepackage{graphicx}
+\usepackage{manfnt}
+\usepackage{pgf}
+\usepackage{booktabs}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\song}{\CJKfamily{song}}    % ËÎÌå   (Windows×Ô´øsimsun.ttf)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\definecolor{blue}{rgb}{0,0,.65}
+\definecolor{myblue}{rgb}{0,0,.5}
+\definecolor{mygreen}{rgb}{0,.5,0}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{myred}{rgb}{.5,0,0}
+
+\newtheorem{dingyi}{Definition~}[section]
+\newtheorem{dingli}{Theorem~}[section]
+\newtheorem{yinli}{Lemma~}[section]
+\newtheorem{tuilun}{Corollary~}[section]
+\newtheorem{mingti}{Proposition~}[section]
+\newtheorem{caixiang}{Hypothesis~}[section]
+\newtheorem{jiashe}{Assumption~}[section]
+\newtheorem{lizi}{Instance~}[section]
+%\beamertemplateshadingbackground{blue!5}{white!15}
+\renewcommand{\proof}{\noindent {\bf Proof.} \ \ }
+\renewcommand{\endproof}{{\bf Q.E.D.}}
+\newcommand{\zz}{^{\text{T}}}
+\newcommand{\fzz}{^{-\text{T}}}
+\newcommand{\ff}{_{\text{F}}}
+\newcommand{\fs}{^2_{\text{F}}}
+\newcommand{\eproof}{$\quad \Box$}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\st}{\;\mathrm{s.t.}\;}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\Lone}{\Lambda_1}
+\newcommand{\Ltwo}{\Lambda_2}
+\newcommand{\LA}{\mathcal{L}_{(\beta_1,\ \beta_2)}}
+\newcommand{\Po}{\mathcal{P}_\Omega}
+\newcommand{\Pob}{\mathcal{P}_{\Omega^c}}
+\newcommand{\Zo}{Z_{\omega}}
+\newcommand{\La}{\mathcal{L}_{\alpha}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\Lb}{\mathcal{L}_{\beta}}
+
+
+%===================================================%
+\makeatletter
+\renewcommand\theequation{\thesection.\arabic{equation}}
+\@addtoreset{equation}{section} \makeatother
+
+\title[ADMM: A Powerful Tool]
+{Alternating direction method of multiplier:\\ a powerful tool for difficult optimization problems}
+
+\author[Xin~Liu]{\bf Xin Liu}
+
+%\institute{\xiaosihao\hei\textcolor[rgb]{0.85,0.42,0.00}{LSEC ICMSEC AMSS CAS}}
+\institute[AMSS]{State Key Laboratory of Scientific and Engineering Computing\\
+Institute of Computational Mathematics and Scientific/Engineering Computing\\
+Academy of Mathematics and Systems Science\\
+Chinese Academy of Sciences, China}%\\[1.2em]
+
+\date[October 13, 2012]{\scriptsize \rm Fifteenth Chinese-American
+Kavli Frontiers of Science Symposium\\[0.6em]
+\footnotesize {\tt Arnold and Mabel Beckman Center, Irvine, CA}\\[0.6em] October 13, 2012}
+
+\setbeamertemplate{background}{
+\pgfputat{\pgfxy(11.85,-0.96)}{\pgfbox[left,base]{\pgfimage[height=1.01cm,width=1cm]{tinylogo}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.1
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.1
+\begin{frame}
+\frametitle{Alternating direction method of multiplier:\\ a powerful tool for difficult optimization problems}
+\vspace{-5mm}
+\begin{center}\footnotesize
+Xiu Liu (liuxin@lsec.cc.ac.cn)\\
+{\rm\scriptsize State Key Laboratory of Scientific and Engineering Computing\\
+Academy of Mathematics and Systems Science\\
+Chinese Academy of Sciences, China}\\[2mm]
+{\scriptsize Fifteenth Chinese-American Kavli Frontiers of Science Symposium\\
+Irvine, California, U.S. October 13, 2012}
+\end{center}  
+\vspace{-3mm}
+\begin{minipage}{40mm}
+\begin{displaybox}{40mm}
+``{\color{mygreen}Divide}" and ``{\color{myred}Conquer}" \\
+\indent \quad\, $\Updownarrow$ \hspace{1.78cm}   $\Updownarrow$\\
+\indent\,\,``{\color{mygreen}Split}" \, and ``{\color{myred}Alternate}"
+\end{displaybox}
+\end{minipage}
+$\Rrightarrow$
+\begin{minipage}{60mm}
+\begin{displaybox}{60mm}\footnotesize
+{\color{red}Difficult optimization models}
+\begin{itemize}
+\item nonlinearity, nonconvexity
+\item nondifferentiable term
+\item combinatorial objective or constraints 
+\end{itemize}
+\end{displaybox}
+\end{minipage}
+\begin{minipage}{60mm}
+\begin{displaybox}{60mm}
+\begin{itemize}\scriptsize
+\item {\color{mygreen}Splitting} brings {\color{myblue} easy subproblems};
+\item {\color{blue} Augmented Lagrangian function} penalizes the {\color{myblue} equality
+constraints}
+\item {\color{myred}Alternating} solves the {\color{myblue}split targets} in turn
+\end{itemize}
+\end{displaybox}
+\end{minipage}
+$\circlearrowleft$
+\begin{minipage}{40mm}
+\begin{displaybox}{40mm}\footnotesize
+{\color{red} Three application instances}
+\begin{itemize}
+\item phase retrieval
+\item portfolio optimization
+\item matrix
+factorization
+\end{itemize}
+\end{displaybox}
+\end{minipage}
+\end{frame}
+
+\end{document}

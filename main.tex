@@ -138,24 +138,38 @@ enormous practical potential.
 
 \chapter{引言}
 \label{cha:introduction}
-有许多种方式来描述距离几何问题, 我们采用图的语言. 
+\section{问题定义}
+\label{sec:ProbDefinition}
+粗略地将, 这是一个``给定点之间的距离信息, 求点的坐标''的问题.
+严格的数学定义有许多种方式, 我们采用图的语言来定义距离几何问题. 
 
-\begin{Prob}[等式约束的距离几何问题]
-  对于图$G=(V,E)$, 其中$V$是顶点几何, $E$是边的集合, 给定每一条边 $(i,j)\in E$ 的长度为 $d_{ij}$, 求解$d$ 维欧式空间中的点的坐标 $\xn$,使得
+\begin{Prob}[等式约束的距离几何问题, 记为 eDGP]
+对于图$G=(V,E)$, 其中$V$是顶点集合, $E$是边的集合, 
+给定每一条边 $(i,j)\in E$ 的长度为 $d_{ij}$, 
+求 $\xn \in \Real^d$ (d 事先给定), 使得
 \begin{equation}
   \|x_i-x_j\|=d_{ij}, \quad (i,j)\in E.
 \end{equation}
 \end{Prob}
 
-在理想情况下, 给定的距离是没有误差(无噪音)的, 
-此时问题叫做精确距离的距离几何问题, 否则称为不精确(带噪音)的距离几何问题.
-一个更加实际的情形是, 给定的不是每一条边上的距离 $d_{ij}$, 
-而是该距离的上界估计 $u_{ij}$ 和下界估计  $l_{ij}$.
-此时问题变为求 $x_i\in \Real ^d$, 满足
+在理想情况下, 给定的距离是没有误差(无噪音, exact)的, 
+此时问题叫做精确距离的距离几何问题, 否则称为不精确(带噪音, noisy)的距离几何问题.
+一个更加实际的情形是, 给定的不是每一条边上的距离, 
+而是该距离的上界估计, 此时问题变为
+
+\begin{Prob}[不等式约束的距离几何问题, 记为 iDGP]
+对于图$G=(V,E)$, 其中$V$是顶点集合, $E$是边的集合, 
+给定每一条边 $(i,j)\in E$ 的上界 $u_{ij}$ 和下界 $l_{ij}$, 
+求 $\xn \in \Real^d$ (d 事先给定), 使得
 \begin{equation}
   l_{ij}\leq \|x_i-x_j\| \leq u_{ij}, \quad (i,j)\in E.
 \end{equation}
-此时问题叫做给定上下界的距离几何问题.
+\end{Prob}
+
+此问题也称作界约束 (distance bounds) 的距离几何问题.
+在本文中, 对界约束的问题, 我们假设距离是相容的, 
+也就是至少存在一组满足条件的解.
+
 在本文中, 我们会涉及到上下界的问题, 但重点研究带噪音的距离几何问题.
 
 
@@ -167,7 +181,16 @@ enormous practical potential.
 
 \subsection{画图}
 在画图 (Graph Drawing) 领域, 通常叫做图的实现(Graph Realization)问题~\cite{Gansner2005}.
-在这个问题中, 我们的任务是画图使得点之间的距离满足事先给定的权重. 
+\begin{figure}[htbp]
+  \centering
+  \subfigure{ \includegraphics[width=0.45\textwidth]{GraphRealization.eps} }
+  \subfigure{ \includegraphics[width=0.45\textwidth]{GraphRealization2.eps} }
+  \caption{二维平面上的画图问题}
+  \label{fig:GraphRealization}
+\end{figure}
+在这个问题中, 我们的任务是画图使得点之间的距离满足事先给定的权重.
+如图 \ref{fig:GraphRealization} 所示, 我们被给定边的长度, 需要确定点的坐标,
+使得点与点之间的距离满足这些长度数据.
 这个问题跟我们后面提到的几个应用的区别是, 这些理论上的图
 有时候会有多解的存在, 为了使画出来的图满足美观性的要求通常会引入其他约束条件.
 
@@ -175,17 +198,39 @@ enormous practical potential.
 这个术语翻译自 Protein Folding, 
 在其他文献中也有被叫做蛋白质结构确定 (Protein Structure Determination)~\cite{Braun1987,Sit2011,Voller2013}, 
 或是分子构象问题 (Molecular Conformation Problem)~\cite{Crippen1988,Biswas2008,Fang2013}, 
-或是分子距离几何问题 (Molecular Distance Geometry Problem)~\cite{Dong2002,Dong2003,Carvalho2008}.
+或是分子距离几何问题 (Molecular Distance Geometry Problem)~\cite{Dong2002,Dong2003,Carvalho2008},
+都是指同一个问题.
 
+\begin{figure}[htbp]
+  \centering
+  \subfigure{ \includegraphics[width=0.45\textwidth]{1PTQ.eps} }
+  \subfigure{ \includegraphics[width=0.45\textwidth]{1HQQ.jpg} }
+  \caption{蛋白质分子实例, 左侧是点的形式, 右侧是氨基酸片段的形式}
+  \label{fig:protein}
+\end{figure}
+图 \ref{fig:protein} 是两个蛋白质分子的实例. 
 在这个问题中, 给定原子之间的部分距离, 我们需要给出蛋白质的三维结构.
-在实际应用中, 这些距离通常是由实验测得的, 比如核磁共振(Nuclear Magnetic Resonace)
-或X射线结晶技术(X-ray Crystallography), 或者通过一些生物学信息估算, 比如键长和键角.
-在目前的应用中, 核磁共振是获得距离的主要技术.
-由于蛋白质的很多重要性质都与三维结构紧密相关, 
-所以这个问题非常具有实际意义.
-    
+由于其在医学, 药学, 生物学, 材料设计, 化学等领域的广泛应用,
+确定蛋白质结构的问题在不同的学科得到了广泛的研究 \cite{schlick2010molecular}.
+在实际应用中, X射线结晶技术(X-ray Crystallography)
+是获得蛋白质结构的主要工具, 但有些蛋白质是不能被结晶的, 
+我们所拥有的只有由核磁共振(Nuclear Magnetic Resonace, NMR) 测量得到的距离, 
+或者通过一些生物学信息估算, 比如键长和键角, 估算出来的距离.
+所以, 通过距离信息计算蛋白质结构的问题就变得非常重要.
+1984年, 由算法 DISGEO \cite{havel1984distance} 计算出了
+第一个由 NMR 数据得到的蛋白质结构.
+关于蛋白质分子更多的介绍和相关的技术, 请参考 \cite{schlick2010molecular}.
+
 \subsection{传感器网络定位} 
-另一个非常重要的应用是传感器网络定位~\cite{Akyildiz2002,Chong2003,Mao2007,Yick2008}.
+另一个非常重要的应用是传感器网络定位~\cite{Akyildiz2002,Chong2003,Mao2007,Yick2008}. 图 \ref{fig:sensor} 就是两个传感器网络的示意图.
+\begin{figure}[htbp]
+  \centering
+  \subfigure{ \includegraphics[width=0.45\textwidth]{adhoc.eps} }
+  \subfigure{ \includegraphics[width=0.45\textwidth]{WirelessSensorNetwork.png} }
+  \caption{传感器网络示意图}
+  \label{fig:sensor}
+\end{figure}
+
 传感器非常便宜和方便, 它是用来环境监测, 动物管理等活动的一种有效的工具, 
 甚至应用在军事行动中, 用于远程探测地面信息.
 在这些应用中, 通常每一个个体都装备有传感器, 它可以用来
@@ -212,6 +257,12 @@ enormous practical potential.
 跟锚节点的通讯来实现的. 未来如果移动设备也互相通信,
 组成一个大的移动网络, 将有助于更快更精确地定位.
 
+另一个相关的问题是降维问题 (Dimensional Reduction).
+在降维问题中, 我们已知是高维空间中的点, 通常需要以某种方式构造``距离'',
+再解一个低维空间中的优化问题,
+此问题正是等式约束的距离几何问题, 已知的正是局部的稀疏的距离. 
+更多介绍请参考 \cite{}, 也可参考本文第\ref{cha:Laplace}章.
+
 \subsection{一些注记}
 在蛋白质折叠和传感器网络定位应用中, 由于核磁共振技术和无线信号强度
 的限制, 我们能够测得的距离通常都是局部的.
@@ -231,8 +282,17 @@ enormous practical potential.
   \item 等式约束还是上下界约束~?
   \item 已知全部距离还是部分距离~?
 \end{itemize}
+
 问题形式的不同将导致截然不同的难度和求解算法.
-另外强调一点, 我们假设需要求解的点所在空间的维数是确定的, 已知的.
+不等式约束导致的优化问题在形式上要复杂一些, 
+但我们一般假设给定的距离区间是包含真实距离的, 也就是说,
+问题的``真解''是问题的一个可行解.
+但对于带噪音的等式约束的距离, 已知的只有``错误''的距离信息,
+所以从本质上来说, 只从距离出发是不可能知道真解的.
+等式约束与不等式约束的问题存在的难点是不同的, 
+一般来说, 他们并不能简单地等价转换.
+另外强调一点, 我们假设需要求解的点所在空间的维数是确定的, 事先给定的,
+这跟降维问题略有不同.
 
 
  
@@ -342,14 +402,9 @@ enormous practical potential.
 1935年的研究~\cite{Schoenberg1935}, 
 以及 Blumenthal ~\cite{Blumenthal1953} 和 Torgerson ~\cite{Torgerson1958} 的工作.
 关于已有工作的一个简单的总结, 请参考 \cite{Fang2013} 中的表13.1. 
-在本章中, 我们综述一些我们关注的算法, 主要是跟我们的研究方向的, 
-但不企图覆盖所有算法.
+在本章中, 我们综述一些我们关注的算法, 主要是跟我们的研究方向相关的,
+要么研究方法类似, 要么测试数据集类似, 但我们不企图覆盖所有算法.
 
-例如, \cite{Qi2012} 就是一篇我们略过的有趣的文章, 它基于关于距离矩阵的
-一个著名的结果 \cite{Schoenberg1935}, 研究秩约束的既约(变形后的)的距离矩阵.
-对于有更深入兴趣的读者, 我们推荐参考 Liberti, Lavor, Maculan 和 Mucherino 2014年
-发表在 SIAM Review 上的综述性文章 \cite{Maculan2014}, 文章比较全面而详实,
-几位作者都对距离几何问题有着多年的研究和关注.
 
 本章的结构如下.
 在 \ref{sec:MatDcomp} 中, 我们介绍一个老的很特殊的矩阵分解算法,
@@ -453,7 +508,7 @@ Dong 和 Wu \cite{Dong2002} 第一次给出了一个线性时间的算法.
 \url{https://www-user.tu-chemnitz.de/~helmberg/semidef.html}}. 
 据我们所知, 关于距离几何问题的半定松弛算法 (SDP relaxation) 
 最早是由 So 和 Ye 在 \cite{So2006} 中提出的, 
-在这之后被众多学者进一步研究 \cite{Biswas2006-1,Biswas2008,Shamsi2010,Fang2013}. 
+在这之后被众多学者进一步研究 \cite{Biswas2006-1,Biswas2006-2,Biswas2008,Shamsi2010,Fang2013}. 
 我们在下文简单总结关于这个算法的关键技术.
 
 这些算法用到的一个基本模型是 (\ref{fun:abserr}). 
@@ -473,19 +528,26 @@ Dong 和 Wu \cite{Dong2002} 第一次给出了一个线性时间的算法.
 而对于其他算法来说, 这种推广并不容易, 甚至是不可能的.
 
 这个方法的一个主要困难在于, 由于目前求解器 (solver) 的限制,
-求解大规模 (超过几千个变量) 的半定规划问题的计算开销非常大.
-考虑到这一点, Biswas, Toh 和 Ye 在 \cite{Biswas2008} 中第一次提出了针对
+该算法只能成功地求解带有几百个点的中等规模的问题,
+求解大规模 (超过几千个变量) 的半定规划问题的计算开销非常大 \cite{Fang2013}.
+考虑到这一点, Biswas 和 Ye 在 \cite{Biswas2006-2} 中第一次提出了针对
 距离几何问题的分布式 (distributed) SDP 算法.
+但该算法是针对带锚节点的传感器网络定位问题的,
+其中的关键假设就是锚节点在整个空间均匀分布.
+在 \cite{Biswas2008} 中, Biswas, Toh 和 Ye 将该算法推广到求解蛋白质距离几何问题.
 他们利用距离信息是局部及稀疏的特点, 基于距离矩阵,
-将原图分割成了若干个带有重叠 (overlap) 区域的子图.
+应用 symmetric reverse Cuthill-McKee 置换算法\footnote{将稀疏矩阵的非零元通过置换, 移动到尽可能靠近主对角线\cite{george1981computer}, 严格来说是最小化带宽, 也就是 $\min \{\max \{|i-j|: d_{ij}\neq 0\}\}$, 可由 Matlab 命令\emph{symrcm} 实现.}, 
+将原图递归地分割成了若干个带有重叠 (overlap) 区域的子图.
 从而将大规模问题化解为了一些可以较快求解的小规模问题,
 再将各子块拼接起来, 得到原图的结构. 
 这种分布式策略在 \cite{Fang2013} 中也被用到, 
 文章中他们进一步结合了从化学知识推断出的其他距离信息, 
 并且设计了启发式 (heuristic) 策略来检测子块是否被精确定位,
 这在分布式算法中是很关键的一点.
+关于分布式算法, 我们将在 \ref{cha:distribute} 中进一步讨论.
 除了分布式以外, 另一种克服此困难的方法是将半定松弛进一步松弛 \cite{Wang2008} 
 成基于结点或基于边的子问题, 它们都是可以高效求解的小规模问题.
+
 
 
 
@@ -594,9 +656,31 @@ Dong 和 Wu \cite{Dong2002} 第一次给出了一个线性时间的算法.
 而不像在 GB-LLS 中, 一个点一旦被确定, 就永远地固定了.
 
 
-\section{一些其他算法}
+\section{一些其他算法: EMBED, DISGEO 等}
 \label{sec:otheralg}
+在 \cite{havel1983combinatorial} 中, Havel, Kuntz 和 Crippen 提出了 EMBED 算法
+来求解问题 (iDGP),
+这是将距离几何问题的理论研究应用到蛋白质构象的第一个算法.
+EMBED 首先用三角和四角不等式估计未被测量的距离的上下界,
+再从区间中随机选取一个值作为距离. 
+由此得到距离矩阵, 再计算其相应的内积矩阵的特征值,
+如果其最大的三个特征值显著占优且为正, 则值估计比较准确;
+反之如果如果前三个特征值中出现了负数, 则需要重新选择距离, 进行下一次迭代.
+但由于三角与四角不等式都是一种很粗糙的估计, 
+算法通常都需要迭代很多次才能得到一个比较好的估计.
+EMBED 在最后应用了局部优化算法作为一种后处理技术来进一步提高定位精度.
 
+关于距离几何问题, 还有许多研究成果, 我们在此不再详述.
+例如, \cite{Qi2012} 就是一篇有趣的文章, 它基于关于距离矩阵的
+一个著名的结果 \cite{Schoenberg1935}, 研究秩约束的既约(变形后的)的距离矩阵.
+另外还有不少算法是基于全局优化和离散优化, 
+在 \cite{hendrickson1995molecule,williams2001constrained,zou1997stochastic} 中,
+作者考虑了全局优化的算法来求解蛋白质构象问题,
+在 \cite{liberti2008branch} 中, 一种分支定界 (Brach and Prune) 的算法被提出.
+对于有更深入兴趣的读者, 我们推荐参考 Liberti, Lavor, Maculan 和 Mucherino 于 
+2014年发表在 SIAM Review 上的综述性文章 \cite{Maculan2014}, 
+文章比较全面而详实,
+几位作者都对距离几何问题有着多年的研究和关注.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -624,14 +708,14 @@ Dong 和 Wu \cite{Dong2002} 第一次给出了一个线性时间的算法.
 总而言之, 为了使新算法快速而精确, 几何构建和优化过程同样地重要.
 
 本章的结构如下. 
-在 \ref{sec:ErrImportant} 中, 我们讨论为什么数值误差如此重要.
-在 \ref{sec:ErrAnalysis} 中, 我们分析已有算法中, 误差的来源.
-在 \ref{sec:CompOrder} 中, 我们给出一个有效的计算顺序策略.
-在 \ref{sec:opt} 中, 我们讨论优化的子问题及其求解方法.
-在 \ref{sec:framework} 中, 我们总结前述讨论, 给出算法的总体框架.
-在 \ref{sec:NumResult} 中, 我们给出大量的数值实验结果, 并加以分析.
-\ref{sec:summary} 是本章的总结.
-最后, 在 \ref{sec:CodeWrite} 和 \ref{sec:ErrExample} 中, 
+在~\ref{sec:ErrImportant} 中, 我们讨论为什么数值误差如此重要.
+在~\ref{sec:ErrAnalysis} 中, 我们分析已有算法中, 误差的来源.
+在~\ref{sec:CompOrder} 中, 我们给出一个有效的计算顺序策略.
+在~\ref{sec:opt} 中, 我们讨论优化的子问题及其求解方法.
+在~\ref{sec:framework} 中, 我们总结前述讨论, 给出算法的总体框架.
+在~\ref{sec:NumResult} 中, 我们给出大量的数值实验结果, 并加以分析.
+~\ref{sec:summary} 是本章的总结.
+最后, 在~\ref{sec:CodeWrite} 和~\ref{sec:ErrExample} 中, 
 我们以附录的形式分别讨论算法的几个关键代码实现, 以及给出一个舍入误差累积的例子.
 
 \section{为何数值误差很重要~?}
@@ -812,6 +896,7 @@ GB-NLS 不但利用了已知的距离, 还利用了计算的距离\pozhe 太多,
 更加符合原问题的本质\pozhe 距离尽可能地被满足.
 
 \subsection{求解算法}
+\label{sec:OptSolution}
 我们可以计算 $Stress$ 的导数如下所示,
 \be \frac{\partial Stress}{\partial x_i}=2\sum_{j\in N(i)} \Big(1-\frac{d_{ij}}{\|x_i-x_j\|}\Big)(x_i-x_j), \label{gradient}\ee
 其中 $N(i)$ 是 $i$ 的邻接点集合.
@@ -869,13 +954,13 @@ $g^k$ 是梯度.
     \begin{enumerate}[步1.]
       \item 找一个不是所有点都在同一个平面上的极大团, 利用矩阵分解算法 (\ref{sec:MatDcomp}) 确定这些点的坐标. 令 $\mathcal{T}=$ \{确定点的指标\}.
       \item 根据 (\ref{rule1}), (\ref{rule2}) 及 (\ref{rule3}) 找到指标 $j$. 如果 $l=p(j)\geq 4$, 且 $N(j)$ 中的点不都在同一个平面上, 转步3, 否则转步5.
-      \item 用线性最小二乘 (\ref{LLS}) 或非线性最小二乘 (\ref{NLS}) 计算坐标 $x_j$, 并求解子问题 (\ref{prob:sub}), 调整 $x_{j\cup N(j)}$. 令 $\mathcal{T}=\mathcal{T}\cup \{j\}$.
+      \item 用线性最小二乘 (\ref{LLS}) 或非线性最小二乘 (\ref{NLS}) 计算坐标 $x_j$, 并根据 \ref{sec:OptSolution} 求解子问题 (\ref{prob:sub}), 调整 $x_{j\cup N(j)}$. 令 $\mathcal{T}=\mathcal{T}\cup \{j\}$.
       \item 如果所有点都已确定, 转步5, 否则转步2.
       \item 求解定义在 $\mathcal{T}$ 上的问题 (\ref{prob:error}), 停止.
     \end{enumerate}
   \end{adjustwidth}
 %\caption{基于几何构建的误差极小算法 GBEM, 用来求解稀疏的带误差距离的, 无锚节点距离几何问题.}
-  \label{alg:EGB}
+  \label{alg:GBEM}
 \end{Alg}
 根据步3中计算方法的不同, 我们把新提出的算法分别叫做
 GBEM-LLS 和 GBEM-NLS.
@@ -1006,7 +1091,7 @@ $\delta_{ij}$ 是一个遵从事先给定的分布的随机数.
 其 CPU 为 2.83 GHz, RAM 为 4.00 GB, 
 使用的程序版本为 Matlab R2013b, 8.2版.
 
-\subsection{实验结果比较标准}
+\subsection{实验结果比较标准: RMSD }
 \label{sec:result}
 我们将算法 GBEM-LLS 和 GBEM-NLS 应用到距离矩阵上.
 注意, 我们的算法需要的唯一信息就是距离,
@@ -1281,8 +1366,25 @@ NLS 计算了很多已知点中未被测量的距离, 从之前的迭代步中�
   }
 \end{table}
 
+\subsection{数值分析}
+\label{sub:WhyBetter}
+我们现在对比 GB-NLS 简单分析为什么新的算法要比已有的几何构建算法要好.
+我们重新审视其中的关键步骤, 就是用到 \ref{sec:MatDcomp} 中介绍的矩阵分解算法.
+我们使用同样的记号.
 
-
+当数据有误差的时候, 实际上我们已知的是
+\be \|x_i-x_j\|=d_{ij}+e_{ij}, \ee
+其中, $d_{ij}$ 表示真实距离, $e_{ij}$ 表示测量误差. 
+对上式两边取平方, 并整理得到
+\be x_i^Tx_j=(d_{in}^2-d_{ij}^2+d_{ij}^2)/2 - (2d_{ij}e_{ij}+e_{ij}^2)/2.
+\label{eqn:errdist} \ee
+对比 \ref{sec:MatDcomp} 我们发现, 求解
+\be X^TX=D \ee
+相当于使用了 (\ref{eqn:errdist}) 中右端项的前三项, 
+而忽略了 $d_{ij}e_{ij}+e_{ij}^2/2$.
+当误差比较大的时候, 略去的项就会产生大的影响, 矩阵分解得到的结果就不准确.
+这就解释了原算法为什么不够准确, 而新的算法在此基础上,
+进一步直接对误差函数优化, 提高了结果.
 
 \section{总结}
 \label{sec:summary}
@@ -1320,8 +1422,6 @@ Wu, Wu 和 Yuan 在 \cite{Wu2008} 中提出了一个使用二分查找的框架
 
 
 
-\section{程序实现}
-\label{sec:CodeWrite}
 
 
 \section{附录: 一个舍入误差累积的例子}
@@ -1370,10 +1470,209 @@ Wu, Wu 和 Yuan 在 \cite{Wu2008} 中提出了一个使用二分查找的框架
 从这里也可以看出为什么带大的距离噪音的距离几何问题如此困难.
 
 
+\section{附录:程序实现}
+\label{sec:CodeWrite}
+我们从最初实现算法到多方努力改进代码, 程序的效能得到了很大的提升,
+甚至是几倍的提高.
+总之, 如何高效地实现算法 \ref{alg:GBEM} 并不是一件容易的事情.
+基于这种经历, 我们在此讨论程序涉及到的数据结构和一些关键代码.
+值得一提的是, 较新版本的 Matlab 有一个很好的功能是 Profiler,
+运行程序后可以看到每一行代码的调用次数和运行时间,
+从而可以对关键的耗时的代码重点改进.
+
+程序的输入是距离矩阵 D, 这是一个对称矩阵, 
+如果距离已知, 则 (i,j) 元为测量距离 $d_{ij}$, 否则为 0.
+对于大规模的问题, 我们可以用 sparse 命令稀疏存储距离矩阵, 加快计算速度.
+
+我们需要根据 (\ref{rule1}), (\ref{rule2}), (\ref{rule3}) 在每次循环中
+确定新加入的点的下标. 
+我们记已知点集为 Det, 未知点集为 Undet\footnote{变量名和程序结构参考了吴智军老师提供的原 Geometric Buildup 的程序, 在此特别表示感谢.}, 均为长度为 n 的向量,
+相应的已知点和未知点的个数为 nDet, nUndet, 均为正整数.
+实现代码如下, 其中得到的 p 就是要加入的点, 
+subDet 是该点到已知点的距离集合.
+
+\vskip3mm
+\begin{lstlisting}
+%% Choose the point with largest degree and smallest distance sum
+% compute the degree of all the undetermined points
+con = sum(D(Undet,Det(1:nDet))~=0,2); 
+% find the index of points with maximal degree
+con = find(con==max(con));  
+% find the point with minimal distance sum in set con
+[~,dd] = min(sum(D(Det(1:nDet),Undet(con))));
+p = Undet(con(dd));  
+% find the distances betweem the unknown point and the determined points
+subDet = find(D(Det(1:nDet),p)); 
+\end{lstlisting}
+
+优化步要反复进行, 也是比较耗时的部分, 需要重点关注.
+我们在每一个 Buildup 步之后都需要解一个子问题, 最后还需要解整个原问题,
+所有这些问题的形式都是类似的, 只是涉及到的变量和距离数据有所不同.
+所以, 我们将优化过程写成一个独立的子程序, 其输入为距离数据, 初始值, 以及参数设置.
+对于每一个子问题, 输入不同的距离子矩阵. 
+在计算的过程中, 我们需要多次计算目标函数值和梯度值,
+需要反复用到点的领域, 我们用专门的变量 I 和 J 保存邻接关系.
+值得一提的是, 由于每个点的邻接点个数不一样, 
+最初的代码中我们用的是 cell 来存储每个点的邻接点, 类似 C 语言中的链表,
+想法比较自然, 但后来发现 Matlab 调用 cell 比较慢, 而我们又需要调用很多次,
+最后我们选择使用矩阵 neib 来存储, 尽管浪费了一些存储, 
+但节省了大量的调用时间, 效率大大提高.
+为了减少数据的传输, 我们将函数值和梯度计算都写成了内嵌函数 (nested function)
+的形式, 并且非常巧妙地在函数值计算中避免了循环\footnote{相比于C语言, Matlab 擅长矩阵运算, 但循环效率偏低.},
+在梯度计算中只用了单层循环, 极大地减少了计算时间. 
+
+\vskip3mm
+\begin{lstlisting}  
+function [X,Fval] = PostProcess(D,X0,options)
+%%  PostProcess applys Barzilai-Borwein methold to ajust the points, such 
+%%  that they fit the distances better. It is the enhanced version on Page 
+%%  52 of the book by Ya-Xiang Yuan (2007).
+%%
+%%  The objective function is the stress function:
+%%    f(x1,x2,...,xn) = \sum( (||xi-xj|| -dij )^2 )
+%%  X0 = [x1 x2 ... xn]'
+% parameter settings
+n = size(X0,1);
+if nargin<3
+    options.display = 0;
+    options.Mstep = 4;
+    options.alg = 'LBB';
+    options.tol = 10^(-2);
+    options.maxitr = min(n,200);
+else
+    if ~isfield(options,'display'),  options.display = 0; end
+    if ~isfield(options,'Mstep'),    options.Mstep = 4;   end
+    if ~isfield(options,'alg'),      options.alg = 'LBB'; end
+    if ~isfield(options,'tol'),      options.tol = 10^(-2); end
+    if ~isfield(options,'maxitr'),   options.maxitr = min(n,200); end
+end
+b = 10^(-4);  
+fun = @stress; gfun = @gstress;
+% Recod all the edges
+[I,J] = find(triu(D));  
+% Recod the neighbourhood of each point
+neib = zeros(n,60); nneib = zeros(n,1);
+for ii = 1:n
+    nz = find(D(ii,:));
+    nneib(ii) = length(nz);
+    neib(ii,1:nneib(ii)) = nz;
+end
+%% BB iteration 
+f0 = fun(X0); g0 = gfun(X0); alpha = 10^(-2);  k = 1; index = 1;
+jj = 0;
+while jj<10
+    X1 = X0 - alpha * g0;
+    f1 = fun(X1);
+    if f1<f0-alpha*b*norm(g0,'fro')^2,  break; end
+    alpha = alpha/2;
+    jj = jj + 1;
+end
+g1 = gfun(X1); fmin = f1;
+while k<options.maxitr
+    if norm(g1,'fro')<options.tol || abs(f0-f1)<options.tol,  break;  end
+    s = X1 - X0; y = g1 -g0;
+    switch options.alg
+        case 'SBB' % short BB stepsize
+            alpha = sum(sum(s.*y)) / norm(y,'fro')^2;
+        case 'LBB' % long BB stepsize
+            alpha = norm(s,'fro')^2 / sum(sum(s.*y));
+        case 'MBB' % cycled stepsize
+            if mod(k,2)==1
+                alpha = sum(sum(s.*y)) / norm(y,'fro')^2;
+            else alpha = norm(s,'fro')^2 / sum(sum(s.*y));
+            end
+    end
+    % Backtraking line search with BB step as intial stepsize 
+    if k-index==options.Mstep || alpha<0
+        if alpha<0, alpha = 10^(-2); end
+        jj = 0;
+        while jj<10
+            X0 = X1 - alpha * g1;
+            f0 = fun(X0);
+            if f0<fmin-alpha*b*norm(g1,'fro')^2,  break; end
+            alpha = alpha/2;
+            jj = jj + 1;
+        end
+    end
+    X0 = X1;  X1 = X1 - alpha * g1;
+    f0 = f1;  f1 = fun(X1);
+    g0 = g1;  g1 = gfun(X1);
+    k = k + 1;
+    if f1<fmin, index = k; fmin = f1; end
+end
+X = X1;  Fval = f1;
+if options.display==1, fprintf('%3d ',k); end
+if options.display==2, fprintf('%3d %4.1e',k,Fval);end
+
+%% stress function evaluation 
+    function f = stress(X)
+        f = sum((sqrt(sum((X(I,:)-X(J,:)).^2,2)) - D(I+(J-1)*n)).^2) / 2;
+    end
+%% stress gradient evaluation 
+    function g = gstress(X)
+        g= zeros(size(X));
+        for i = 1:n
+            j = neib(i,1:nneib(i));
+            temp = ones(nneib(i),1)*X(i,:)-X(j,:);
+            g(i,:) =  (1-D(j,i)./sqrt(sum((temp).^2,2)))' * temp ;
+        end
+    end
+\end{lstlisting}
+
+我们在优化步之后, 会得到少数点在一个独立的坐标系中的坐标,
+我们需要把这些点移回原全局坐标系, 请参考 (??) 中提到的方法.
+要注意的是, 点的下标在子程序中会被改变, 要注意跟原下标对齐.
+要实现这个算法还有很多细节需要考虑, 不一一讨论了,
+全部代码可以在下面的网址查看. 
+\bc  \url{https://github.com/szldmgy/GBEM}  \ec
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% 附件部分
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{基于拉普拉斯矩阵的谱映射方法}
+\label{cha:Laplace}
+图上的拉普拉斯 (Laplace) 矩阵是一个很有意思的定义,
+其特征值和特征向量跟图的很多性质紧密相关, 
+关于这方面的研究已发展成专门的学科, 叫做图的谱理论 (Spetral Graph Theory),
+请参考专著 \cite{chung1997spectral}.
+\section{拉普拉斯矩阵}
+\label{sec:LapMatrix}
+\begin{Def}
+给定图 $G=(V,E)$ 及参数 $t$, 拉普拉斯矩阵 $L$ 定义为 $L=D-W$, 其中
+    \be \omega_{ij} = \left \{
+    \begin{array}{ll}
+      exp(-\|x_i-x_j\|^2/t),  & \textrm{如果}~ (i,j)\in E, \\
+      0,                      & \textrm{否则}.
+    \end{array}
+    \right.\ee
+    而 $D$ 是一个对角矩阵, 其对角元由下式定义
+    \be D_{ii}=\sum\nolimits_{j\neq i} \omega_{ij}. \ee
+\end{Def}
+换一种形式, 拉普拉斯矩阵也可以表示为
+\be L_{ij}=\left\{\ba{ll} -\omega_{ij}, & i\neq j, \\ \sum_{k\neq i}\omega_{ik}, & i=j.\ea\right. \ee
+
+
+
+
+
+\section{降维问题}
+\label{sec:DimReduction}
+
+\begin{Prob}[降维问题]
+  给定$l$维欧式空间 $\Real^l$ 中的$n$个点 $\xn$, 在$m (m\ll l)$维欧式空间中找$n$个点 $y_1,y_2,\ldots,y_n$, 使得 $y_i$ ``代表'' $x_i$.
+\end{Prob}
+
+
+
+\chapter{基于拉普拉斯矩阵的分布式算法框架}
+\label{cha:distributed}
+
+
 \backmatter
     
   % 参考文献

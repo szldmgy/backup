@@ -1,0 +1,20 @@
+\frametitle{Numerical Tools}
+\begin{itemize}
+  \item Ipopt ((\textbf{I}nterior \textbf{P}oint \textbf{OPT}imizer) is a software package for large-scale nonlinear optimization. It is designed to find (local) solutions of mathematical optimization problems of the form
+      \be\begin{array}{cl} \min\limits_{x\in \Real^n} & f(x) \\ \st & g_L \leq g(x) \leq g_U\\ & x_L \leq x \leq x_U\end{array}\ee
+      where $f(x)$ and $g(x)$ should be {\blue twice continuously differentiable}. %\\[2mm]
+  \item AMPL: A Modeling Language for Mathematical Programming. They can provide first-order and second-order information via {\blue automatic differential}.
+  \footnotesize{
+  \begin{verbatim}
+   param n;
+   set Vertex := {1..n};
+   set Edge within Vertex cross Vertex;
+   param Dist {Edge} >= 0;
+   param startvar {1..n,1..3};
+   var x {1..n,1..3};
+   minimize Smoothed_Stress_function:
+      sum{(i,j)in Edge} ((x[i,1]-x[j,1])^2 + (x[i,2]-x[j,2])^2 +
+   (x[i,3]-x[j,3])^2 - Dist[i,j]^2)^2;
+  \end{verbatim}
+  }
+\end{itemize}

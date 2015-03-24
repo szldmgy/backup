@@ -7,48 +7,49 @@ A level-1 auxiliary file: chap/pub.aux
 A level-1 auxiliary file: chap/resume.aux
 A level-1 auxiliary file: chap/thanks.aux
 Database file #1: bib/ref.bib
+Warning--I didn't find a database entry for "SobolevDFO"
 Warning--empty year in Gansner2005
+Warning--empty journal in george1981computer
 Warning--empty journal in Torgerson1958
-Warning--empty journal in SobolevDFO
-You've used 36 entries,
+You've used 45 entries,
             2831 wiz_defined-function locations,
-            883 strings with 10893 characters,
-and the built_in function-call counts, 15784 in all, are:
-= -- 967
-> -- 567
-< -- 9
-+ -- 231
-- -- 186
-* -- 1120
-:= -- 1949
-add.period$ -- 36
-call.type$ -- 36
-change.case$ -- 196
+            939 strings with 12598 characters,
+and the built_in function-call counts, 19558 in all, are:
+= -- 1199
+> -- 692
+< -- 12
++ -- 286
+- -- 226
+* -- 1373
+:= -- 2406
+add.period$ -- 45
+call.type$ -- 45
+change.case$ -- 240
 chr.to.int$ -- 0
-cite$ -- 39
-duplicate$ -- 1447
-empty$ -- 1449
-format.name$ -- 216
-if$ -- 3198
+cite$ -- 48
+duplicate$ -- 1802
+empty$ -- 1811
+format.name$ -- 263
+if$ -- 3955
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 374
-newline$ -- 113
-num.names$ -- 72
-pop$ -- 630
+int.to.str$ -- 45
+missing$ -- 469
+newline$ -- 140
+num.names$ -- 90
+pop$ -- 796
 preamble$ -- 1
-purify$ -- 165
+purify$ -- 203
 quote$ -- 0
-skip$ -- 390
+skip$ -- 479
 stack$ -- 0
-substring$ -- 828
-swap$ -- 904
-text.length$ -- 9
+substring$ -- 1037
+swap$ -- 1116
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 134
+type$ -- 164
 warning$ -- 3
-while$ -- 107
-width$ -- 38
-write$ -- 334
-(There were 3 warnings)
+while$ -- 139
+width$ -- 47
+write$ -- 414
+(There were 4 warnings)
